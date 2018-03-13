@@ -7,9 +7,27 @@
 //
 
 import UIKit
+import AVKit
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBAction func click(_ sender: UIButton) {
+        
+        if let path = Bundle.main.path(forResource: "Domingo_Web", ofType: "m4v"){
+            let video = AVPlayer(url: URL(fileURLWithPath: path))
+            let videoPlayer = AVPlayerViewController()
+            videoPlayer.player = video
+            
+            present(videoPlayer, animated: true, completion: {
+                video.play()
+            })
+        } else {
+            print("No jalo")
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
