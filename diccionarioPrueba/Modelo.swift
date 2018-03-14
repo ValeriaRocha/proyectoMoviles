@@ -38,7 +38,6 @@ class Modelo {
             
             //loop que recorre la lista de las categorias
             for i in 0 ... (paths2.count - 1){
-                print(paths2[i])
                 arrSenas.removeAll()
                 
                 do{
@@ -49,14 +48,20 @@ class Modelo {
                     for s in 0 ... (pathsSenas.count - 1){
                         //ya agrega el path completo
                         string = pathsSenas[s]
-                        string = String(string.dropLast(8))
-                         sena1 = Sena(nombre: string, path: Bundle.main.bundlePath + "/LenguajeSenasMexicano_Web/" + paths2[i] + "/" + pathsSenas[s])
-                         arrSenas.append(sena1)
-                         print(pathsSenas[s])
+                        
+                        //checa si es imagen o video
+                        if(string.hasSuffix(".m4v")){
+                            string = String(string.dropLast(8))
+                        } else {
+                            string = String(string.dropLast(4))
+                        }
+                        
+                        sena1 = Sena(nombre: string, path: Bundle.main.bundlePath + "/LenguajeSenasMexicano_Web/" + paths2[i] + "/" + pathsSenas[s])
+                        arrSenas.append(sena1)
                     }
                     
                 } catch {
-                     print("Error obteniendo las señas")
+                    print("Error:  No se pudieron obtener las señas")
                 }
                 string = paths2[i]
                 string = String(string.dropFirst(4))
@@ -66,7 +71,7 @@ class Modelo {
             }
             
         } catch {
-            print("Error")
+            print("Error: No se pudo obtener el contenido del directorio Lenguaje de Señas")
         }
         
         

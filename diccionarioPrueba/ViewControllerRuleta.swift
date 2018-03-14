@@ -28,6 +28,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     @IBAction func clickRuleta(_ sender: UIButton) {
+        lbSelectedGame.text = ""
         seconds = Double(Int(arc4random_uniform(2) + 1)) //poner random
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
     }

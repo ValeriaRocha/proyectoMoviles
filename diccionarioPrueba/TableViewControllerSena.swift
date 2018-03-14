@@ -20,6 +20,8 @@ class TableViewControllerSena: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.title = "Señas"
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +51,7 @@ class TableViewControllerSena: UITableViewController {
         let vista = segue.destination as! ViewController
         let indexrow = tableView.indexPathForSelectedRow!
         
-        vista.path = datoMostrar[indexrow.row].path
+        vista.sena = datoMostrar[indexrow.row]
     }
 
     /*
