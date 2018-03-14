@@ -12,29 +12,16 @@ import AVKit
 class ViewController: UIViewController {
     
     var sena : Sena!
+    @IBOutlet weak var lbNombreSena: UILabel!
     
-    @IBAction func click(_ sender: UIButton) {
-
-        //let urlVideo = Bundle.main.url(forResource: "Arana_Web", withExtension: "m4v", subdirectory: path)
-        
-        let urlVideo = URL(fileURLWithPath: sena.path)
-        
-        let video = AVPlayer(url: urlVideo) //aqui borre un !
-        let videoPlayer = AVPlayerViewController()
-        videoPlayer.player = video
-        
-        present(videoPlayer, animated: true, completion: {
-            video.play()
-        })
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //let urlVideo = Bundle.main.url(forResource: "Arana_Web", withExtension: "m4v", subdirectory: path)
-        
         self.title = sena.nombre
+        lbNombreSena.text = sena.nombre
+        
         
         if(sena.path.hasSuffix(".m4v")){
             //hacer lo necesario para mostrar el video
@@ -44,22 +31,20 @@ class ViewController: UIViewController {
             controller.player = player
             self.addChildViewController(controller)
             let screenSize = UIScreen.main.bounds.size
-            let videoFrame = CGRect(x: 0, y: 10, width: screenSize.width * 0.85 , height: (screenSize.height - 10) * 0.5)
+            let videoFrame = CGRect(x: 0, y: 10, width: screenSize.width , height: (screenSize.height - 10) * 0.5)
             controller.view.frame = videoFrame
             self.view.addSubview(controller.view)
             player.play()
-            
-//            let urlVideo = URL(fileURLWithPath: sena.path)
-//            let video = AVPlayer(url: urlVideo) //aqui borre un !
-//            let videoPlayer = AVPlayerViewController()
-//            videoPlayer.player = video
-//
-//            present(videoPlayer, animated: true, completion: {
-//                video.play()
-//            })
+        
             
         } else {
             //hacer lo necesario para mostrar la foto
+            let imagen = UIImage(contentsOfFile: sena.path)
+            let imageView = UIImageView(image: imagen)
+            let screenSize = UIScreen.main.bounds.size
+            let imageFrame =  CGRect(x: 0, y: 10, width: screenSize.width , height: (screenSize.height - 10) * 0.5)
+            imageView.frame = imageFrame
+            self.view.addSubview(imageView)
             
             
         }
@@ -72,4 +57,14 @@ class ViewController: UIViewController {
     }
 
 }
+
+//let urlVideo = Bundle.main.url(forResource: "Arana_Web", withExtension: "m4v", subdirectory: path)
+//Esto que esta abajo era para mostrar el video en pantalla completa
+//            let urlVideo = URL(fileURLWithPath: sena.path)
+//            let video = AVPlayer(url: urlVideo) //aqui borre un !
+//            let videoPlayer = AVPlayerViewController()
+//            videoPlayer.player = video
+//            present(videoPlayer, animated: true, completion: {
+//                video.play()
+//            })
 
