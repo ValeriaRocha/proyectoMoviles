@@ -29,7 +29,7 @@ class Modelo {
         var cat : Category
         var arrSenas = [Sena]()
         var arrCat = [Category]()
-        
+        var string = ""
         let paths2 : [String]
         
         do{
@@ -48,7 +48,9 @@ class Modelo {
                     //loop que recorre la lista de las señas de una dada categoria
                     for s in 0 ... (pathsSenas.count - 1){
                         //ya agrega el path completo
-                         sena1 = Sena(nombre: pathsSenas[s], path: Bundle.main.bundlePath + "/LenguajeSenasMexicano_Web/" + paths2[i] + "/" + pathsSenas[s])
+                        string = pathsSenas[s]
+                        string = String(string.dropLast(8))
+                         sena1 = Sena(nombre: string, path: Bundle.main.bundlePath + "/LenguajeSenasMexicano_Web/" + paths2[i] + "/" + pathsSenas[s])
                          arrSenas.append(sena1)
                          print(pathsSenas[s])
                     }
@@ -56,8 +58,10 @@ class Modelo {
                 } catch {
                      print("Error obteniendo las señas")
                 }
-                
-                cat = Category(nombre: paths2[i], arrSena: arrSenas)
+                string = paths2[i]
+                string = String(string.dropFirst(4))
+                string = String(string.dropLast(4))
+                cat = Category(nombre: string, arrSena: arrSenas)
                 arrCat.append(cat)
             }
             
@@ -67,14 +71,7 @@ class Modelo {
         
         
         self.arrTotal = arrCat
-        
-//        do {
-//            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-//            // process files
-//
-//        } catch {
-//            print("Error while enumerating file")
-//        }
+
     }
     
     
