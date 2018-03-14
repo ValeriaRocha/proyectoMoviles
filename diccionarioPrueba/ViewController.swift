@@ -15,9 +15,11 @@ class ViewController: UIViewController {
     
     @IBAction func click(_ sender: UIButton) {
 
-        let urlVideo = Bundle.main.url(forResource: "Arana_Web", withExtension: "m4v", subdirectory: path)
+        //let urlVideo = Bundle.main.url(forResource: "Arana_Web", withExtension: "m4v", subdirectory: path)
         
-        let video = AVPlayer(url: urlVideo!)
+        let urlVideo = URL(fileURLWithPath: path)
+        
+        let video = AVPlayer(url: urlVideo) //aqui borre un !
         let videoPlayer = AVPlayerViewController()
         videoPlayer.player = video
         
