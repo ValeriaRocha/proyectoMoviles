@@ -11,21 +11,19 @@ import AVKit
 
 class ViewController: UIViewController {
     
+    var path : String!
     
     @IBAction func click(_ sender: UIButton) {
+
+        let urlVideo = Bundle.main.url(forResource: "Arana_Web", withExtension: "m4v", subdirectory: path)
         
-        if let path = Bundle.main.path(forResource: "Domingo_Web", ofType: "m4v"){
-            let video = AVPlayer(url: URL(fileURLWithPath: path))
-            let videoPlayer = AVPlayerViewController()
-            videoPlayer.player = video
-            
-            present(videoPlayer, animated: true, completion: {
-                video.play()
-            })
-        } else {
-            print("No jalo")
-        }
+        let video = AVPlayer(url: urlVideo!)
+        let videoPlayer = AVPlayerViewController()
+        videoPlayer.player = video
         
+        present(videoPlayer, animated: true, completion: {
+            video.play()
+        })
     }
     
     override func viewDidLoad() {
@@ -37,7 +35,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
