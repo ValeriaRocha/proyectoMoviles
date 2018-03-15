@@ -21,6 +21,7 @@ class TableViewControllerCategory: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.title = "Categorías"
+        modelX.ordenar()        
     }
 
     override func didReceiveMemoryWarning() {

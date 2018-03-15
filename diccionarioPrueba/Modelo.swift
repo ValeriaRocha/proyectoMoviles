@@ -10,20 +10,8 @@ import UIKit
 
 class Modelo {
     var arrTotal : [Category]
-//    var fav : [String]
-//    var mal : [String]
     
     init(){
-//        fav = [String]();
-//        mal = [String]();
-//        let sena1 = Sena(nombre: "Arana_web", path: "LenguajeSenasMexicano_Web/LSM_Animales_Web")
-//        var arrSena = [Sena]()
-//        arrSena.append(sena1)
-//        let cat = Category(nombre: "Animales", arrSena: arrSena)
-//        var arrCat = [Category]()
-//        arrCat.append(cat)
-//        self.arrTotal = arrCat
-        
         
         var sena1 : Sena
         var cat : Category
@@ -77,6 +65,19 @@ class Modelo {
         
         self.arrTotal = arrCat
 
+    }
+    
+    func ordenar(){
+        self.arrTotal.sort(by: { $0.nombre < $1.nombre })
+        for i in 0 ... (self.arrTotal.count - 1){
+            
+            //si es la categoria numero se tiene que convertir a int primero para poder comparar
+            if self.arrTotal[i].nombre == "Numero"{
+                self.arrTotal[i].arrSena.sort(by:  { Int($0.nombre)! < Int($1.nombre)! })
+            } else {
+                self.arrTotal[i].arrSena.sort(by:  { $0.nombre < $1.nombre })
+            }
+        }
     }
     
     
