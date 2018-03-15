@@ -90,7 +90,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     //Ajusta la altura de los renglones del pickerview
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         // let selected = pickerView.selectedRow(inComponent: 0)
-        return juegos[0].size.height + 5
+        return juegos[0].size.height + 10
     }
 
     /*

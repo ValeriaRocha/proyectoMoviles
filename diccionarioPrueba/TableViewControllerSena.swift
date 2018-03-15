@@ -85,7 +85,7 @@ class TableViewControllerSena: UITableViewController, UISearchBarDelegate {
         }
         else{
             buscar = true
-            datoMostrarFiltro = datoMostrar.filter({$0.nombre.lowercased().contains(searchText.lowercased())})
+            datoMostrarFiltro = datoMostrar.filter({$0.nombre.lowercased().hasPrefix(searchText.lowercased())})
             tableView.reloadData()
         }
     }

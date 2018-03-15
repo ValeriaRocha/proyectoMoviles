@@ -39,10 +39,11 @@ class ViewController: UIViewController {
             
         } else {
             //hacer lo necesario para mostrar la foto
-            let imagen = UIImage(contentsOfFile: sena.path)
+            let imagen = UIImage(contentsOfFile: sena.path)!
             let imageView = UIImageView(image: imagen)
             let screenSize = UIScreen.main.bounds.size
-            let imageFrame =  CGRect(x: 0, y: 10, width: screenSize.width , height: (screenSize.height - 10) * 0.5)
+            //let imageFrame =  CGRect(x: 0, y: 10, width: screenSize.width , height: (screenSize.height - 10) * 0.5)
+            let imageFrame =  CGRect(x: (self.view.center.x) - ((imagen.size.width * 0.8)/2), y: (screenSize.height/2) - ((imagen.size.height * 0.8)/2 + 25), width: imagen.size.width * 0.8 , height: imagen.size.height * 0.8)
             imageView.frame = imageFrame
             imageView.contentMode = UIViewContentMode.scaleAspectFit
             self.view.addSubview(imageView)
