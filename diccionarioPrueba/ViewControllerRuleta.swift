@@ -11,7 +11,7 @@ import Foundation
 
 class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var juegos = [#imageLiteral(resourceName: "memorama3"), #imageLiteral(resourceName: "responde"), #imageLiteral(resourceName: "catchem")]
+    var juegos = [#imageLiteral(resourceName: "memorama"), #imageLiteral(resourceName: "responde"), #imageLiteral(resourceName: "catchem")]
     var seconds = 3.0
     var timer = Timer()
     var indice = 0
@@ -29,14 +29,14 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func clickRuleta(_ sender: UIButton) {
         lbSelectedGame.text = ""
-        seconds = Double(Int(arc4random_uniform(2) + 1)) //poner random
+        seconds = Double(Int(arc4random_uniform(5) + 1)) //poner random
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
     }
     
     
     @objc func updateTimer(){
         indice = (indice + 1) % 3
-        seconds -= 0.1
+        seconds -= 0.3
         
         pickerView.selectRow(indice, inComponent: 0, animated: true)
         
