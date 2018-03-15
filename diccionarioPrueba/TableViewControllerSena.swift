@@ -68,7 +68,11 @@ class TableViewControllerSena: UITableViewController, UISearchBarDelegate {
         let vista = segue.destination as! ViewController
         let indexrow = tableView.indexPathForSelectedRow!
         
-        vista.sena = datoMostrar[indexrow.row]
+        if(buscar){
+            vista.sena = datoMostrarFiltro[indexrow.row]
+        } else{
+            vista.sena = datoMostrar[indexrow.row]
+        }
     }
     
     // MARK: SearchBar

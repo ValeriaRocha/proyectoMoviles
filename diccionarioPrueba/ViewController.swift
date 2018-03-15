@@ -44,6 +44,7 @@ class ViewController: UIViewController {
             let screenSize = UIScreen.main.bounds.size
             let imageFrame =  CGRect(x: 0, y: 10, width: screenSize.width , height: (screenSize.height - 10) * 0.5)
             imageView.frame = imageFrame
+            imageView.contentMode = UIViewContentMode.scaleAspectFit
             self.view.addSubview(imageView)
             
             

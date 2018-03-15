@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hg6-b1-0Ya">
-    <device id="ipad10_5" orientation="portrait">
+    <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="diccionarioPrueba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhB-dA-nsW">
-                                <rect key="frame" x="288" y="606" width="259" height="21"/>
+                                <rect key="frame" x="288" y="606" width="791" height="27.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="JEc-r2-Q04"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -28,9 +31,9 @@
                         <color key="backgroundColor" red="1" green="0.88687381980000002" blue="0.84767284320000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VhB-dA-nsW" secondAttribute="trailing" constant="287" id="10q-wu-tjY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VhB-dA-nsW" secondAttribute="bottom" constant="436" id="gWk-cu-YzS"/>
                             <constraint firstItem="VhB-dA-nsW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="288" id="jHZ-ln-CTN"/>
                             <constraint firstItem="VhB-dA-nsW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="542" id="kgq-eN-Q2k"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VhB-dA-nsW" secondAttribute="bottom" constant="158" id="qtE-jF-1pC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -65,20 +68,20 @@
             <objects>
                 <tableViewController id="vnN-kH-JCe" customClass="TableViewControllerCategory" customModule="diccionarioPrueba" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hfq-bp-CYi">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.99789005517959595" green="0.74655786796372259" blue="0.73005140995673223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackTranslucent" id="Pwj-U1-adZ">
-                            <rect key="frame" x="0.0" y="0.0" width="834" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1366" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kgN-Gl-RDh">
-                                <rect key="frame" x="0.0" y="72" width="834" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="1366" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kgN-Gl-RDh" id="P7f-ea-Cys">
-                                    <rect key="frame" x="0.0" y="0.0" width="834" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1366" height="51.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" red="1" green="0.88687381979600222" blue="0.84767284319527192" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
@@ -115,20 +118,20 @@
             <objects>
                 <tableViewController id="Qzi-vm-hbj" customClass="TableViewControllerSena" customModule="diccionarioPrueba" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gan-S8-Hfo">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95784050226211548" green="0.741618812084198" blue="0.72568506002426147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackTranslucent" id="2qc-ej-6CO">
-                            <rect key="frame" x="0.0" y="0.0" width="834" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1366" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="VrN-dQ-SsM">
-                                <rect key="frame" x="0.0" y="72" width="834" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="1366" height="52"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VrN-dQ-SsM" id="NeF-xJ-VH0">
-                                    <rect key="frame" x="0.0" y="0.0" width="834" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1366" height="51.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.98106974363327026" green="0.88599568605422974" blue="0.84511888027191162" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -154,9 +157,9 @@
         <scene sceneID="9EX-lJ-xeJ">
             <objects>
                 <navigationController id="OGP-QX-4PH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Diccionario" id="cAw-Rb-Ze2"/>
+                    <tabBarItem key="tabBarItem" title="Diccionario" image="folder" id="cAw-Rb-Ze2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HGk-bt-NjB">
-                        <rect key="frame" x="0.0" y="20" width="834" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1366" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -172,53 +175,51 @@
             <objects>
                 <viewController id="guA-lZ-sge" customClass="ViewControllerRuleta" customModule="diccionarioPrueba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1un-ix-bZ4">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UU-3l-2ME">
-                                <rect key="frame" x="71" y="198" width="693" height="216"/>
+                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9UU-3l-2ME">
+                                <rect key="frame" x="198" y="193" width="971" height="216"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="guA-lZ-sge" id="StW-10-uyT"/>
                                     <outlet property="delegate" destination="guA-lZ-sge" id="IYg-jD-TCX"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Te toco el juego Memorama!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-h3-V6x">
-                                <rect key="frame" x="142" y="453" width="533" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Te toco el juego Memorama!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-h3-V6x">
+                                <rect key="frame" x="416" y="479" width="534" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4h-RU-93V">
-                                <rect key="frame" x="319" y="703" width="180" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Obtener juego aleatorio"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-qN-inZ">
+                                <rect key="frame" x="589" y="417" width="188" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Obtener Juego Aleatorio"/>
                                 <connections>
-                                    <action selector="clickRuleta:" destination="guA-lZ-sge" eventType="touchUpInside" id="QM2-Im-7cb"/>
+                                    <action selector="clickRuleta:" destination="guA-lZ-sge" eventType="touchUpInside" id="R7v-3x-yHt"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9427836537361145" green="0.97273391485214233" blue="0.99789005517959595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="eoh-h3-V6x" firstAttribute="leading" secondItem="a73-rJ-fVZ" secondAttribute="leading" constant="142" id="1NC-Bt-lhF"/>
-                            <constraint firstItem="a73-rJ-fVZ" firstAttribute="bottom" secondItem="d4h-RU-93V" secondAttribute="bottom" constant="327" id="1Nj-fo-nnM"/>
-                            <constraint firstItem="eoh-h3-V6x" firstAttribute="top" secondItem="9UU-3l-2ME" secondAttribute="bottom" constant="39" id="CTk-Zr-ccC"/>
-                            <constraint firstItem="9UU-3l-2ME" firstAttribute="top" secondItem="a73-rJ-fVZ" secondAttribute="top" constant="178" id="RE8-Sr-DSg"/>
-                            <constraint firstItem="9UU-3l-2ME" firstAttribute="leading" secondItem="a73-rJ-fVZ" secondAttribute="leading" constant="71" id="Zt9-p9-HLj"/>
-                            <constraint firstItem="a73-rJ-fVZ" firstAttribute="trailing" secondItem="9UU-3l-2ME" secondAttribute="trailing" constant="70" id="aoo-a4-LtG"/>
-                            <constraint firstItem="d4h-RU-93V" firstAttribute="leading" secondItem="a73-rJ-fVZ" secondAttribute="leading" constant="319" id="bb4-Ez-8Fm"/>
-                            <constraint firstItem="eoh-h3-V6x" firstAttribute="centerX" secondItem="d4h-RU-93V" secondAttribute="centerX" id="l3G-v2-uuO"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="a73-rJ-fVZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Juegos" id="uS5-Iz-OKU"/>
+                    <tabBarItem key="tabBarItem" title="Juegos" image="pacman" id="uS5-Iz-OKU"/>
                     <connections>
+                        <outlet property="btObtener" destination="tKf-qN-inZ" id="zSv-z3-Vj4"/>
                         <outlet property="lbSelectedGame" destination="eoh-h3-V6x" id="jhd-Ax-ucv"/>
                         <outlet property="pickerView" destination="9UU-3l-2ME" id="dMj-KT-Fph"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHf-1b-WWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="308.6330935251799" y="-1028.4172661870505"/>
+            <point key="canvasLocation" x="308.63309352517985" y="-1028.7769784172663"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="folder" width="26" height="26"/>
+        <image name="pacman" width="26" height="26"/>
+    </resources>
 </document>

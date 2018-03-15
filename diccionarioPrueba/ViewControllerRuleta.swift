@@ -17,6 +17,8 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     var indice = 0
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var lbSelectedGame: UILabel!
+    @IBOutlet weak var btObtener: UIButton!
+    
     
     
     override func viewDidLoad() {
@@ -30,6 +32,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func clickRuleta(_ sender: UIButton) {
         lbSelectedGame.text = ""
         seconds = Double(Int(arc4random_uniform(5) + 1)) //poner random
+        btObtener.isEnabled = false
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
     }
     
@@ -57,6 +60,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
                 break;
                 
             }
+            btObtener.isEnabled = true
         }
     }
 
@@ -86,7 +90,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     //Ajusta la altura de los renglones del pickerview
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         // let selected = pickerView.selectedRow(inComponent: 0)
-        return juegos[0].size.height
+        return juegos[0].size.height + 5
     }
 
     /*

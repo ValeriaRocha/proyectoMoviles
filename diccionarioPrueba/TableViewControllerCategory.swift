@@ -79,7 +79,11 @@ class TableViewControllerCategory: UITableViewController, UISearchBarDelegate {
         let vista = segue.destination as! TableViewControllerSena
         let indexrow = tableView.indexPathForSelectedRow!
         
-        vista.datoMostrar = modelX.arrTotal[indexrow.row].arrSena
+        if(buscar){
+            vista.datoMostrar = modelFiltro.arrTotal[indexrow.row].arrSena
+        } else {
+            vista.datoMostrar = modelX.arrTotal[indexrow.row].arrSena
+        }
     }
 
     // MARK: SearchBar
@@ -92,7 +96,10 @@ class TableViewControllerCategory: UITableViewController, UISearchBarDelegate {
         }
         else{
             buscar = true
-            modelFiltro.arrTotal = modelX.arrTotal.filter({$0.nombre.lowercased().contains(searchText.lowercased())})
+//            modelFiltro.arrTotal = modelX.arrTotal.filter({$0.nombre.lowercased().contains(searchText.lowercased())})
+            
+             modelFiltro.arrTotal = modelX.arrTotal.filter({$0.nombre.lowercased().hasPrefix(searchText.lowercased())})
+            
             tableView.reloadData()
         }
     }
