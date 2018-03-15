@@ -8,20 +8,35 @@
 
 import UIKit
 
-class TableViewControllerCategory: UITableViewController {
-
+class TableViewControllerCategory: UITableViewController, UISearchBarDelegate {
+//class TableViewControllerCategory: UITableViewController, UISearchResultsUpdating{
+    
+    
+    @IBOutlet weak var sbBuscador: UISearchBar! //Outlet SearchBar
+    let searchController = UISearchController(searchResultsController: nil)
     var modelX : Modelo!
+    var buscar = false //Variable con la que nos dice si esta buscando una palabra el usuario
+    var modelFiltro: Modelo!
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        modelX = Modelo()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        super.viewDidLoad()
+        modelX = Modelo()
+        modelFiltro = Modelo()
+        
+        
         self.title = "Categorías"
-        modelX.ordenar()        
+        modelX.ordenar()
+        
+        //SearchBar
+        sbBuscador.delegate = self
+        sbBuscador.returnKeyType = UIReturnKeyType.done
+        sbBuscador.placeholder = "Buscar Categorías"
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,12 +53,24 @@ class TableViewControllerCategory: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return modelX.arrTotal.count
+        
+        if buscar{
+            return modelFiltro.arrTotal.count
+        }
+        else{
+            return modelX.arrTotal.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        cell.textLabel?.text = modelX.arrTotal[indexPath.row].nombre
+
+        if buscar{
+            cell.textLabel?.text = modelFiltro.arrTotal[indexPath.row].nombre
+        }
+        else{
+            cell.textLabel?.text = modelX.arrTotal[indexPath.row].nombre
+        }
         return cell
     }
     
@@ -55,7 +82,21 @@ class TableViewControllerCategory: UITableViewController {
         vista.datoMostrar = modelX.arrTotal[indexrow.row].arrSena
     }
 
-
+    // MARK: SearchBar
+ 
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == "" || searchBar.text == nil{
+            buscar = false
+            view.endEditing(true)
+            tableView.reloadData()
+        }
+        else{
+            buscar = true
+            modelFiltro.arrTotal = modelX.arrTotal.filter({$0.nombre.lowercased().contains(searchText.lowercased())})
+            tableView.reloadData()
+        }
+    }
+ 
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

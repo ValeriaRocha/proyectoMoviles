@@ -9,8 +9,11 @@
 import UIKit
 import AVKit
 
-class TableViewControllerSena: UITableViewController {
+class TableViewControllerSena: UITableViewController, UISearchBarDelegate {
+    @IBOutlet weak var sbBuscadorSena: UISearchBar!
     var datoMostrar : [Sena]!
+    var datoMostrarFiltro: [Sena]!
+    var buscar = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,10 @@ class TableViewControllerSena: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.title = "Señas"
+        //SearchBar
+        sbBuscadorSena.delegate = self
+        sbBuscadorSena.returnKeyType = UIReturnKeyType.done
+        sbBuscadorSena.placeholder = "Buscar Señas"
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,12 +45,22 @@ class TableViewControllerSena: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return datoMostrar.count
+        if buscar{
+            return datoMostrarFiltro.count
+        }else{
+            return datoMostrar.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        cell.textLabel?.text = datoMostrar[indexPath.row].nombre
+        
+        if buscar{
+            cell.textLabel?.text = datoMostrarFiltro[indexPath.row].nombre
+        }
+        else{
+            cell.textLabel?.text = datoMostrar[indexPath.row].nombre
+        }
         return cell
     }    
     
@@ -52,6 +69,21 @@ class TableViewControllerSena: UITableViewController {
         let indexrow = tableView.indexPathForSelectedRow!
         
         vista.sena = datoMostrar[indexrow.row]
+    }
+    
+    // MARK: SearchBar
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == "" || searchBar.text == nil{
+            buscar = false
+            view.endEditing(true)
+            tableView.reloadData()
+        }
+        else{
+            buscar = true
+            datoMostrarFiltro = datoMostrar.filter({$0.nombre.lowercased().contains(searchText.lowercased())})
+            tableView.reloadData()
+        }
     }
 
     /*
