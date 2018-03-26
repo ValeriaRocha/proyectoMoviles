@@ -11,39 +11,58 @@ import Foundation
 
 class ViewControllerJuego3: UIViewController {
     
-    var timer = Timer()
+    var timerCrear = Timer()
+    var timerCaida = Timer()
     var seconds = 10.0
     var botones = [UIButton]()
+    var velCaida = 0.003
+    var velCrear = 0.5
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+        timerCrear = Timer.scheduledTimer(timeInterval: velCrear, target: self, selector: #selector(self.updateTimerCrear), userInfo: nil, repeats: true)
+        timerCaida = Timer.scheduledTimer(timeInterval: velCaida, target: self, selector: #selector(self.updateTimerCaida), userInfo: nil, repeats: true)
     }
     
-    @objc func updateTimer(){
+    @objc func updateTimerCrear(){
         seconds -= 1
         
         //instanciar nuevo boton y conectarlo a la funcion clickBoton
-        let button = UIButton(frame: CGRect(x: 10, y: 60, width: 100, height: 30))
+        let screen = UIScreen.main.bounds.size
+//        let image = #imageLiteral(resourceName: "Chango")
+//        let imageW = Int(image.size.width * 0.20)
+//        let imageH = Int(image.size.height * 0.20)
+//        let button = UIButton(frame: CGRect(x: Int(arc4random_uniform(UInt32(screen.width))), y: 60, width: imageW, height: imageH))
+         let button = UIButton(frame: CGRect(x: Int(arc4random_uniform(UInt32(screen.width))), y: 60, width: 100, height: 30))
         button.backgroundColor = UIColor.green
+        button.setTitle("Chango", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+        //button.setImage(#imageLiteral(resourceName: "Chango"), for: .normal)
         button.addTarget(self, action: #selector(clickBoton(sender:)), for: UIControlEvents.touchUpInside)
         self.view.addSubview(button)
         
+        //agregar boton al arreglo de botones
         botones.append(button)
         
-        for i in 0 ... (botones.count - 1) {
-            botones[i].frame.origin.y += 65
+    }
+    
+    @objc func updateTimerCaida(){
+        
+        let screen = UIScreen.main.bounds.size
+        
+        //hacer que los botones caigan
+        var i = 0
+        while(i < botones.count) {
+            botones[i].frame.origin.y += 1
+            
+            //quitar los botones que ya pasaron por la parte baja de la pantalla
+            if botones[i].frame.origin.y > screen.height {
+                botones[i].removeFromSuperview()
+                botones.remove(at: i)
+            }
+            i += 1
         }
-        
-//        image.center = CGPointMake(image.center.x+position.x, image.center.y+position.y);
-//        position = CGPointMake(0.0, 0.15);
-        
-        
-        //
-//        if seconds <= 0 {
-//            timer.invalidate()
-//        }
     }
     
     @objc func clickBoton(sender: UIButton!){
@@ -68,3 +87,12 @@ class ViewControllerJuego3: UIViewController {
     */
 
 }
+
+//        image.center = CGPointMake(image.center.x+position.x, image.center.y+position.y);
+//        position = CGPointMake(0.0, 0.15);
+
+
+//
+//        if seconds <= 0 {
+//            timer.invalidate()
+//        }

@@ -44,7 +44,7 @@ class Modelo {
                             string = String(string.dropLast(4))
                         }
                         
-                        sena1 = Sena(nombre: string, path: Bundle.main.bundlePath + "/LenguajeSenasMexicano_Web/" + paths2[i] + "/" + pathsSenas[s])
+                        sena1 = Sena(nombre: string, path: Bundle.main.bundlePath + "/LenguajeSenasMexicano_Web/" + paths2[i] + "/" + pathsSenas[s], aprendida: false)
                         arrSenas.append(sena1)
                     }
                     

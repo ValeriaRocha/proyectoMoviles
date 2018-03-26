@@ -11,9 +11,11 @@ import UIKit
 class Sena: NSObject {
     var nombre : String
     var path : String
+    var aprendida : Bool
     
-    init(nombre:String, path:String){
+    init(nombre:String, path:String, aprendida : Bool){
         self.nombre = nombre
         self.path = path
+        self.aprendida = aprendida
     }
 }
