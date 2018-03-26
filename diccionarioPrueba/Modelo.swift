@@ -29,11 +29,16 @@ class Modelo {
                 arrSenas.removeAll()
                 
                 do{
-                    //pathSenas obtiene los nombres de los receursos adentro de la categoria paths2[i]
+                    //pathSenas obtiene los nombres de los recursos adentro de la categoria paths2[i]
                     let pathsSenas = try FileManager.default.contentsOfDirectory(atPath: path1 + "/" + paths2[i])
                     
                     //loop que recorre la lista de las señas de una dada categoria
                     for s in 0 ... (pathsSenas.count - 1){
+                        // hacer  let pathSena = try FileManager.default.contentsOfDirectory(atPath: path1 + "/" + paths2[i] + "/" + pathSenas[s])
+                        // si el arreglo tiene cosas, entonces si tiene una imagen
+                        /* llamar las imagenes empezando con img, si tiene ese prefix lo guardas en el atributo imagen, si no guardas el path
+                        si no tiene imagen hacer lo mismo que hacias antes */
+ 
                         //ya agrega el path completo
                         string = pathsSenas[s]
                         

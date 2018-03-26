@@ -10,6 +10,9 @@ import UIKit
 
 class Usuario: NSObject {
     
+    //esta es una prueba para crear un singleton de usuario para que se pueda acceder en todos los controllers del proyecto
+    static var user = Usuario()
+    
     var nombre : String
     var errores : [Sena]
     var favoritos : [Sena]
@@ -26,6 +29,16 @@ class Usuario: NSObject {
         self.puntos = puntos
     }
     
+    override init(){
+        self.nombre = ""
+        self.errores = [Sena]()
+        self.favoritos = [Sena]()
+        self.model = Modelo()
+        self.estrellas = 0
+        self.puntos = 0
+    }
+    
+    //regresa un arreglo de las señas que no se ha aprendido el usuario
     func noAprendidas()-> [Sena]{
         var senas = [Sena]()
         
@@ -40,6 +53,7 @@ class Usuario: NSObject {
         return senas
     }
     
+    //regresa un arreglo de las señas aprendidas por el usuario
     func aprendidas()-> [Sena]{
         var senas = [Sena]()
         
