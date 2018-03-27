@@ -33,15 +33,26 @@ class ControllerJ3Sena: UIViewController {
         }
         
         //escoger señas incorrectas que apareceran en la pantalla !!!!FALTA!!!!!!!
-        
-        var animales = Category(nombre: "hola", arrSena: [Sena]())
-        for i in 0 ... (Usuario.user.model.arrTotal.count - 1){
-            if Usuario.user.model.arrTotal[i].nombre == "Animales"{
-                animales = Usuario.user.model.arrTotal[i]
+        if noAprendidas.count > 10 {
+            for i in 0 ... 7 {
+                 let indice = Int(arc4random_uniform(UInt32(noAprendidas.count - 1))) //checar que no se escoga la sena correcta!!!
+                senas.append(noAprendidas[indice])
+            }
+        } else {
+            for i in 0 ... 7 {
+                let indice = Int(arc4random_uniform(UInt32(aprendidas.count - 1)))
+                senas.append(aprendidas[indice])
             }
         }
         
-        senas += [animales.arrSena[0], animales.arrSena[3], animales.arrSena[6], animales.arrSena[10]]
+        
+//        var animales = Category(nombre: "hola", arrSena: [Sena]())
+//        for i in 0 ... (Usuario.user.model.arrTotal.count - 1){
+//            if Usuario.user.model.arrTotal[i].nombre == "Animales"{
+//                animales = Usuario.user.model.arrTotal[i]
+//            }
+//        }
+//        senas += [animales.arrSena[0], animales.arrSena[3], animales.arrSena[6], animales.arrSena[10]]
         
         
         //desplegar video de la seña

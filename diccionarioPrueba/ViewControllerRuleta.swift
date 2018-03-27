@@ -15,10 +15,12 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     var seconds = 3.0
     var timer = Timer()
     var indice = 0
+    var juego = 0
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var lbSelectedGame: UILabel!
     @IBOutlet weak var btObtener: UIButton!
     
+    @IBOutlet weak var btJugar: UIButton!
     
     
     override func viewDidLoad() {
@@ -33,6 +35,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
         lbSelectedGame.text = ""
         seconds = Double(Int(arc4random_uniform(5) + 1)) //poner random
         btObtener.isEnabled = false
+        btJugar.isEnabled = false
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
     }
     
@@ -49,21 +52,40 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
             switch indice {
             case 0:
                 lbSelectedGame.text = "Te toco el juego Memorama!"
+                juego = 1
                 break;
             case 1:
                 lbSelectedGame.text = "Te toco el juego Responde Rapido!"
+                juego = 2
                 break;
             case 2:
                 lbSelectedGame.text = "Te toco el juego Catch'em!"
+                juego = 3
                 break;
             default:
                 break;
                 
             }
             btObtener.isEnabled = true
+            btJugar.isEnabled = true
         }
     }
-
+    
+    
+    @IBAction func clickJugar(_ sender: UIButton) {
+        switch(juego){
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            performSegue(withIdentifier: "juego3", sender: self)
+            break;
+        default:
+            break;
+        }
+    }
+    
     
      // MARK: - Picker view
     

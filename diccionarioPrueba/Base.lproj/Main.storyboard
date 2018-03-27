@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oqa-Bu-TBx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="guA-lZ-sge">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="KohinoorBangla.ttc">
+            <string>KohinoorBangla-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller Juego3-->
         <scene sceneID="EXg-R3-YDk">
@@ -17,13 +22,33 @@
                     <view key="view" contentMode="scaleToFill" id="rhY-cQ-jCo">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Puntos: 0 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbn-aM-SCA">
+                                <rect key="frame" x="36" y="23" width="144" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vidas: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="web-oI-hTs">
+                                <rect key="frame" x="1104" y="28" width="91" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.92361154416734259" green="0.99145956859590045" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="sd2-Oj-778"/>
                     </view>
+                    <connections>
+                        <outlet property="lbPuntos" destination="Hbn-aM-SCA" id="awx-WG-saM"/>
+                        <outlet property="lbVidas" destination="web-oI-hTs" id="AEO-n6-Dsh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMA-Ok-Zjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2879" y="-1016"/>
+            <point key="canvasLocation" x="2878.7701317715955" y="-1016.0156249999999"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -264,19 +289,28 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Te toco el juego Memorama!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-h3-V6x">
-                                <rect key="frame" x="416" y="479" width="534" height="23"/>
+                                <rect key="frame" x="416" y="501" width="534" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-qN-inZ">
-                                <rect key="frame" x="589" y="417" width="188" height="30"/>
+                                <rect key="frame" x="589" y="441" width="188" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Obtener Juego Aleatorio"/>
                                 <connections>
                                     <action selector="clickRuleta:" destination="guA-lZ-sge" eventType="touchUpInside" id="R7v-3x-yHt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBc-eI-4k5">
+                                <rect key="frame" x="654" y="589" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Jugar"/>
+                                <connections>
+                                    <action selector="clickJugar:" destination="guA-lZ-sge" eventType="touchUpInside" id="HDV-qz-05T"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -285,14 +319,16 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Juegos" image="pacman" id="uS5-Iz-OKU"/>
                     <connections>
+                        <outlet property="btJugar" destination="QBc-eI-4k5" id="h47-Vv-er9"/>
                         <outlet property="btObtener" destination="tKf-qN-inZ" id="zSv-z3-Vj4"/>
                         <outlet property="lbSelectedGame" destination="eoh-h3-V6x" id="jhd-Ax-ucv"/>
                         <outlet property="pickerView" destination="9UU-3l-2ME" id="dMj-KT-Fph"/>
+                        <segue destination="Oqa-Bu-TBx" kind="presentation" identifier="juego3" id="gr3-go-IsJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHf-1b-WWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="308.63309352517985" y="-1028.7769784172663"/>
+            <point key="canvasLocation" x="308.3455344070278" y="-1028.90625"/>
         </scene>
     </scenes>
     <resources>
