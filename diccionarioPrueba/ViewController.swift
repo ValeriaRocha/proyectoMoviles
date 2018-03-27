@@ -31,7 +31,7 @@ class ViewController: UIViewController {
             controller.player = player
             self.addChildViewController(controller)
             let screenSize = UIScreen.main.bounds.size
-            let videoFrame = CGRect(x: 0, y: 10, width: screenSize.width , height: (screenSize.height - 10) * 0.5)
+            let videoFrame = CGRect(x: self.view.center.x - 250, y: screenSize.height/2 - (470/2 + 55), width: 500 , height: 470)
             controller.view.frame = videoFrame
             self.view.addSubview(controller.view)
             player.play()

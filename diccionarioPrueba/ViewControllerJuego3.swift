@@ -131,7 +131,7 @@ class ViewControllerJuego3: UIViewController {
             
             let alert = UIAlertController(title: "Perdiste!", message: "Excelente jugada, ganaste \(puntos) puntos.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
-                
+//                performSegue(withIdentifier: "salirJuego", sender: )
             }))
             present(alert, animated: true, completion: nil)
 

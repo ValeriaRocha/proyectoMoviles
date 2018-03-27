@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="guA-lZ-sge">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hg6-b1-0Ya">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,15 +23,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Puntos: 0 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbn-aM-SCA">
-                                <rect key="frame" x="36" y="23" width="144" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vidas: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="web-oI-hTs">
+                                <rect key="frame" x="1104" y="28" width="91" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vidas: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="web-oI-hTs">
-                                <rect key="frame" x="1104" y="28" width="91" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmn-vX-cig">
+                                <rect key="frame" x="20" y="20" width="160" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Salir del Juego"/>
+                                <connections>
+                                    <segue destination="hmo-jH-f9z" kind="unwind" identifier="salirJuego" unwindAction="unwindSalirSenaWithUnwindSegue:" id="eUp-Wy-N7l"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Puntos: 0 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbn-aM-SCA">
+                                <rect key="frame" x="611" y="20" width="144" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
                                 <nil key="textColor"/>
@@ -44,9 +52,11 @@
                     <connections>
                         <outlet property="lbPuntos" destination="Hbn-aM-SCA" id="awx-WG-saM"/>
                         <outlet property="lbVidas" destination="web-oI-hTs" id="AEO-n6-Dsh"/>
+                        <segue destination="hmo-jH-f9z" kind="unwind" unwindAction="unwindSalirSenaWithUnwindSegue:" id="wkL-jt-Zws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMA-Ok-Zjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hmo-jH-f9z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2878.7701317715955" y="-1016.0156249999999"/>
         </scene>
@@ -153,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="310" y="-188"/>
         </scene>
-        <!--View Controller-->
+        <!--ControllerJ3 Instrucciones-->
         <scene sceneID="Eig-zA-P94">
             <objects>
-                <viewController id="Oqa-Bu-TBx" sceneMemberID="viewController">
+                <viewController id="Oqa-Bu-TBx" customClass="ControllerJ3Instrucciones" customModule="diccionarioPrueba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kwg-Z8-jN1">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,12 +191,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5B-Zr-wLQ">
+                                <rect key="frame" x="35" y="31" width="111" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Regresar"/>
+                                <connections>
+                                    <segue destination="ivM-dq-wLI" kind="unwind" unwindAction="unwindWithUnwindSegue:" id="H6p-Ug-rsk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="HRk-0E-hLV"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGP-60-EVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ivM-dq-wLI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1441.5812591508052" y="-1028.3203125"/>
         </scene>
@@ -206,12 +225,26 @@
                                     <segue destination="BHV-SV-XkO" kind="presentation" id="Poh-i9-q63"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZx-BR-J1B">
+                                <rect key="frame" x="35" y="44" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Salir del Juego"/>
+                                <connections>
+                                    <segue destination="810-uX-zni" kind="unwind" identifier="salir" unwindAction="unwindPrincipalWithUnwindSegue:" id="7pN-3Y-a6G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92361154420000002" green="0.99145956859999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="tCH-jR-KX2"/>
                     </view>
+                    <connections>
+                        <outlet property="btJugar" destination="RwJ-B6-LMd" id="hmI-aB-eHx"/>
+                        <outlet property="btSalir" destination="uZx-BR-J1B" id="fE9-JI-dSX"/>
+                        <segue destination="810-uX-zni" kind="unwind" unwindAction="unwindPrincipalWithUnwindSegue:" id="pi1-53-7Ci"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oD-p8-KE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="810-uX-zni" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2153.5871156661783" y="-1016.0156249999999"/>
         </scene>

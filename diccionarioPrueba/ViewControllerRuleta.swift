@@ -86,6 +86,10 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
+    @IBAction func unwind(unwindSegue : UIStoryboardSegue){
+        
+    }
+    
     
      // MARK: - Picker view
     

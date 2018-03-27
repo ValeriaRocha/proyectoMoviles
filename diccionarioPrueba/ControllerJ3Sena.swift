@@ -13,7 +13,10 @@ class ControllerJ3Sena: UIViewController {
     
     var senaCorrecta : Sena!
     var senas =  [Sena]()
-
+    
+    @IBOutlet weak var btSalir: UIButton!
+    @IBOutlet weak var btJugar: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -87,15 +90,19 @@ class ControllerJ3Sena: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func unwindSalirSena(unwindSegue : UIStoryboardSegue){
+        performSegue(withIdentifier: "salir", sender: self)
+    }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! ViewControllerJuego3
-        destination.senaCorrecta = senaCorrecta
-        destination.senas = senas
+        if (sender as? UIButton) == btJugar {
+            let destination = segue.destination as! ViewControllerJuego3
+            destination.senaCorrecta = senaCorrecta
+            destination.senas = senas
+        }
     }
     
 
