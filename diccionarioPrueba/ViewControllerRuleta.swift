@@ -77,6 +77,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
         case 1:
             break;
         case 2:
+            performSegue(withIdentifier: "responde", sender: self)
             break;
         case 3:
             performSegue(withIdentifier: "juego3", sender: self)
