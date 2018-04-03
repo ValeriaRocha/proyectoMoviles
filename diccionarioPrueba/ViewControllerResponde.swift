@@ -89,7 +89,7 @@ class ViewControllerResponde: UIViewController {
             iC = iC + 1
         }while(iC<4)
         
-        //desplegar video de la seña
+        //desplegar video o imagen de la seña
         
         if senaCorrecta.path.hasSuffix(".m4v") {
             let player = AVPlayer(url: URL(fileURLWithPath: senaCorrecta.path))

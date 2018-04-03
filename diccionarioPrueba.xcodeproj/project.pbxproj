@@ -24,6 +24,9 @@
 		54290BF92058894000AEFE49 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54290BF82058894000AEFE49 /* Category.swift */; };
 		54290BFB2058894D00AEFE49 /* Seña.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54290BFA2058894D00AEFE49 /* Seña.swift */; };
 		54290BFD2058966600AEFE49 /* TableViewControllerSena.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54290BFC2058966600AEFE49 /* TableViewControllerSena.swift */; };
+		A69F0252207307F6003603D8 /* MemoramaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */; };
+		A69F0253207307F6003603D8 /* MemoramaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69F0251207307F6003603D8 /* MemoramaCollectionViewCell.xib */; };
+		A69F025520730A3C003603D8 /* MemoramaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F025420730A3C003603D8 /* MemoramaViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		54290BF82058894000AEFE49 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		54290BFA2058894D00AEFE49 /* Seña.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Seña.swift"; sourceTree = "<group>"; };
 		54290BFC2058966600AEFE49 /* TableViewControllerSena.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerSena.swift; sourceTree = "<group>"; };
+		A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoramaCollectionViewCell.swift; sourceTree = "<group>"; };
+		A69F0251207307F6003603D8 /* MemoramaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoramaCollectionViewCell.xib; sourceTree = "<group>"; };
+		A69F025420730A3C003603D8 /* MemoramaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoramaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,9 @@
 				3BDC7EE7206494FE0014F030 /* ViewControllerJuego3.swift */,
 				3BBCC8FF2058EF4600DF6EB5 /* ViewControllerRuleta.swift */,
 				3B2D89B7205776EC0085392B /* Main.storyboard */,
+				A69F025420730A3C003603D8 /* MemoramaViewController.swift */,
+				A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */,
+				A69F0251207307F6003603D8 /* MemoramaCollectionViewCell.xib */,
 				3B6C2B7D2069E8930067EB84 /* ControllerJ3Instrucciones.swift */,
 				3BDD328F2069862300E245E7 /* ControllerJ3Sena.swift */,
 				54290BFC2058966600AEFE49 /* TableViewControllerSena.swift */,
@@ -159,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A69F0253207307F6003603D8 /* MemoramaCollectionViewCell.xib in Resources */,
 				3B518819205798270051D913 /* LenguajeSenasMexicano_Web in Resources */,
 				3B2D89BE205776EC0085392B /* LaunchScreen.storyboard in Resources */,
 				3B2D89BB205776EC0085392B /* Assets.xcassets in Resources */,
@@ -182,9 +192,11 @@
 				3BDD32902069862300E245E7 /* ControllerJ3Sena.swift in Sources */,
 				54290BFB2058894D00AEFE49 /* Seña.swift in Sources */,
 				54290BF72058892900AEFE49 /* Modelo.swift in Sources */,
+				A69F025520730A3C003603D8 /* MemoramaViewController.swift in Sources */,
 				3B6C2B7E2069E8930067EB84 /* ControllerJ3Instrucciones.swift in Sources */,
 				54290BFD2058966600AEFE49 /* TableViewControllerSena.swift in Sources */,
 				3BCE12FD20688FEC001B153E /* Usuario.swift in Sources */,
+				A69F0252207307F6003603D8 /* MemoramaCollectionViewCell.swift in Sources */,
 				3BDC7EE8206494FE0014F030 /* ViewControllerJuego3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,7 +335,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VTWCQK39G6;
+				DEVELOPMENT_TEAM = HJH6ES9LNW;
 				INFOPLIST_FILE = diccionarioPrueba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = a01193039.diccionarioPrueba;
@@ -338,7 +350,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VTWCQK39G6;
+				DEVELOPMENT_TEAM = HJH6ES9LNW;
 				INFOPLIST_FILE = diccionarioPrueba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = a01193039.diccionarioPrueba;

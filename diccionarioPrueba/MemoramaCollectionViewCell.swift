@@ -10,9 +10,14 @@ import UIKit
 
 class MemoramaCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var lbCarta: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
-
+    
+    func setData(text: String){
+        lbCarta.text = text
+    }
 }

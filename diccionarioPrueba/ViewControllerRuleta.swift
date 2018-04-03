@@ -75,6 +75,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func clickJugar(_ sender: UIButton) {
         switch(juego){
         case 1:
+            performSegue(withIdentifier: "memorama", sender: self)
             break;
         case 2:
             performSegue(withIdentifier: "responde", sender: self)
