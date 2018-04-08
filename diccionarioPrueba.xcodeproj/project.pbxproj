@@ -25,7 +25,6 @@
 		54290BFB2058894D00AEFE49 /* Seña.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54290BFA2058894D00AEFE49 /* Seña.swift */; };
 		54290BFD2058966600AEFE49 /* TableViewControllerSena.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54290BFC2058966600AEFE49 /* TableViewControllerSena.swift */; };
 		A69F0252207307F6003603D8 /* MemoramaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */; };
-		A69F0253207307F6003603D8 /* MemoramaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A69F0251207307F6003603D8 /* MemoramaCollectionViewCell.xib */; };
 		A69F025520730A3C003603D8 /* MemoramaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F025420730A3C003603D8 /* MemoramaViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +49,6 @@
 		54290BFA2058894D00AEFE49 /* Seña.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Seña.swift"; sourceTree = "<group>"; };
 		54290BFC2058966600AEFE49 /* TableViewControllerSena.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerSena.swift; sourceTree = "<group>"; };
 		A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoramaCollectionViewCell.swift; sourceTree = "<group>"; };
-		A69F0251207307F6003603D8 /* MemoramaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoramaCollectionViewCell.xib; sourceTree = "<group>"; };
 		A69F025420730A3C003603D8 /* MemoramaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoramaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +90,6 @@
 				3B2D89B7205776EC0085392B /* Main.storyboard */,
 				A69F025420730A3C003603D8 /* MemoramaViewController.swift */,
 				A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */,
-				A69F0251207307F6003603D8 /* MemoramaCollectionViewCell.xib */,
 				3B6C2B7D2069E8930067EB84 /* ControllerJ3Instrucciones.swift */,
 				3BDD328F2069862300E245E7 /* ControllerJ3Sena.swift */,
 				54290BFC2058966600AEFE49 /* TableViewControllerSena.swift */,
@@ -168,7 +165,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A69F0253207307F6003603D8 /* MemoramaCollectionViewCell.xib in Resources */,
 				3B518819205798270051D913 /* LenguajeSenasMexicano_Web in Resources */,
 				3B2D89BE205776EC0085392B /* LaunchScreen.storyboard in Resources */,
 				3B2D89BB205776EC0085392B /* Assets.xcassets in Resources */,
