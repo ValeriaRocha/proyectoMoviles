@@ -34,15 +34,23 @@ class ViewControllerJuego3: UIViewController {
         timerCrear = Timer.scheduledTimer(timeInterval: velCrear, target: self, selector: #selector(self.updateTimerCrear), userInfo: nil, repeats: true)
         timerCaida = Timer.scheduledTimer(timeInterval: velCaida, target: self, selector: #selector(self.updateTimerCaida), userInfo: nil, repeats: true)
         
+        
+        print(Bundle.main.bundlePath)
+        
+    
+        
 //        do {
-//            let paths = try FileManager.default.contentsOfDirectory(atPath: Bundle.main.bundlePath + "/diccionarioPrueba")
+//
+//            let ruta = Bundle.main.executablePath!.appending("/Assets.car")
+//            let paths = try FileManager.default.contentsOfDirectory(atPath:  ruta)
+//
 //            for i in 0 ... paths.count - 1{
 //                print(paths[i])
 //            }
 //        } catch {
 //            print("error")
 //        }
-        
+//
         print(senaCorrecta.nombre)
     }
     
@@ -68,10 +76,10 @@ class ViewControllerJuego3: UIViewController {
         let button = UIButton(frame: CGRect(x: coorX/*Int(arc4random_uniform(UInt32(screen.width)))*/, y: 80, width: 130, height: 130))
         
         //Si tiene imagen
-        if let imagen = Bundle.main.path(forResource: senas[indice].nombre, ofType: "imageset", inDirectory: "Assets.xcassets"){
+        if let imagen = UIImage(named: senas[indice].nombre){
             print(imagen)
-            let image = UIImage(contentsOfFile: imagen)!
-            button.setImage(image, for: .normal)
+            //let image = UIImage(contentsOfFile: imagen)!
+            button.setImage(imagen, for: .normal)
         } else {
             //si no tiene imagen
             button.backgroundColor = #colorLiteral(red: 0.7886319331, green: 0.8695178572, blue: 0.9969008565, alpha: 1)
@@ -131,7 +139,7 @@ class ViewControllerJuego3: UIViewController {
             
             let alert = UIAlertController(title: "Perdiste!", message: "Excelente jugada, ganaste \(puntos) puntos.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
-//                performSegue(withIdentifier: "salirJuego", sender: )
+               self.performSegue(withIdentifier: "salirJuego", sender: nil)
             }))
             present(alert, animated: true, completion: nil)
 
@@ -199,3 +207,15 @@ class ViewControllerJuego3: UIViewController {
 //
 //        //agregar boton al arreglo de botones
 //        botones.append(button)
+
+
+//        if let imagen = Bundle.main.path(forResource: senas[indice].nombre, ofType: "imageset", inDirectory: "Assets.xcassets"){
+//            print(imagen)
+//            let image = UIImage(contentsOfFile: imagen)!
+//            button.setImage(image, for: .normal)
+//        } else {
+//            //si no tiene imagen
+//            button.backgroundColor = #colorLiteral(red: 0.7886319331, green: 0.8695178572, blue: 0.9969008565, alpha: 1)
+//            button.setTitle(senas[indice].nombre, for: .normal)
+//            button.setTitleColor(UIColor.black, for: .normal)
+//        }
