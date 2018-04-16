@@ -451,7 +451,6 @@
                                 <state key="normal" title="Jugar"/>
                                 <connections>
                                     <action selector="clickJugar:" destination="guA-lZ-sge" eventType="touchUpInside" id="HDV-qz-05T"/>
-                                    <segue destination="NmQ-Px-cOa" kind="presentation" id="6Dn-x3-WGb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -464,7 +463,9 @@
                         <outlet property="btObtener" destination="tKf-qN-inZ" id="zSv-z3-Vj4"/>
                         <outlet property="lbSelectedGame" destination="eoh-h3-V6x" id="jhd-Ax-ucv"/>
                         <outlet property="pickerView" destination="9UU-3l-2ME" id="dMj-KT-Fph"/>
-                        <segue destination="9kk-ED-1V4" kind="presentation" identifier="responde" id="Lwb-c1-4tp"/>
+                        <segue destination="NmQ-Px-cOa" kind="presentation" identifier="juego3" id="2vn-Wb-8yR"/>
+                        <segue destination="9kk-ED-1V4" kind="presentation" identifier="responde" id="rsH-m0-G6z"/>
+                        <segue destination="pfB-HN-JxI" kind="presentation" identifier="memorama" id="EDa-ga-JFN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHf-1b-WWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
