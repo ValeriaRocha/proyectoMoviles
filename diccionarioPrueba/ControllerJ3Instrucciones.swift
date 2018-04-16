@@ -21,7 +21,7 @@ class ControllerJ3Instrucciones: UIViewController {
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         
-        tvInstrucciones.layer.cornerRadius = tvInstrucciones.bounds.size.width
+        tvInstrucciones.layer.cornerRadius = 0.05 * tvInstrucciones.bounds.size.width
         // Do any additional setup after loading the view.
     }
 

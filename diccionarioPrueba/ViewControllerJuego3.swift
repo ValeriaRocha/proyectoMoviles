@@ -82,6 +82,12 @@ class ViewControllerJuego3: UIViewController {
         
         //button.setImage(#imageLiteral(resourceName: "Araña"), for: .normal) //para probar el tamaño de la iamgen
         
+        //estetica
+        button.layer.cornerRadius = 0.07 * button.bounds.size.width
+        button.layer.borderWidth = 1
+        button.layer.borderColor = #colorLiteral(red: 0.6762949995, green: 0.6667861859, blue: 0.8172390546, alpha: 1)
+        button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        
         //agregarle el target al boton
         button.addTarget(self, action: #selector(clickBoton(sender:)), for: UIControlEvents.touchUpInside)
         self.view.addSubview(button)
