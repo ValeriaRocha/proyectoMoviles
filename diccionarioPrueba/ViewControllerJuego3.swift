@@ -141,7 +141,9 @@ class ViewControllerJuego3: UIViewController {
             let alert = UIAlertController(title: "Perdiste!", message: "Excelente jugada, ganaste \(puntos) puntos.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
                 //self.performSegue(withIdentifier: "salirJuego", sender: nil)
-                self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+               // self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
             }))
             present(alert, animated: true, completion: nil)
 

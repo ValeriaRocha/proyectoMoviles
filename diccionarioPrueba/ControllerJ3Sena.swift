@@ -92,7 +92,8 @@ class ControllerJ3Sena: UIViewController {
     }
     
     @IBAction func unwindSalirSena(unwindSegue : UIStoryboardSegue){
-        performSegue(withIdentifier: "salir", sender: self)
+        //performSegue(withIdentifier: "salir", sender: self)
+        print("Hola estoy en el unwind de salir sena")
     }
     
     // MARK: - Navigation
