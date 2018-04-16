@@ -451,7 +451,7 @@
                                 <state key="normal" title="Jugar"/>
                                 <connections>
                                     <action selector="clickJugar:" destination="guA-lZ-sge" eventType="touchUpInside" id="HDV-qz-05T"/>
-                                    <segue destination="NmQ-Px-cOa" kind="presentation" identifier="juego3" id="AX9-5R-l8G"/>
+                                    <segue destination="NmQ-Px-cOa" kind="presentation" id="6Dn-x3-WGb"/>
                                 </connections>
                             </button>
                         </subviews>
