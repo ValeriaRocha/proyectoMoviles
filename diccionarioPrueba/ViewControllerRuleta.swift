@@ -11,7 +11,7 @@ import Foundation
 
 class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var juegos = [#imageLiteral(resourceName: "memorama"), #imageLiteral(resourceName: "responde"), #imageLiteral(resourceName: "catchem")]
+    var juegos = [#imageLiteral(resourceName: "memoT"), #imageLiteral(resourceName: "responde4"), #imageLiteral(resourceName: "gravedad2")]
     var seconds = 3.0
     var timer = Timer()
     var indice = 0

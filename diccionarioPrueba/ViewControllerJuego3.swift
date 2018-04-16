@@ -125,6 +125,8 @@ class ViewControllerJuego3: UIViewController {
     
     @objc func clickBoton(sender: UIButton!){
         if sender.tag == 1 {
+            //desaparecer imagen
+            sender.removeFromSuperview() //FALTA QUITARLO DEL ARREGLO DE BOTONES
             puntos += 5
             lbPuntos.text = "Puntos: \(puntos)"
         } else {
@@ -144,6 +146,7 @@ class ViewControllerJuego3: UIViewController {
             present(alert, animated: true, completion: nil)
 
         }
+        
     }
     
 
