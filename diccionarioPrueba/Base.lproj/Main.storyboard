@@ -307,9 +307,11 @@
                     <navigationItem key="navigationItem" id="TTo-fg-V20"/>
                     <connections>
                         <outlet property="tvInstrucciones" destination="Vmi-He-PJg" id="B9o-bV-qFk"/>
+                        <segue destination="e2e-0w-9XN" kind="unwind" identifier="back" unwindAction="unwindWithUnwindSegue:" id="0tN-5k-qB4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGP-60-EVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="e2e-0w-9XN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2200" y="-1028"/>
         </scene>

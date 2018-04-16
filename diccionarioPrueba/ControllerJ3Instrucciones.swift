@@ -18,7 +18,7 @@ class ControllerJ3Instrucciones: UIViewController {
         print("hola")
         
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.bordered, target: self, action: Selector(("back:")))
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         
         tvInstrucciones.layer.cornerRadius = tvInstrucciones.bounds.size.width
@@ -30,11 +30,11 @@ class ControllerJ3Instrucciones: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func back(sender: UIBarButtonItem) {
+    @objc func back(sender: UIBarButtonItem) {
         // Perform your custom actions
         // ...
         // Go back to the previous ViewController
-        x
+        performSegue(withIdentifier: "back", sender: self)
     }
     
     @IBAction func unwindPrincipal(unwindSegue : UIStoryboardSegue){

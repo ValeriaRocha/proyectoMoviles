@@ -34,24 +34,17 @@ class ViewControllerJuego3: UIViewController {
         timerCrear = Timer.scheduledTimer(timeInterval: velCrear, target: self, selector: #selector(self.updateTimerCrear), userInfo: nil, repeats: true)
         timerCaida = Timer.scheduledTimer(timeInterval: velCaida, target: self, selector: #selector(self.updateTimerCaida), userInfo: nil, repeats: true)
         
-        
-        print(Bundle.main.bundlePath)
-        
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Salir", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.salir(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
     
-        
-//        do {
-//
-//            let ruta = Bundle.main.executablePath!.appending("/Assets.car")
-//            let paths = try FileManager.default.contentsOfDirectory(atPath:  ruta)
-//
-//            for i in 0 ... paths.count - 1{
-//                print(paths[i])
-//            }
-//        } catch {
-//            print("error")
-//        }
-//
-        print(senaCorrecta.nombre)
+    @objc func salir(sender: UIBarButtonItem) {
+        // Perform your custom actions
+        // ...
+        // Go back to the previous ViewController
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }
     
     @objc func updateTimerCrear(){
@@ -223,3 +216,16 @@ class ViewControllerJuego3: UIViewController {
 //            button.setTitle(senas[indice].nombre, for: .normal)
 //            button.setTitleColor(UIColor.black, for: .normal)
 //        }
+
+//        do {
+//
+//            let ruta = Bundle.main.executablePath!.appending("/Assets.car")
+//            let paths = try FileManager.default.contentsOfDirectory(atPath:  ruta)
+//
+//            for i in 0 ... paths.count - 1{
+//                print(paths[i])
+//            }
+//        } catch {
+//            print("error")
+//        }
+//
