@@ -129,7 +129,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMA-Ok-Zjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hmo-jH-f9z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2878.7701317715955" y="-1016.0156249999999"/>
+            <point key="canvasLocation" x="3616.6910688140551" y="-1016.0156249999999"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -286,13 +286,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Jugar"/>
                                 <connections>
-                                    <segue destination="9nS-UF-blm" kind="presentation" id="uU8-h5-XQy"/>
+                                    <segue destination="9nS-UF-blm" kind="show" id="PUA-Qn-Fg7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="catchem" translatesAutoresizingMaskIntoConstraints="NO" id="A4W-pq-yI0">
-                                <rect key="frame" x="370" y="39" width="627" height="203"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Antes de empezar el juego, se te mostrara una seña. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vmi-He-PJg">
                                 <rect key="frame" x="186" y="278" width="995" height="545"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -300,23 +296,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5B-Zr-wLQ">
-                                <rect key="frame" x="35" y="31" width="111" height="36"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gravedad2" translatesAutoresizingMaskIntoConstraints="NO" id="A4W-pq-yI0">
+                                <rect key="frame" x="357" y="47" width="673" height="203"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Regresar"/>
-                                <connections>
-                                    <segue destination="ivM-dq-wLI" kind="unwind" unwindAction="unwindWithUnwindSegue:" id="H6p-Ug-rsk"/>
-                                </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="HRk-0E-hLV"/>
                     </view>
+                    <navigationItem key="navigationItem" id="TTo-fg-V20"/>
+                    <connections>
+                        <outlet property="tvInstrucciones" destination="Vmi-He-PJg" id="B9o-bV-qFk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGP-60-EVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ivM-dq-wLI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1441.5812591508052" y="-1028.3203125"/>
+            <point key="canvasLocation" x="2200" y="-1028"/>
         </scene>
         <!--ControllerJ3 Sena-->
         <scene sceneID="w9v-kA-Z0C">
@@ -331,7 +326,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Estoy listo para jugar!"/>
                                 <connections>
-                                    <segue destination="BHV-SV-XkO" kind="presentation" id="Poh-i9-q63"/>
+                                    <segue destination="BHV-SV-XkO" kind="show" id="dtT-UQ-tPq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZx-BR-J1B">
@@ -355,7 +350,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oD-p8-KE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="810-uX-zni" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2153.5871156661783" y="-1016.0156249999999"/>
+            <point key="canvasLocation" x="2906" y="-1028"/>
         </scene>
         <!--Table View Controller Sena-->
         <scene sceneID="rE8-Wf-8Qs">
@@ -448,13 +443,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBc-eI-4k5">
-                                <rect key="frame" x="654" y="589" width="59" height="30"/>
+                                <rect key="frame" x="654" y="589" width="59" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Jugar"/>
                                 <connections>
                                     <action selector="clickJugar:" destination="guA-lZ-sge" eventType="touchUpInside" id="HDV-qz-05T"/>
-                                    <segue destination="pfB-HN-JxI" kind="presentation" identifier="memorama" id="Tc0-s6-HD5"/>
+                                    <segue destination="NmQ-Px-cOa" kind="presentation" identifier="juego3" id="AX9-5R-l8G"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -467,7 +462,6 @@
                         <outlet property="btObtener" destination="tKf-qN-inZ" id="zSv-z3-Vj4"/>
                         <outlet property="lbSelectedGame" destination="eoh-h3-V6x" id="jhd-Ax-ucv"/>
                         <outlet property="pickerView" destination="9UU-3l-2ME" id="dMj-KT-Fph"/>
-                        <segue destination="Oqa-Bu-TBx" kind="presentation" identifier="juego3" id="gr3-go-IsJ"/>
                         <segue destination="9kk-ED-1V4" kind="presentation" identifier="responde" id="Lwb-c1-4tp"/>
                     </connections>
                 </viewController>
@@ -636,11 +630,29 @@
             </objects>
             <point key="canvasLocation" x="2879" y="-2477"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kN2-mN-3hp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NmQ-Px-cOa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BvL-rP-sFZ">
+                        <rect key="frame" x="0.0" y="20" width="1366" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Oqa-Bu-TBx" kind="relationship" relationship="rootViewController" id="bfb-74-9SQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fHe-Qj-wVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1317" y="-1016"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="700" height="500"/>
-        <image name="catchem" width="582" height="252"/>
         <image name="folder" width="26" height="26"/>
+        <image name="gravedad2" width="640" height="225"/>
         <image name="memorama" width="676" height="274"/>
         <image name="pacman" width="26" height="26"/>
         <image name="refresh" width="26" height="26"/>

@@ -9,16 +9,32 @@
 import UIKit
 
 class ControllerJ3Instrucciones: UIViewController {
+    
+    @IBOutlet weak var tvInstrucciones: UITextView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("hola")
+        
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.bordered, target: self, action: Selector(("back:")))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        
+        tvInstrucciones.layer.cornerRadius = tvInstrucciones.bounds.size.width
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func back(sender: UIBarButtonItem) {
+        // Perform your custom actions
+        // ...
+        // Go back to the previous ViewController
+        x
     }
     
     @IBAction func unwindPrincipal(unwindSegue : UIStoryboardSegue){
