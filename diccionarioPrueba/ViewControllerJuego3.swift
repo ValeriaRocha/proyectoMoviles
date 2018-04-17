@@ -37,6 +37,10 @@ class ViewControllerJuego3: UIViewController {
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Salir", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.salir(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
+        
+        lbPuntos.text = "Puntos: " + String(puntos)
+        lbVidas.text = "Vidas: " + String(vidas)
+        
     }
     
     @objc func salir(sender: UIBarButtonItem) {
@@ -114,6 +118,9 @@ class ViewControllerJuego3: UIViewController {
                 
                 //quitar los botones que ya pasaron por la parte baja de la pantalla
                 if botones[i].frame.origin.y > screen.height {
+                    if botones[i].tag == 1{
+                        restaVida()
+                    }
                     botones[i].removeFromSuperview()
                     botones.remove(at: i)
                 }
@@ -125,30 +132,41 @@ class ViewControllerJuego3: UIViewController {
     @objc func clickBoton(sender: UIButton!){
         if sender.tag == 1 {
             //desaparecer imagen
+            for i in 0..<botones.count {
+                if sender == botones[i]{
+                    botones.remove(at: i)
+                    break
+                }
+            }
             sender.removeFromSuperview() //FALTA QUITARLO DEL ARREGLO DE BOTONES
             puntos += 5
             lbPuntos.text = "Puntos: \(puntos)"
         } else {
-            vidas -= 1
-            lbVidas.text = "Vidas: \(vidas)"
+            restaVida()
         }
         
         if vidas <= 0 {
             timerCaida.invalidate()
             timerCrear.invalidate()
             //desplegar mensaje que perdio y hacer unwind
-            
+            restaVida()
+        }
+        
+    }
+    
+    func restaVida(){
+        vidas -= 1
+        lbVidas.text = "Vidas: " + String(vidas)
+        if vidas <= 0{
             let alert = UIAlertController(title: "Perdiste!", message: "Excelente jugada, ganaste \(puntos) puntos.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
                 //self.performSegue(withIdentifier: "salirJuego", sender: nil)
-               // self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+                // self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
                 self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
             }))
             present(alert, animated: true, completion: nil)
-
         }
-        
     }
     
 

@@ -57,7 +57,7 @@ class ControllerJ3Sena: UIViewController {
 //        }
 //        senas.removeAll()
 //        senas += [animales.arrSena[0], animales.arrSena[3], animales.arrSena[6], animales.arrSena[10]]
-//
+
 //
         //desplegar video de la seña
         if senaCorrecta.path.hasSuffix(".m4v") {
