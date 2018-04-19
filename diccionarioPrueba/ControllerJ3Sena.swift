@@ -32,33 +32,23 @@ class ControllerJ3Sena: UIViewController {
         } else {
             let indice = Int(arc4random_uniform(UInt32(aprendidas.count - 1)))
             senaCorrecta = aprendidas[indice]
-            senas.append(senaCorrecta)
+           // senas.append(senaCorrecta)
         }
         
         //escoger señas incorrectas que apareceran en la pantalla !!!!FALTA!!!!!!!
         if noAprendidas.count > 10 {
-            for i in 0 ... 7 {
+            for _ in 0 ... 7 {
                  let indice = Int(arc4random_uniform(UInt32(noAprendidas.count - 1))) //checar que no se escoga la sena correcta!!!
                 senas.append(noAprendidas[indice])
             }
         } else {
-            for i in 0 ... 7 {
+            for _ in 0 ... 7 {
                 let indice = Int(arc4random_uniform(UInt32(aprendidas.count - 1)))
                 senas.append(aprendidas[indice])
             }
         }
         
         
-//        var animales = Category(nombre: "hola", arrSena: [Sena]())
-//        for i in 0 ... (Usuario.user.model.arrTotal.count - 1){
-//            if Usuario.user.model.arrTotal[i].nombre == "Animales"{
-//                animales = Usuario.user.model.arrTotal[i]
-//            }
-//        }
-//        senas.removeAll()
-//        senas += [animales.arrSena[0], animales.arrSena[3], animales.arrSena[6], animales.arrSena[10]]
-
-//
         //desplegar video de la seña
         if senaCorrecta.path.hasSuffix(".m4v") {
             let player = AVPlayer(url: URL(fileURLWithPath: senaCorrecta.path))
@@ -106,6 +96,16 @@ class ControllerJ3Sena: UIViewController {
             destination.senas = senas
         }
     }
-    
 
 }
+
+//        var animales = Category(nombre: "hola", arrSena: [Sena]())
+//        for i in 0 ... (Usuario.user.model.arrTotal.count - 1){
+//            if Usuario.user.model.arrTotal[i].nombre == "Animales"{
+//                animales = Usuario.user.model.arrTotal[i]
+//            }
+//        }
+//        senas.removeAll()
+//        senas += [animales.arrSena[0], animales.arrSena[3], animales.arrSena[6], animales.arrSena[10]]
+
+//
