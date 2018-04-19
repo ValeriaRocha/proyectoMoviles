@@ -96,6 +96,7 @@ class ViewControllerJuego3: UIViewController {
         //Si tiene imagen
         if let imagen = UIImage(named: sena.nombre){
             button.setImage(imagen, for: .normal)
+           
         } else {
             //si no tiene imagen
             button.backgroundColor = #colorLiteral(red: 0.7886319331, green: 0.8695178572, blue: 0.9969008565, alpha: 1)

@@ -20,10 +20,10 @@ class ControllerJ3Sena: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //escoger una seña
         let aprendidas = Usuario.user.aprendidas()
         let noAprendidas = Usuario.user.noAprendidas()
         
+        //escoger 1 seña correcta
         if noAprendidas.count > 0 {
             let indice = Int(arc4random_uniform(UInt32(noAprendidas.count - 1)))
             senaCorrecta = noAprendidas[indice]
@@ -35,16 +35,34 @@ class ControllerJ3Sena: UIViewController {
            // senas.append(senaCorrecta)
         }
         
-        //escoger señas incorrectas que apareceran en la pantalla !!!!FALTA!!!!!!!
-        if noAprendidas.count > 10 {
+        //escoger señas incorrectas que apareceran en la pantalla
+        if noAprendidas.count > 14 { //ver si hay suficientes senas no aprendidas para escoger de manera random
+            var indice = 0
             for _ in 0 ... 7 {
-                 let indice = Int(arc4random_uniform(UInt32(noAprendidas.count - 1))) //checar que no se escoga la sena correcta!!!
+                repeat{
+                    indice = Int(arc4random_uniform(UInt32(noAprendidas.count - 1)))
+                }while(noAprendidas[indice].nombre == senaCorrecta.nombre)
                 senas.append(noAprendidas[indice])
             }
         } else {
-            for _ in 0 ... 7 {
-                let indice = Int(arc4random_uniform(UInt32(aprendidas.count - 1)))
-                senas.append(aprendidas[indice])
+            var i = 0
+            var limit = 7
+            while i < limit && i < noAprendidas.count{ // si no, agarrar las primeras 7 o menos segun las que haya
+                if(noAprendidas[i].nombre == senaCorrecta.nombre){ // si es la sena correcta
+                    limit += 1 //no la agrega y sube 1 al limite para que se sigan agregando 7 señas
+                } else {
+                    senas.append(noAprendidas[i]) //si no si la agrega
+                }
+                i += 1
+            }
+            while i < limit {
+                var indice = 0
+                repeat{
+                    indice = Int(arc4random_uniform(UInt32(aprendidas.count - 1))) //checar que no se escoga la sena correcta?
+                }while(aprendidas[indice].nombre == senaCorrecta.nombre)
+                
+                senas.append(aprendidas[indice]) //completar con señas aprendidas
+                i += 1
             }
         }
         
@@ -61,7 +79,6 @@ class ControllerJ3Sena: UIViewController {
             controller.view.frame = videoFrame
             self.view.addSubview(controller.view)
             player.play()
-            
             
         } else {
             let imagen = UIImage(contentsOfFile: senaCorrecta.path)!
@@ -98,6 +115,19 @@ class ControllerJ3Sena: UIViewController {
     }
 
 }
+
+//if noAprendidas.count > 10 {
+//    for _ in 0 ... 7 {
+//        let indice = Int(arc4random_uniform(UInt32(noAprendidas.count - 1))) //checar que no se escoga la sena correcta!!!
+//        senas.append(noAprendidas[indice])
+//    }
+//} else {
+//    for _ in 0 ... 7 {
+//        let indice = Int(arc4random_uniform(UInt32(aprendidas.count - 1)))
+//        senas.append(aprendidas[indice])
+//    }
+//}
+
 
 //        var animales = Category(nombre: "hola", arrSena: [Sena]())
 //        for i in 0 ... (Usuario.user.model.arrTotal.count - 1){
