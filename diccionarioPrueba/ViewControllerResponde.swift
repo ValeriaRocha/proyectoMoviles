@@ -72,6 +72,14 @@ class ViewControllerResponde: UIViewController {
     
     func generarNuevo()
     {
+        var iX = 0
+        print("errores")
+        while (iX < Usuario.user.errores.count)
+        {
+            print(Usuario.user.errores[iX].nombre)
+            iX = iX + 1
+        }
+        
         iC = 1
         arrSelec = [false,false,false,false]
         
