@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="ChalkboardSE.ttc">
+            <string>ChalkboardSE-Regular</string>
+        </array>
         <array key="KohinoorBangla.ttc">
             <string>KohinoorBangla-Regular</string>
         </array>
@@ -25,35 +28,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-Vi-JPs">
-                                <rect key="frame" x="483" y="864" width="400" height="30"/>
+                                <rect key="frame" x="483" y="857" width="400" height="37"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmQ-jf-xUI">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="F9V-Lv-xq5"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4a-CM-lHM">
-                                        <rect key="frame" x="100" y="0.0" width="100" height="30"/>
+                                        <rect key="frame" x="100" y="0.0" width="100" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="lS4-AM-jDF"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQM-7g-Stu">
-                                        <rect key="frame" x="200" y="0.0" width="100" height="30"/>
+                                        <rect key="frame" x="200" y="0.0" width="100" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="pP7-1t-ZUc"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnB-Lm-CWT">
-                                        <rect key="frame" x="300" y="0.0" width="100" height="30"/>
+                                        <rect key="frame" x="300" y="0.0" width="100" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="23B-ad-iEM"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -61,23 +76,23 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEC-hj-CrA">
-                                <rect key="frame" x="533" y="94" width="300" height="36.5"/>
+                                <rect key="frame" x="533" y="94" width="300" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Puntos: 0 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC0-lJ-Ll0">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="yJ2-JF-PW0"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="246" verticalHuggingPriority="251" text="Vidas: 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXW-e0-IBw">
-                                        <rect key="frame" x="150" y="0.0" width="150" height="36.5"/>
+                                        <rect key="frame" x="150" y="0.0" width="150" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="uw8-Z1-6e1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -277,7 +292,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="yhB-8o-h25"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="246" text="Instrucciones del juego wuuwuw" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hXa-MV-PX2">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="246" editable="NO" text="Instrucciones del juego wuuwuw" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hXa-MV-PX2">
                                 <rect key="frame" x="185" y="358" width="996" height="546"/>
                                 <color key="backgroundColor" red="0.97580105433772724" green="1" blue="0.90074633158960782" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>

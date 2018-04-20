@@ -37,7 +37,7 @@ class ViewControllerResponde: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "BgResponde"))
         puntos = 0
         vidas = 3
         
@@ -47,6 +47,7 @@ class ViewControllerResponde: UIViewController {
         btAbDer.addTarget(self, action: #selector(clickBoton(sender:)), for: UIControlEvents.touchUpInside)
         btAbIzq.addTarget(self, action: #selector(clickBoton(sender:)), for: UIControlEvents.touchUpInside)
         
+        
         //inicializar arreglo de botones
         arrButton.append(btTopDer)
         arrButton.append(btTopIzq)
@@ -55,6 +56,18 @@ class ViewControllerResponde: UIViewController {
         
         generarNuevo()
         
+    }
+    
+    func subraya(sString : String) -> NSAttributedString
+    {
+        let attrs = [
+            NSAttributedStringKey.foregroundColor : UIColor.black,
+            NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue
+            ] as [NSAttributedStringKey : Any]
+
+        let underlineAttributedString = NSAttributedString(string: sString, attributes:attrs)
+        
+        return underlineAttributedString
     }
     
     func generarNuevo()
@@ -72,7 +85,9 @@ class ViewControllerResponde: UIViewController {
         
         // Fijar seña en botón
         iBotCorrecto = Int(arc4random_uniform(4))
-        arrButton[iBotCorrecto].setTitle(senaCorrecta.nombre, for: .normal)
+        // Formato de botón
+        arrButton[iBotCorrecto].setAttributedTitle(subraya(sString: senaCorrecta.nombre), for: .normal)
+        
         arrSelec[iBotCorrecto] = true
         
         // Fijar otros botones
@@ -82,7 +97,7 @@ class ViewControllerResponde: UIViewController {
                 iRandCat = Int(arc4random_uniform(UInt32(iTotalCat)))
                 iTotalSen = Usuario.user.model.arrTotal[iRandCat].arrSena.count - 1
                 iRandSen = Int(arc4random_uniform(UInt32(iTotalSen)))
-            }while(iRandCat == iCorrectaCat && iCorrectaSen == iRandSen)
+            }while((iRandCat == iCorrectaCat) && (iCorrectaSen == iRandSen))
             
             // Fijar seña auxiliar
             senaAux = Usuario.user.model.arrTotal[iRandCat].arrSena[iRandSen]
@@ -91,7 +106,10 @@ class ViewControllerResponde: UIViewController {
             repeat{
                 iRandBot = Int(arc4random_uniform(4))
             }while(arrSelec[iRandBot]==true)
-            arrButton[iRandBot].setTitle(senaAux.nombre, for: .normal)
+            
+            // Formato de botón
+            arrButton[iRandBot].setAttributedTitle(subraya(sString: senaAux.nombre), for: .normal)
+
             arrSelec[iRandBot] = true
             iC = iC + 1
         }while(iC<4)
@@ -129,7 +147,7 @@ class ViewControllerResponde: UIViewController {
             {
                 imageView.removeFromSuperview()
             }
-            if((controller.view) != nil)
+            if(controller.view != nil)
             {
                 controller.view.removeFromSuperview()
             }
