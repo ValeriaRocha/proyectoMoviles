@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Modelo {
+class Modelo: Codable {
     var arrTotal : [Category]
     
     init(){

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Sena: NSObject {
+class Sena: Codable {
     var nombre : String
     var path : String
     var aprendida : Bool

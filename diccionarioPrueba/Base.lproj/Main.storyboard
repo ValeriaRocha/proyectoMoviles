@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,7 +44,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vidas: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXW-e0-IBw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vidas: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXW-e0-IBw">
                                 <rect key="frame" x="1161" y="101" width="135" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
@@ -234,32 +235,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="responde" translatesAutoresizingMaskIntoConstraints="NO" id="d0h-BV-wbf">
-                                <rect key="frame" x="370" y="64" width="627" height="203"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="747" image="responde" translatesAutoresizingMaskIntoConstraints="NO" id="d0h-BV-wbf">
+                                <rect key="frame" x="370" y="158" width="626" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="7d8-46-nUt"/>
+                                    <constraint firstAttribute="width" constant="626" id="uud-hH-nmu"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="yhB-8o-h25"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Instrucciones del juego wuuwuw" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hXa-MV-PX2">
-                                <rect key="frame" x="186" y="312" width="995" height="545"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="246" text="Instrucciones del juego wuuwuw" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hXa-MV-PX2">
+                                <rect key="frame" x="185" y="358" width="996" height="546"/>
                                 <color key="backgroundColor" red="0.97580105433772724" green="1" blue="0.90074633158960782" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hXa-MV-PX2" secondAttribute="height" multiplier="199:109" id="DdV-65-gIg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRw-SF-xqc">
-                                <rect key="frame" x="636" y="899" width="95" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRw-SF-xqc">
+                                <rect key="frame" x="664" y="914" width="39" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="VB4-cf-wcq"/>
+                                </constraints>
                                 <state key="normal" title="Jugar"/>
                                 <connections>
                                     <segue destination="iqf-mV-rzn" kind="show" id="B8C-Vp-P4j"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="7v4-Wj-ejv">
+                                <rect key="frame" x="0.0" y="64" width="1366" height="44"/>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wws-Es-UDu">
+                                <rect key="frame" x="54" y="71" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt; Back"/>
+                                <connections>
+                                    <segue destination="Qfb-95-3Xu" kind="unwind" unwindAction="unwindWithUnwindSegue:" id="9KZ-ho-7m1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hXa-MV-PX2" firstAttribute="top" secondItem="d0h-BV-wbf" secondAttribute="bottom" constant="30" id="9Td-EL-IOT"/>
+                            <constraint firstItem="d0h-BV-wbf" firstAttribute="top" secondItem="7v4-Wj-ejv" secondAttribute="bottom" constant="50" id="CrY-t1-3Us"/>
+                            <constraint firstItem="hXa-MV-PX2" firstAttribute="leading" secondItem="ZiB-Az-EAL" secondAttribute="leading" constant="185" id="DHQ-3B-cIJ"/>
+                            <constraint firstItem="7v4-Wj-ejv" firstAttribute="leading" secondItem="JyE-rb-NXj" secondAttribute="leading" id="Gzj-qs-GzQ"/>
+                            <constraint firstItem="7v4-Wj-ejv" firstAttribute="top" secondItem="ZiB-Az-EAL" secondAttribute="top" id="K8k-Ch-3vp"/>
+                            <constraint firstItem="jRw-SF-xqc" firstAttribute="centerX" secondItem="hXa-MV-PX2" secondAttribute="centerX" id="Klj-Wx-ArU"/>
+                            <constraint firstItem="hXa-MV-PX2" firstAttribute="centerX" secondItem="d0h-BV-wbf" secondAttribute="centerX" id="MiX-cK-7Ko"/>
+                            <constraint firstItem="ZiB-Az-EAL" firstAttribute="bottom" secondItem="jRw-SF-xqc" secondAttribute="bottom" constant="100" id="NcP-uF-d8r"/>
+                            <constraint firstItem="7v4-Wj-ejv" firstAttribute="centerX" secondItem="d0h-BV-wbf" secondAttribute="centerX" id="UFq-oz-p2Q"/>
+                            <constraint firstItem="hXa-MV-PX2" firstAttribute="centerX" secondItem="JyE-rb-NXj" secondAttribute="centerX" id="fs4-84-gEJ"/>
+                            <constraint firstItem="jRw-SF-xqc" firstAttribute="top" secondItem="hXa-MV-PX2" secondAttribute="bottom" constant="10" id="jRX-Cl-Czy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZiB-Az-EAL"/>
                     </view>
                     <navigationItem key="navigationItem" title="Responde Rapido" id="QZc-Db-ggF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nX4-zs-Rxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Qfb-95-3Xu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2153.5871156661783" y="-1743.1640625"/>
         </scene>

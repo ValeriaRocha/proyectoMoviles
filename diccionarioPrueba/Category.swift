@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Category: NSObject {
+class Category: Codable {
     var nombre : String
     var arrSena : [Sena]
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Usuario: NSObject {
+class Usuario: Codable {
     
     //esta es una prueba para crear un singleton de usuario para que se pueda acceder en todos los controllers del proyecto
     static var user = Usuario()
@@ -20,6 +20,10 @@ class Usuario: NSObject {
     var estrellas : Int
     var puntos : Int
     
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("usuario")
+    
     init(nombre : String, errores : [Sena], favoritos : [Sena], model : Modelo, estrellas : Int, puntos :  Int){
         self.nombre = nombre
         self.errores = errores
@@ -29,7 +33,7 @@ class Usuario: NSObject {
         self.puntos = puntos
     }
     
-    override init(){
+    init(){
         self.nombre = ""
         self.errores = [Sena]()
         self.favoritos = [Sena]()
@@ -65,6 +69,17 @@ class Usuario: NSObject {
             }
         }
         return senas
+    }
+    
+    // persistencia usuario
+    func guardaUsuario(){
+        do{
+            let data = try PropertyListEncoder().encode(Usuario.user)
+            let success = NSKeyedArchiver.archiveRootObject(data, toFile: Usuario.ArchiveURL.path)
+            print(success ? "Successful save" : "Save Failed")
+        } catch{
+            print("Save  Failed")
+        }
     }
 
 }

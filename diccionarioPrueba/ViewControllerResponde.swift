@@ -23,7 +23,7 @@ class ViewControllerResponde: UIViewController {
     var iBotCorrecto : Int!
     var iRandBot : Int!
     var puntos = 0
-    var vidas = 1
+    var vidas = 3
     var iC = 1
     @IBOutlet weak var lbVidas: UILabel!
     @IBOutlet weak var lbPuntos: UILabel!
@@ -39,7 +39,7 @@ class ViewControllerResponde: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         puntos = 0
-        vidas = 1
+        vidas = 3
         
         // agregar target a botón
         btTopDer.addTarget(self, action: #selector(clickBoton(sender:)), for: UIControlEvents.touchUpInside)
@@ -77,10 +77,17 @@ class ViewControllerResponde: UIViewController {
         
         // Fijar otros botones
         repeat{
-            iRandCat = Int(arc4random_uniform(UInt32(iTotalCat)))
-            iTotalSen = Usuario.user.model.arrTotal[iRandCat].arrSena.count - 1
-            iRandSen = Int(arc4random_uniform(UInt32(iTotalSen)))
+            // Verificar que no aparezca la seña correcta como opción incorrecta
+            repeat{
+                iRandCat = Int(arc4random_uniform(UInt32(iTotalCat)))
+                iTotalSen = Usuario.user.model.arrTotal[iRandCat].arrSena.count - 1
+                iRandSen = Int(arc4random_uniform(UInt32(iTotalSen)))
+            }while(iRandCat == iCorrectaCat && iCorrectaSen == iRandSen)
+            
+            // Fijar seña auxiliar
             senaAux = Usuario.user.model.arrTotal[iRandCat].arrSena[iRandSen]
+            
+            // Escoger el botón random
             repeat{
                 iRandBot = Int(arc4random_uniform(4))
             }while(arrSelec[iRandBot]==true)
@@ -102,8 +109,6 @@ class ViewControllerResponde: UIViewController {
             controller.view.frame = videoFrame
             self.view.addSubview(controller.view)
             player.play()
-            
-            
         } else {
             let imagen = UIImage(contentsOfFile: senaCorrecta.path)!
             imageView = UIImageView(image: imagen)
@@ -135,17 +140,25 @@ class ViewControllerResponde: UIViewController {
             vidas -= 1
             lbVidas.text = "Vidas: \(vidas)"
             Usuario.user.errores.append(senaCorrecta)
+            if(vidas != 0)
+            {
+                generarNuevo()
+            }
         }
         
         if vidas <= 0 {
-            //desplegar mensaje que perdio y hacer unwind
+            // agregar puntos a usuario
+            Usuario.user.puntos = Usuario.user.puntos + puntos
             
+            //desplegar mensaje que perdio y hacer unwind
             let alert = UIAlertController(title: "Perdiste!", message: "Excelente jugada, ganaste \(puntos) puntos.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
                 self.navigationController?.popViewController(animated: true)
             }))
             present(alert, animated: true, completion: nil)
             
+            // registro de persistencia
+            Usuario.user.guardaUsuario()
         }
     }
     
