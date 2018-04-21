@@ -89,8 +89,14 @@ class ViewControllerJuego3: UIViewController {
         
         posX = (posX + 840) % (Int(screen.width) - 65)  //para probar
         
+//        var rojo = UIView(frame: CGRect(x: 80, y: 130, width: 130, height: 130))
+//        rojo.layer.cornerRadius = 0.07 * rojo.bounds.size.width
+//        rojo.backgroundColor = #colorLiteral(red: 1, green: 0.3551787488, blue: 0.3405858015, alpha: 1)
+//
         //instanciar nuevo boton y ponerle medidas
         let button = UIButton(frame: CGRect(x: coorX/*Int(arc4random_uniform(UInt32(screen.width)))*/, y: 80, width: 130, height: 130))
+        
+        
         
         //Asignar seña o imagen
         //Si tiene imagen
@@ -119,6 +125,8 @@ class ViewControllerJuego3: UIViewController {
             button.tag = 1
         }
         
+       // rojo.addSubview(button)
+        
         //agregar boton al arreglo de botones
         botones.append(button)
     }
@@ -134,6 +142,17 @@ class ViewControllerJuego3: UIViewController {
             while(i < botones.count) {
                 botones[i].frame.origin.y += 1
                 
+                if botones[i].frame.origin.y > (screen.height - botones[i].frame.height/2) {
+                    if let imagen = botones[i].currentImage {
+                        botones[i].backgroundColor = #colorLiteral(red: 1, green: 0.2432638497, blue: 0.2501392129, alpha: 1)
+                        botones[i].layer.borderColor = #colorLiteral(red: 1, green: 0.2432638497, blue: 0.2501392129, alpha: 1)
+                        botones[i].setImage(nil, for: .normal)
+                    } else {
+                        botones[i].backgroundColor = #colorLiteral(red: 1, green: 0.2432638497, blue: 0.2501392129, alpha: 1)
+                        botones[i].layer.borderColor = #colorLiteral(red: 1, green: 0.2432638497, blue: 0.2501392129, alpha: 1)
+                    }
+                }
+                
                 //quitar los botones que ya pasaron por la parte baja de la pantalla
                 if botones[i].frame.origin.y > screen.height {
                     if botones[i].tag == 1{
@@ -147,8 +166,14 @@ class ViewControllerJuego3: UIViewController {
         
     }
     
+    //booleano aprendida/noAprendida  y arreglo de errores
     @objc func clickBoton(sender: UIButton!){
+    
         if sender.tag == 1 {
+            //poner seña como aprendida, quitarla de noAprendidas y del historial de Errores
+            //o sumar counter correctasSenaCorrecta
+            
+            
             for i in 0..<botones.count { //quitar del arreglo de botones
                 if sender == botones[i]{
                     botones.remove(at: i)
@@ -160,14 +185,12 @@ class ViewControllerJuego3: UIViewController {
             lbPuntos.text = "Puntos: \(puntos)"
         } else {
             restaVida()
+            //agregar la seña que selecciono al historial de Errores y poner como noAprendida
+            
+            
+            //poner señaCorrecta como noAprendida, agregarla al historial de errores
+            // o sumar counter incorrectasSenaCorrecta
         }
-        
-//        if vidas <= 0 {
-//            timerCaida.invalidate()
-//            timerCrear.invalidate()
-//            restaVida()
-//        }
-        
     }
     
     func restaVida(){
@@ -277,3 +300,21 @@ class ViewControllerJuego3: UIViewController {
 //            print("error")
 //        }
 //
+//                        let inputImage = imagen
+//                        let context = CIContext(options: nil)
+//
+//                        if let currentFilter = CIFilter(name: "CISepiaTone") {
+//                            let beginImage = CIImage(image: inputImage)
+//                            currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+//                            currentFilter.setValue(0.5, forKey: kCIInputIntensityKey)
+//
+//                            if let output = currentFilter.outputImage {
+//                                if let cgimg = context.createCGImage(output, from: output.extent) {
+//                                    let processedImage = UIImage(cgImage: cgimg)
+//                                    // do something interesting with the processed image
+//
+//                                    botones[i].setImage(processedImage, for: .normal)
+//                                }
+//                            }
+//                        }
+

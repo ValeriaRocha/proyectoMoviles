@@ -66,6 +66,16 @@ class ControllerJ3Sena: UIViewController {
             }
         }
         
+                var animales = Category(nombre: "hola", arrSena: [Sena]())
+                for i in 0 ... (Usuario.user.model.arrTotal.count - 1){
+                    if Usuario.user.model.arrTotal[i].nombre == "Animales"{
+                        animales = Usuario.user.model.arrTotal[i]
+                    }
+                }
+                senas.removeAll()
+                senas += [animales.arrSena[0], animales.arrSena[3], animales.arrSena[6], animales.arrSena[10]]
+
+        
         
         //desplegar video de la seña
         if senaCorrecta.path.hasSuffix(".m4v") {
