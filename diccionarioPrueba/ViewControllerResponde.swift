@@ -41,6 +41,9 @@ class ViewControllerResponde: UIViewController {
         puntos = 0
         vidas = 3
         
+        //PRUEBAAA
+        print("esta es una prueba")
+        
         // agregar target a botón
         btTopDer.addTarget(self, action: #selector(clickBoton(sender:)), for: UIControlEvents.touchUpInside)
         btTopIzq.addTarget(self, action: #selector(clickBoton(sender:)), for: UIControlEvents.touchUpInside)
