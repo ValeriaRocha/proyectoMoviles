@@ -15,13 +15,18 @@ class ControllerJ3Instrucciones: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hola")
         
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         
         tvInstrucciones.layer.cornerRadius = 0.05 * tvInstrucciones.bounds.size.width
+        
+        
+        tvInstrucciones.text = "                         " + String(Usuario.user.puntos)
+        for i in Usuario.user.errores{
+            tvInstrucciones.text = tvInstrucciones.text + " " + i.nombre
+        }
         // Do any additional setup after loading the view.
     }
 

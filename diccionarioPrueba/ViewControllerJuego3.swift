@@ -18,6 +18,7 @@ class ViewControllerJuego3: UIViewController {
     var velCaida = 0.01
     var velCrear = 1.5
     var senaCorrecta : Sena!
+    var learned = false
     var senas = [Sena]()
     var posX = 0
     var puntos = 0
@@ -35,6 +36,10 @@ class ViewControllerJuego3: UIViewController {
         timerCrear = Timer.scheduledTimer(timeInterval: velCrear, target: self, selector: #selector(self.updateTimerCrear), userInfo: nil, repeats: true)
         timerCaida = Timer.scheduledTimer(timeInterval: velCaida, target: self, selector: #selector(self.updateTimerCaida), userInfo: nil, repeats: true)
         
+        //crear notificacion para avisar cuando se vaya a home para pausar juego
+        let app = UIApplication.shared
+        NotificationCenter.default.addObserver(self, selector: #selector(aplicacionSaldra(notification:)), name: .UIApplicationWillResignActive, object: app)
+        
         //poner boton de salir
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Salir", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.salir(sender:)))
@@ -49,10 +54,35 @@ class ViewControllerJuego3: UIViewController {
         print(senaCorrecta.nombre)
     }
     
+    @objc func aplicacionSaldra(notification: NSNotification){
+        
+    }
+    
     @objc func salir(sender: UIBarButtonItem) {
-        // Perform your custom actions
-        // ...
-        // Go back to the previous ViewController
+        timerCaida.invalidate()
+        timerCrear.invalidate()
+        
+        //si el usuario le pico min una vez a la sena correcta, guardar como aprendida y quitarla del arreglo de errores
+        if learned{
+            Usuario.user.setSignLearned(named: senaCorrecta.nombre, value: true)
+            Usuario.user.quitarError(error: senaCorrecta)
+        }else {
+            Usuario.user.guardarError(error: senaCorrecta)
+            Usuario.user.setSignLearned(named: senaCorrecta.nombre, value: false)
+        }
+        
+        //actualizar puntos
+        Usuario.user.puntos += puntos
+        
+        //decir gracias por jugar
+        let alert = UIAlertController(title: "Gracias por Jugar!", message: "Excelente jugada, ganaste \(puntos) puntos.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
+            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        }))
+        present(alert, animated: true, completion: nil)
+        
+        //regresar a pantalla de instrucciones
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
         self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
     }
@@ -96,6 +126,8 @@ class ViewControllerJuego3: UIViewController {
         //Si tiene imagen
         if let imagen = UIImage(named: sena.nombre){
             button.setImage(imagen, for: .normal)
+            button.setTitle(sena.nombre, for: .normal)
+            button.setTitleColor(UIColor.clear, for: .normal)
            
         } else {
             //si no tiene imagen
@@ -128,7 +160,6 @@ class ViewControllerJuego3: UIViewController {
         
         let screen = UIScreen.main.bounds.size
         
-       
         //hacer que los botones caigan
             var i = 0
             while(i < botones.count) {
@@ -149,6 +180,7 @@ class ViewControllerJuego3: UIViewController {
     
     @objc func clickBoton(sender: UIButton!){
         if sender.tag == 1 {
+            learned = true //con una vez que le haya picado a la sena correcta, se considera como aprendida
             for i in 0..<botones.count { //quitar del arreglo de botones
                 if sender == botones[i]{
                     botones.remove(at: i)
@@ -159,15 +191,27 @@ class ViewControllerJuego3: UIViewController {
             puntos += 5
             lbPuntos.text = "Puntos: \(puntos)"
         } else {
+            let senaErronea = getSign(forButton: sender)!
+            
+            //todas las senas incorrectas que haya seleccionado despues de haberle picado a la sena correcta
+            //se consideran como errores de dedo
+            if !learned{
+                Usuario.user.guardarError(error: senaErronea)
+                Usuario.user.setSignLearned(named: senaErronea.nombre, value: false)
+            }
             restaVida()
         }
         
-//        if vidas <= 0 {
-//            timerCaida.invalidate()
-//            timerCrear.invalidate()
-//            restaVida()
-//        }
-        
+    }
+    
+    //regresa la seña que coincide con el boton forButton
+    func getSign(forButton: UIButton)-> Sena? {
+        for i in senas {
+            if forButton.titleLabel?.text! == i.nombre{
+                return i
+            }
+        }
+        return nil
     }
     
     func restaVida(){
@@ -176,6 +220,16 @@ class ViewControllerJuego3: UIViewController {
         if vidas <= 0{
             timerCaida.invalidate()
             timerCrear.invalidate()
+            
+            //si el usuario le pico min una vez a la sena correcta, guardar como aprendida y quitarla del arreglo de errores
+            if learned{
+                Usuario.user.setSignLearned(named: senaCorrecta.nombre, value: true)
+                Usuario.user.quitarError(error: senaCorrecta)
+            }else {
+                Usuario.user.guardarError(error: senaCorrecta)
+                Usuario.user.setSignLearned(named: senaCorrecta.nombre, value: false)
+            }
+            Usuario.user.puntos += puntos
             let alert = UIAlertController(title: "Perdiste!", message: "Excelente jugada, ganaste \(puntos) puntos.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
                 //self.performSegue(withIdentifier: "salirJuego", sender: nil)

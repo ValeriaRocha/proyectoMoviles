@@ -61,14 +61,41 @@ class Usuario: Codable {
     func aprendidas()-> [Sena]{
         var senas = [Sena]()
         
-        for c in 0 ... (model.arrTotal.count - 1){
-            for s in 0 ... (model.arrTotal[c].arrSena.count - 1){
+        for c in 0..<model.arrTotal.count{
+            for s in 0..<model.arrTotal[c].arrSena.count{
                 if model.arrTotal[c].arrSena[s].aprendida{
                     senas.append(model.arrTotal[c].arrSena[s])
                 }
             }
         }
         return senas
+    }
+    
+    //asigna el valor de aprendida de la seña llamada named para que sea igual a value
+    func setSignLearned(named: String, value: Bool){
+        for c in 0..<model.arrTotal.count{
+            for s in 0..<model.arrTotal[c].arrSena.count{
+                if model.arrTotal[c].arrSena[s].nombre == named{
+                    model.arrTotal[c].arrSena[s].aprendida = value
+                }
+            }
+        }
+    }
+    
+    //quitar del arreglo de errores la seña pasada como parametro
+    func quitarError(error: Sena){
+        for i in 0 ..< errores.count{
+            if errores[i].nombre == error.nombre{
+                errores.remove(at: i)
+                break
+            }
+        }
+    }
+    
+    func guardarError(error: Sena){
+        if !errores.contains(where: {$0.nombre == error.nombre}){
+            errores.append(error)
+        }
     }
     
     // persistencia usuario
@@ -79,6 +106,17 @@ class Usuario: Codable {
             print(success ? "Successful save" : "Save Failed")
         } catch{
             print("Save  Failed")
+        }
+    }
+    
+    
+    //recuperar informacion
+    func retrieveUsuario(){
+        guard let data = NSKeyedUnarchiver.unarchiveObject(withFile: Usuario.ArchiveURL.path) as? Data else {return}
+        do{
+            Usuario.user = try PropertyListDecoder().decode(Usuario.self, from: data)
+        } catch {
+            print("No se pudo recuperar la informacion del usuario")
         }
     }
 
