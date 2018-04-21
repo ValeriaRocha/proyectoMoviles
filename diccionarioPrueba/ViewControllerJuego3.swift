@@ -32,6 +32,9 @@ class ViewControllerJuego3: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //ESTO ES UNA PRUEBA
+        print("hOLA")
+        
         //inicializar timers
         timerCrear = Timer.scheduledTimer(timeInterval: velCrear, target: self, selector: #selector(self.updateTimerCrear), userInfo: nil, repeats: true)
         timerCaida = Timer.scheduledTimer(timeInterval: velCaida, target: self, selector: #selector(self.updateTimerCaida), userInfo: nil, repeats: true)
