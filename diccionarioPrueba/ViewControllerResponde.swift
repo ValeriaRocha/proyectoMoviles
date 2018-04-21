@@ -55,7 +55,6 @@ class ViewControllerResponde: UIViewController {
         arrButton.append(btAbIzq)
         
         generarNuevo()
-        
     }
     
     func subraya(sString : String) -> NSAttributedString
@@ -72,14 +71,6 @@ class ViewControllerResponde: UIViewController {
     
     func generarNuevo()
     {
-        var iX = 0
-        print("errores")
-        while (iX < Usuario.user.errores.count)
-        {
-            print(Usuario.user.errores[iX].nombre)
-            iX = iX + 1
-        }
-        
         iC = 1
         arrSelec = [false,false,false,false]
         
@@ -155,7 +146,7 @@ class ViewControllerResponde: UIViewController {
             {
                 imageView.removeFromSuperview()
             }
-            if(controller.view != nil)
+            if(controller != nil)
             {
                 controller.view.removeFromSuperview()
             }
@@ -165,6 +156,13 @@ class ViewControllerResponde: UIViewController {
         } else {
             vidas -= 1
             lbVidas.text = "Vidas: \(vidas)"
+            if vidas > 0
+            {
+                let alert = UIAlertController(title: "", message: "Perdiste una vida", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
+                }))
+                present(alert, animated: true, completion: nil)
+            }
             Usuario.user.errores.append(senaCorrecta)
             if(vidas != 0)
             {
@@ -184,7 +182,7 @@ class ViewControllerResponde: UIViewController {
             present(alert, animated: true, completion: nil)
             
             // registro de persistencia
-            Usuario.user.guardaUsuario()
+            //Usuario.user.guardaUsuario()
         }
     }
     
