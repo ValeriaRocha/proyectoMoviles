@@ -71,6 +71,7 @@ class ViewControllerResponde: UIViewController {
     
     func generarNuevo()
     {
+        print("hola")
         iC = 1
         arrSelec = [false,false,false,false]
         
