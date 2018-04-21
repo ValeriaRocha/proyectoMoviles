@@ -36,9 +36,10 @@ class ViewControllerJuego3: UIViewController {
         timerCrear = Timer.scheduledTimer(timeInterval: velCrear, target: self, selector: #selector(self.updateTimerCrear), userInfo: nil, repeats: true)
         timerCaida = Timer.scheduledTimer(timeInterval: velCaida, target: self, selector: #selector(self.updateTimerCaida), userInfo: nil, repeats: true)
         
-        //crear notificacion para avisar cuando se vaya a home para pausar juego
         let app = UIApplication.shared
-        NotificationCenter.default.addObserver(self, selector: #selector(aplicacionSaldra(notification:)), name: .UIApplicationWillResignActive, object: app)
+        NotificationCenter.default.addObserver(self, selector: #selector(aplicacionWillResignActive(notification:)), name: .UIApplicationWillResignActive, object: app)
+        NotificationCenter.default.addObserver(self, selector: #selector(aplicacionDidBecomeActive(notification:)), name: .UIApplicationDidBecomeActive, object: app)
+        
         
         //poner boton de salir
         self.navigationItem.hidesBackButton = true
@@ -54,9 +55,18 @@ class ViewControllerJuego3: UIViewController {
         print(senaCorrecta.nombre)
     }
     
-    @objc func aplicacionSaldra(notification: NSNotification){
-        
-    }
+        @objc func aplicacionWillResignActive(notification: NSNotification){
+            print("Will resign active")
+            timerCrear.invalidate()
+            timerCaida.invalidate()
+        }
+    
+        @objc func aplicacionDidBecomeActive(notification: NSNotification){
+            print("Will enter foreground")
+            timerCrear = Timer.scheduledTimer(timeInterval: velCrear, target: self, selector: #selector(self.updateTimerCrear), userInfo: nil, repeats: true)
+            timerCaida = Timer.scheduledTimer(timeInterval: velCaida, target: self, selector: #selector(self.updateTimerCaida), userInfo: nil, repeats: true)
+        }
+    
     
     @objc func salir(sender: UIBarButtonItem) {
         timerCaida.invalidate()
