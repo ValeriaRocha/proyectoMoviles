@@ -14,9 +14,10 @@ class ViewControllerJuego3: UIViewController {
     
     var timerCrear = Timer()
     var timerCaida = Timer()
+    var timer = Timer()
     var botones = [UIButton]()
-    var velCaida = 0.01
-    var velCrear = 1.5
+    var velCaida : Double!  //0.01
+    var velCrear : Double! //1.5
     var senaCorrecta : Sena!
     var learned = false
     var senas = [Sena]()
@@ -24,17 +25,19 @@ class ViewControllerJuego3: UIViewController {
     var puntos = 0
     var vidas = 5
     var timeSenaCorrecta = 0
+    var segundos = 0
     
     @IBOutlet weak var lbPuntos: UILabel!
     @IBOutlet weak var lbVidas: UILabel!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //inicializar timers
         timerCrear = Timer.scheduledTimer(timeInterval: velCrear, target: self, selector: #selector(self.updateTimerCrear), userInfo: nil, repeats: true)
         timerCaida = Timer.scheduledTimer(timeInterval: velCaida, target: self, selector: #selector(self.updateTimerCaida), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCadaSegundo), userInfo: nil, repeats: true)
         
         let app = UIApplication.shared
         NotificationCenter.default.addObserver(self, selector: #selector(aplicacionWillResignActive(notification:)), name: .UIApplicationWillResignActive, object: app)
@@ -55,31 +58,40 @@ class ViewControllerJuego3: UIViewController {
         print(senaCorrecta.nombre)
     }
     
+    @objc func updateCadaSegundo(){
+        segundos += 1
+        
+        if segundos >= 30{
+            timerCrear.invalidate()
+            timerCaida.invalidate()
+            timer.invalidate()
+            let alert = UIAlertController(title: "Nueva Seña!", message: "Vimos que ya aprendiste esa seña, asi que toca cambiar!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
+                self.navigationController?.popViewController(animated: true)
+            }))
+            present(alert, animated: true, completion: nil)
+            
+        }
+    }
+    
         @objc func aplicacionWillResignActive(notification: NSNotification){
             print("Will resign active")
             timerCrear.invalidate()
             timerCaida.invalidate()
+            timer.invalidate()
         }
     
         @objc func aplicacionDidBecomeActive(notification: NSNotification){
             print("Will enter foreground")
             timerCrear = Timer.scheduledTimer(timeInterval: velCrear, target: self, selector: #selector(self.updateTimerCrear), userInfo: nil, repeats: true)
             timerCaida = Timer.scheduledTimer(timeInterval: velCaida, target: self, selector: #selector(self.updateTimerCaida), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCadaSegundo), userInfo: nil, repeats: true)
         }
     
     
     @objc func salir(sender: UIBarButtonItem) {
         timerCaida.invalidate()
         timerCrear.invalidate()
-        
-        //si el usuario le pico min una vez a la sena correcta, guardar como aprendida y quitarla del arreglo de errores
-        if learned{
-            Usuario.user.setSignLearned(named: senaCorrecta.nombre, value: true)
-            Usuario.user.quitarError(error: senaCorrecta)
-        }else {
-            Usuario.user.guardarError(error: senaCorrecta)
-            Usuario.user.setSignLearned(named: senaCorrecta.nombre, value: false)
-        }
         
         //actualizar puntos
         Usuario.user.puntos += puntos
@@ -122,6 +134,7 @@ class ViewControllerJuego3: UIViewController {
             let indice = Int(arc4random_uniform(UInt32(senas.count - 1)))
             crearBoton(sena: senas[indice], coorX: coorX)
         }
+        
     }
     
     func crearBoton(sena : Sena, coorX: Int){
@@ -171,26 +184,31 @@ class ViewControllerJuego3: UIViewController {
         let screen = UIScreen.main.bounds.size
         
         //hacer que los botones caigan
-            var i = 0
-            while(i < botones.count) {
-                botones[i].frame.origin.y += 1
-                
-                //quitar los botones que ya pasaron por la parte baja de la pantalla
-                if botones[i].frame.origin.y > screen.height {
-                    if botones[i].tag == 1{
-                        restaVida()
-                    }
-                    botones[i].removeFromSuperview()
-                    botones.remove(at: i)
+        var i = 0
+        while(i < botones.count) {
+            botones[i].frame.origin.y += 1
+
+            //quitar los botones que ya pasaron por la parte baja de la pantalla
+            if botones[i].frame.origin.y > screen.height {
+                if botones[i].tag == 1{
+                    restaVida()
                 }
-                i += 1
+                botones[i].removeFromSuperview()
+                botones.remove(at: i)
             }
+            i += 1
+        }
         
     }
     
     @objc func clickBoton(sender: UIButton!){
         if sender.tag == 1 {
             learned = true //con una vez que le haya picado a la sena correcta, se considera como aprendida
+            
+            //poner como aprendida
+            Usuario.user.setSignLearned(named: senaCorrecta.nombre, value: true)
+            Usuario.user.quitarError(error: senaCorrecta)
+            
             for i in 0..<botones.count { //quitar del arreglo de botones
                 if sender == botones[i]{
                     botones.remove(at: i)
@@ -206,6 +224,8 @@ class ViewControllerJuego3: UIViewController {
             //todas las senas incorrectas que haya seleccionado despues de haberle picado a la sena correcta
             //se consideran como errores de dedo
             if !learned{
+                Usuario.user.guardarError(error: senaCorrecta)
+                Usuario.user.setSignLearned(named: senaCorrecta.nombre, value: false)
                 Usuario.user.guardarError(error: senaErronea)
                 Usuario.user.setSignLearned(named: senaErronea.nombre, value: false)
             }
@@ -230,20 +250,10 @@ class ViewControllerJuego3: UIViewController {
         if vidas <= 0{
             timerCaida.invalidate()
             timerCrear.invalidate()
-            
-            //si el usuario le pico min una vez a la sena correcta, guardar como aprendida y quitarla del arreglo de errores
-            if learned{
-                Usuario.user.setSignLearned(named: senaCorrecta.nombre, value: true)
-                Usuario.user.quitarError(error: senaCorrecta)
-            }else {
-                Usuario.user.guardarError(error: senaCorrecta)
-                Usuario.user.setSignLearned(named: senaCorrecta.nombre, value: false)
-            }
+
             Usuario.user.puntos += puntos
             let alert = UIAlertController(title: "Perdiste!", message: "Excelente jugada, ganaste \(puntos) puntos.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
-                //self.performSegue(withIdentifier: "salirJuego", sender: nil)
-                // self.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
                 let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
                 self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
             }))
@@ -277,11 +287,6 @@ class ViewControllerJuego3: UIViewController {
 //        image.center = CGPointMake(image.center.x+position.x, image.center.y+position.y);
 //        position = CGPointMake(0.0, 0.15);
 
-
-//
-//        if seconds <= 0 {
-//            timer.invalidate()
-//        }
 
 //button.setImage(#imageLiteral(resourceName: "Chango"), for: .normal)
 //        let image = #imageLiteral(resourceName: "Chango")
@@ -341,3 +346,15 @@ class ViewControllerJuego3: UIViewController {
 //            print("error")
 //        }
 //
+
+//            if botones[i].frame.origin.y > (screen.height - botones[i].frame.height/2) {
+//                if botones[i].currentImage != nil {
+//                    botones[i].backgroundColor = #colorLiteral(red: 1, green: 0.2432638497, blue: 0.2501392129, alpha: 1)
+//                    botones[i].layer.borderColor = #colorLiteral(red: 1, green: 0.2432638497, blue: 0.2501392129, alpha: 1)
+//                    botones[i].setImage(nil, for: .normal)
+//                } else {
+//                    botones[i].backgroundColor = #colorLiteral(red: 1, green: 0.2432638497, blue: 0.2501392129, alpha: 1)
+//                    botones[i].layer.borderColor = #colorLiteral(red: 1, green: 0.2432638497, blue: 0.2501392129, alpha: 1)
+//                }
+//            }
+
