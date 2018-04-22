@@ -44,6 +44,10 @@ class ViewControllerJuego3: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(aplicacionDidBecomeActive(notification:)), name: .UIApplicationDidBecomeActive, object: app)
         
         
+//        let label = UILabel(frame: CGRect(x: UIScreen.main.bounds.size.width - 30, y: 30, width: 30, height: 30))
+//        label.text = "Prueba"
+       // navigationItem.title = "Puntos: 50  Vidas: 5"
+        
         //poner boton de salir
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Salir", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.salir(sender:)))
@@ -156,19 +160,27 @@ class ViewControllerJuego3: UIViewController {
             button.setImage(imagen, for: .normal)
             button.setTitle(sena.nombre, for: .normal)
             button.setTitleColor(UIColor.clear, for: .normal)
+            
+            //estetica
+            //button.layer.cornerRadius = 0.07 * button.bounds.size.width
+            button.layer.borderWidth = 2.5
+            button.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
            
         } else {
             //si no tiene imagen
             button.backgroundColor = #colorLiteral(red: 0.7886319331, green: 0.8695178572, blue: 0.9969008565, alpha: 1)
             button.setTitle(sena.nombre, for: .normal)
             button.setTitleColor(UIColor.black, for: .normal)
+            
+            //estetica
+            button.layer.cornerRadius = 0.07 * button.bounds.size.width
+            button.layer.borderWidth = 1
+            button.layer.borderColor = #colorLiteral(red: 0.6762949995, green: 0.6667861859, blue: 0.8172390546, alpha: 1)
         }
         
-        //estetica
-        button.layer.cornerRadius = 0.07 * button.bounds.size.width
-        button.layer.borderWidth = 1
-        button.layer.borderColor = #colorLiteral(red: 0.6762949995, green: 0.6667861859, blue: 0.8172390546, alpha: 1)
         button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        button.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 20)
+       
         
         //agregarle el target al boton
         button.addTarget(self, action: #selector(clickBoton(sender:)), for: UIControlEvents.touchUpInside)
