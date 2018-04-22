@@ -16,6 +16,8 @@ class ControllerJ3Sena: UIViewController {
     var velCrear = 0.0
     var velCaida = 0.0
     var didLoad = false
+    var puntos = 0
+    var vidas = 5
     
     @IBOutlet weak var btSalir: UIButton!
     @IBOutlet weak var btJugar: UIButton!
@@ -26,11 +28,12 @@ class ControllerJ3Sena: UIViewController {
         didLoad = true
         velCaida = 0.01
         velCrear = 1.5
+        puntos = 0
+        vidas = 5
+        
         
         escogerSenas()
-       
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         print("view did appear")
@@ -42,13 +45,14 @@ class ControllerJ3Sena: UIViewController {
             }
             escogerSenas()
         }
-        
          didLoad = false
     }
     
     func escogerSenas(){
         let aprendidas = Usuario.user.aprendidas()
         let noAprendidas = Usuario.user.noAprendidas()
+        
+        print("No Aprendidas count " + String(noAprendidas.count))
         
         //escoger 1 seña correcta
         if noAprendidas.count > 0 {
@@ -129,13 +133,6 @@ class ControllerJ3Sena: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func unwindSalirSena(unwindSegue : UIStoryboardSegue){
-        //performSegue(withIdentifier: "salir", sender: self)
-        print("Hola estoy en el unwind de salir sena")
-    }
-    
-    
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -148,19 +145,23 @@ class ControllerJ3Sena: UIViewController {
             destination.senas = senas
             destination.velCrear = velCrear
             destination.velCaida = velCaida
+            destination.puntos = puntos
+            destination.vidas = vidas
             
             if let viewWithTag = self.view.viewWithTag(100) {
                 viewWithTag.removeFromSuperview()
-            }else{
-                print("No!")
             }
         }
     }
-
 }
 
 
-
+//poner unas como ya aprendidas
+//        for c in 0 ..< Usuario.user.model.arrTotal.count - 1{
+//            for s in 0 ..< Usuario.user.model.arrTotal[c].arrSena.count{
+//                Usuario.user.setSignLearned(named:  Usuario.user.model.arrTotal[c].arrSena[s].nombre, value: true)
+//            }
+//        }
 
 
 //if noAprendidas.count > 10 {

@@ -65,6 +65,14 @@ class ViewControllerJuego3: UIViewController {
             timerCrear.invalidate()
             timerCaida.invalidate()
             timer.invalidate()
+            
+            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+            //]self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+            let vistaAnterior = viewControllers[viewControllers.count - 2] as! ControllerJ3Sena
+            
+            vistaAnterior.puntos = puntos
+            vistaAnterior.vidas = vidas
+            
             let alert = UIAlertController(title: "Nueva Seña!", message: "Vimos que ya aprendiste esa seña, asi que toca cambiar!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
                 self.navigationController?.popViewController(animated: true)
@@ -76,9 +84,7 @@ class ViewControllerJuego3: UIViewController {
     
         @objc func aplicacionWillResignActive(notification: NSNotification){
             print("Will resign active")
-            timerCrear.invalidate()
-            timerCaida.invalidate()
-            timer.invalidate()
+            invalidateTimers()
         }
     
         @objc func aplicacionDidBecomeActive(notification: NSNotification){
@@ -90,8 +96,7 @@ class ViewControllerJuego3: UIViewController {
     
     
     @objc func salir(sender: UIBarButtonItem) {
-        timerCaida.invalidate()
-        timerCrear.invalidate()
+        invalidateTimers()
         
         //actualizar puntos
         Usuario.user.puntos += puntos
@@ -248,8 +253,7 @@ class ViewControllerJuego3: UIViewController {
         vidas -= 1
         lbVidas.text = "Vidas: " + String(vidas)
         if vidas <= 0{
-            timerCaida.invalidate()
-            timerCrear.invalidate()
+            invalidateTimers()
 
             Usuario.user.puntos += puntos
             let alert = UIAlertController(title: "Perdiste!", message: "Excelente jugada, ganaste \(puntos) puntos.", preferredStyle: .alert)
@@ -259,6 +263,12 @@ class ViewControllerJuego3: UIViewController {
             }))
             present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func invalidateTimers(){
+        timerCaida.invalidate()
+        timerCrear.invalidate()
+        timer.invalidate()
     }
     
 
