@@ -16,14 +16,13 @@ class TableViewControllerCategory: UITableViewController, UISearchBarDelegate {
     let searchController = UISearchController(searchResultsController: nil)
     var modelX : Modelo!
     var buscar = false //Variable con la que nos dice si esta buscando una palabra el usuario
-    var modelFiltro: Modelo!
+    var modelFiltro : Modelo!
     
     override func viewDidLoad() {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         super.viewDidLoad()
         modelX = Modelo()
@@ -78,11 +77,14 @@ class TableViewControllerCategory: UITableViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vista = segue.destination as! TableViewControllerSena
         let indexrow = tableView.indexPathForSelectedRow!
-        
-        if(buscar){
-            vista.datoMostrar = modelFiltro.arrTotal[indexrow.row].arrSena
-        } else {
-            vista.datoMostrar = modelX.arrTotal[indexrow.row].arrSena
+        vista.bEdit = false
+        if segue.identifier == "normal"
+        {
+            if(buscar){
+                vista.datoMostrar = modelFiltro.arrTotal[indexrow.row].arrSena
+            } else {
+                vista.datoMostrar = modelX.arrTotal[indexrow.row].arrSena
+            }
         }
     }
 
@@ -112,17 +114,16 @@ class TableViewControllerCategory: UITableViewController, UISearchBarDelegate {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    /*override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
-    }
-    */
+    }*/
 
     /*
     // Override to support rearranging the table view.

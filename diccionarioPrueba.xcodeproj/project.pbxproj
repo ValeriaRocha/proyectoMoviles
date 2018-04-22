@@ -24,6 +24,7 @@
 		54290BF92058894000AEFE49 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54290BF82058894000AEFE49 /* Category.swift */; };
 		54290BFB2058894D00AEFE49 /* Seña.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54290BFA2058894D00AEFE49 /* Seña.swift */; };
 		54290BFD2058966600AEFE49 /* TableViewControllerSena.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54290BFC2058966600AEFE49 /* TableViewControllerSena.swift */; };
+		548B43C7208C12F800CCB18B /* ViewControllerUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548B43C6208C12F800CCB18B /* ViewControllerUsuario.swift */; };
 		A69F0252207307F6003603D8 /* MemoramaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */; };
 		A69F025520730A3C003603D8 /* MemoramaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F025420730A3C003603D8 /* MemoramaViewController.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		54290BF82058894000AEFE49 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		54290BFA2058894D00AEFE49 /* Seña.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Seña.swift"; sourceTree = "<group>"; };
 		54290BFC2058966600AEFE49 /* TableViewControllerSena.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerSena.swift; sourceTree = "<group>"; };
+		548B43C6208C12F800CCB18B /* ViewControllerUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUsuario.swift; sourceTree = "<group>"; };
 		A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoramaCollectionViewCell.swift; sourceTree = "<group>"; };
 		A69F025420730A3C003603D8 /* MemoramaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoramaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 				3BDC7EE7206494FE0014F030 /* ViewControllerJuego3.swift */,
 				3BBCC8FF2058EF4600DF6EB5 /* ViewControllerRuleta.swift */,
 				3B2D89B7205776EC0085392B /* Main.storyboard */,
+				548B43C6208C12F800CCB18B /* ViewControllerUsuario.swift */,
 				A69F025420730A3C003603D8 /* MemoramaViewController.swift */,
 				A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */,
 				3B6C2B7D2069E8930067EB84 /* ControllerJ3Instrucciones.swift */,
@@ -192,6 +195,7 @@
 				3B6C2B7E2069E8930067EB84 /* ControllerJ3Instrucciones.swift in Sources */,
 				54290BFD2058966600AEFE49 /* TableViewControllerSena.swift in Sources */,
 				3BCE12FD20688FEC001B153E /* Usuario.swift in Sources */,
+				548B43C7208C12F800CCB18B /* ViewControllerUsuario.swift in Sources */,
 				A69F0252207307F6003603D8 /* MemoramaCollectionViewCell.swift in Sources */,
 				3BDC7EE8206494FE0014F030 /* ViewControllerJuego3.swift in Sources */,
 			);

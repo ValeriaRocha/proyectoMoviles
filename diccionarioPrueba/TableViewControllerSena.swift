@@ -14,6 +14,7 @@ class TableViewControllerSena: UITableViewController, UISearchBarDelegate {
     var datoMostrar : [Sena]!
     var datoMostrarFiltro: [Sena]!
     var buscar = false
+    var bEdit = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,10 @@ class TableViewControllerSena: UITableViewController, UISearchBarDelegate {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        if bEdit
+        {
+            self.navigationItem.rightBarButtonItem = self.editButtonItem
+        }
         
         self.title = "Señas"
         //SearchBar
@@ -98,17 +102,20 @@ class TableViewControllerSena: UITableViewController, UISearchBarDelegate {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let indexPathR = indexPath.row
         if editingStyle == .delete {
             // Delete the row from the data source
+            datoMostrar.remove(at: indexPathR)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            Usuario.user.quitarError(error: datoMostrar[indexPathR])
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
