@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oqa-Bu-TBx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hg6-b1-0Ya">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -132,9 +132,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="8iF-8o-3rs">
-                                <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="8iF-8o-3rs">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giO-qN-RNs">
                                 <rect key="frame" x="662" y="28" width="42" height="21"/>
@@ -143,15 +142,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Puntos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4b-F1-1Vg">
-                                <rect key="frame" x="1026" y="82" width="157" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vidas:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wH-Sg-gr0">
+                                <rect key="frame" x="551" y="82" width="153" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vidas:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wH-Sg-gr0">
-                                <rect key="frame" x="1204" y="82" width="153" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Puntos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4b-F1-1Vg">
+                                <rect key="frame" x="344" y="82" width="157" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -159,6 +158,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92361154416734259" green="0.99145956859590045" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8iF-8o-3rs" firstAttribute="bottom" secondItem="sd2-Oj-778" secondAttribute="bottom" id="Imd-1p-h4o"/>
+                            <constraint firstItem="8iF-8o-3rs" firstAttribute="leading" secondItem="sd2-Oj-778" secondAttribute="leading" id="Kc3-bS-z9D"/>
+                            <constraint firstItem="8iF-8o-3rs" firstAttribute="top" secondItem="rhY-cQ-jCo" secondAttribute="top" id="Zng-jv-DoT"/>
+                            <constraint firstItem="8iF-8o-3rs" firstAttribute="trailing" secondItem="sd2-Oj-778" secondAttribute="trailing" id="s3T-Wv-zlT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sd2-Oj-778"/>
                     </view>
                     <connections>
@@ -170,7 +175,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMA-Ok-Zjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hmo-jH-f9z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3579.7950219619324" y="-1016.0156249999999"/>
+            <point key="canvasLocation" x="3579.4921874999995" y="-1016.40625"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -418,21 +423,12 @@
                                     <segue destination="BHV-SV-XkO" kind="show" id="dtT-UQ-tPq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZx-BR-J1B">
-                                <rect key="frame" x="35" y="44" width="101" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Salir del Juego"/>
-                                <connections>
-                                    <segue destination="810-uX-zni" kind="unwind" identifier="salir" unwindAction="unwindPrincipalWithUnwindSegue:" id="7pN-3Y-a6G"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92361154420000002" green="0.99145956859999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="tCH-jR-KX2"/>
                     </view>
                     <connections>
                         <outlet property="btJugar" destination="RwJ-B6-LMd" id="hmI-aB-eHx"/>
-                        <outlet property="btSalir" destination="uZx-BR-J1B" id="fE9-JI-dSX"/>
                         <segue destination="810-uX-zni" kind="unwind" unwindAction="unwindPrincipalWithUnwindSegue:" id="pi1-53-7Ci"/>
                     </connections>
                 </viewController>
