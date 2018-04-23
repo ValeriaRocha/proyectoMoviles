@@ -11,6 +11,8 @@ import UIKit
 class ControllerJ3Instrucciones: UIViewController {
     
     @IBOutlet weak var tvInstrucciones: UITextView!
+    @IBOutlet weak var vista: UIView!
+    
     
 
     override func viewDidLoad() {
@@ -21,7 +23,7 @@ class ControllerJ3Instrucciones: UIViewController {
         self.navigationItem.leftBarButtonItem = newBackButton
         
         tvInstrucciones.layer.cornerRadius = 0.05 * tvInstrucciones.bounds.size.width
-        
+        vista.layer.cornerRadius = 0.05 * vista.bounds.size.width
         
         tvInstrucciones.text = "                         " + String(Usuario.user.puntos)
         for i in Usuario.user.errores{

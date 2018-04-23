@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PoK-LJ-pBj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NmQ-Px-cOa">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ChalkboardSE.ttc">
+            <string>ChalkboardSE-Regular</string>
+        </array>
+        <array key="KohinoorBangla.ttc">
+            <string>KohinoorBangla-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller Responde-->
         <scene sceneID="qOf-Cq-1tL">
@@ -356,10 +364,14 @@
                                     <segue destination="9nS-UF-blm" kind="show" id="PUA-Qn-Fg7"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xu9-zI-Blz">
+                                <rect key="frame" x="151" y="246" width="1074" height="633"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.39897312784092526" green="0.79423630898049391" blue="0.84345256979695438" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Antes de empezar el juego, se te mostrara una seña. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vmi-He-PJg">
                                 <rect key="frame" x="186" y="278" width="995" height="545"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.64558230496885116" green="0.8766259517766497" blue="0.86902654324983419" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -374,13 +386,14 @@
                     <navigationItem key="navigationItem" id="TTo-fg-V20"/>
                     <connections>
                         <outlet property="tvInstrucciones" destination="Vmi-He-PJg" id="B9o-bV-qFk"/>
+                        <outlet property="vista" destination="Xu9-zI-Blz" id="6mQ-zJ-aqC"/>
                         <segue destination="e2e-0w-9XN" kind="unwind" identifier="back" unwindAction="unwindWithUnwindSegue:" id="0tN-5k-qB4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGP-60-EVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="e2e-0w-9XN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2154" y="-1016"/>
+            <point key="canvasLocation" x="2153.5871156661783" y="-1016.0156249999999"/>
         </scene>
         <!--ControllerJ3 Sena-->
         <scene sceneID="w9v-kA-Z0C">

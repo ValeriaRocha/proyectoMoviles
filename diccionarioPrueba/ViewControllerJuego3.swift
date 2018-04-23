@@ -169,7 +169,7 @@ class ViewControllerJuego3: UIViewController {
         } else {
             //si no tiene imagen
             button.backgroundColor = #colorLiteral(red: 0.7886319331, green: 0.8695178572, blue: 0.9969008565, alpha: 1)
-            // button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.366598887)
+            button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.366598887)
             button.setTitle(sena.nombre, for: .normal)
             button.setTitleColor(UIColor.black, for: .normal)
             
@@ -177,7 +177,7 @@ class ViewControllerJuego3: UIViewController {
             button.layer.cornerRadius = 0.07 * button.bounds.size.width
             button.layer.borderWidth = 1
             button.layer.borderColor = #colorLiteral(red: 0.6762949995, green: 0.6667861859, blue: 0.8172390546, alpha: 1)
-            // button.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.366598887)
+             button.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.366598887)
         }
         
         button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
