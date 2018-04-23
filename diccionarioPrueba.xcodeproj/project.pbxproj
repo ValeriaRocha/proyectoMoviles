@@ -27,6 +27,8 @@
 		548B43C7208C12F800CCB18B /* ViewControllerUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548B43C6208C12F800CCB18B /* ViewControllerUsuario.swift */; };
 		A69F0252207307F6003603D8 /* MemoramaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */; };
 		A69F025520730A3C003603D8 /* MemoramaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F025420730A3C003603D8 /* MemoramaViewController.swift */; };
+		A6C3AFED208D897F00A81E59 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3AFEC208D897F00A81E59 /* RoundButton.swift */; };
+		A6C3AFEF208D8A7800A81E59 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C3AFEE208D8A7800A81E59 /* PopOverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		548B43C6208C12F800CCB18B /* ViewControllerUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUsuario.swift; sourceTree = "<group>"; };
 		A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoramaCollectionViewCell.swift; sourceTree = "<group>"; };
 		A69F025420730A3C003603D8 /* MemoramaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoramaViewController.swift; sourceTree = "<group>"; };
+		A6C3AFEC208D897F00A81E59 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		A6C3AFEE208D8A7800A81E59 /* PopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +94,10 @@
 				3BDC7EE7206494FE0014F030 /* ViewControllerJuego3.swift */,
 				3BBCC8FF2058EF4600DF6EB5 /* ViewControllerRuleta.swift */,
 				3B2D89B7205776EC0085392B /* Main.storyboard */,
+				A6C3AFEE208D8A7800A81E59 /* PopOverViewController.swift */,
 				548B43C6208C12F800CCB18B /* ViewControllerUsuario.swift */,
 				A69F025420730A3C003603D8 /* MemoramaViewController.swift */,
+				A6C3AFEC208D897F00A81E59 /* RoundButton.swift */,
 				A69F0250207307F6003603D8 /* MemoramaCollectionViewCell.swift */,
 				3B6C2B7D2069E8930067EB84 /* ControllerJ3Instrucciones.swift */,
 				3BDD328F2069862300E245E7 /* ControllerJ3Sena.swift */,
@@ -184,6 +190,7 @@
 			files = (
 				3B2D89B6205776EC0085392B /* ViewController.swift in Sources */,
 				3BBCC9002058EF4600DF6EB5 /* ViewControllerRuleta.swift in Sources */,
+				A6C3AFEF208D8A7800A81E59 /* PopOverViewController.swift in Sources */,
 				54290BF92058894000AEFE49 /* Category.swift in Sources */,
 				54290BF52058886800AEFE49 /* TableViewControllerCategory.swift in Sources */,
 				54162A7C206DD37500FDF978 /* ViewControllerResponde.swift in Sources */,
@@ -196,6 +203,7 @@
 				54290BFD2058966600AEFE49 /* TableViewControllerSena.swift in Sources */,
 				3BCE12FD20688FEC001B153E /* Usuario.swift in Sources */,
 				548B43C7208C12F800CCB18B /* ViewControllerUsuario.swift in Sources */,
+				A6C3AFED208D897F00A81E59 /* RoundButton.swift in Sources */,
 				A69F0252207307F6003603D8 /* MemoramaCollectionViewCell.swift in Sources */,
 				3BDC7EE8206494FE0014F030 /* ViewControllerJuego3.swift in Sources */,
 			);

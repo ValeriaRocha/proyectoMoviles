@@ -9,18 +9,24 @@
 import UIKit
 import AVKit
 
-class MemoramaViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MemoramaViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationControllerDelegate {
     
     //Outlets del MemoramaCollectionController
-    @IBOutlet weak var lbPuntos: UILabel!
+    
     @IBOutlet weak var lbTiempo: UILabel!
+    @IBOutlet weak var lbPuntos: UILabel!
+    @IBOutlet weak var lbIntentos: UILabel!
     @IBOutlet weak var cvMemorama: UICollectionView!
+    
     
     //Parametro Puntos
     var puntos = 0
+    var intentos = 0
     //Parametros de tiempo
     var tiempo = Timer()
     var segundos = 0
+    var timer = Timer() //Tiempo a desplegar el par de cartas
+    var segundoTimer = 0
     //Parametro para obtener los recursos
     var baraja = [Category]()
     var ArrSenas = [Sena]()
@@ -28,23 +34,10 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     var deck = [MemoramaCollectionViewCell.Carta]()
     var card: MemoramaCollectionViewCell.Carta!
     var selectIndexes = [IndexPath]()
-    
-    //var ArrPathSenas = [String]()
-    //var deck = [Carta]()
-    //var card: Carta!
-    //Contadores para el shuffle de las celdas
-    //var contSen = 0
-    //var contImg = 0
-    //var iContSen = 0
-    //var iContImg = 0
-    //var barajaShuffle1 = [Sena]()
-    //var barajaShuffle2 = [String]()
-    //var validar: Bool!
-    //var cartasSelec = [MemoramaCollectionViewCell]()
-    //var barajaShuffle = [String]()
-    //var carta1 = String()
-    //var carta2 = String()
-    //let prueba = ["1", "2","3", "4","5", "6","7", "8","9", "10","11", "12","1", "2","3", "4","5", "6","7", "8","9", "10","11", "12"] //prueba
+    var cartasSeleccionadas = [MemoramaCollectionViewCell]()
+    var cartasObtenidas = [MemoramaCollectionViewCell]() //baraja donde se tiene el par de cartas para volverlas a desplegar al momento de seleccionar reiniciar
+    //var cartaPopOver = MemoramaCollectionViewCell()
+    var cartasTemas = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,9 +49,13 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         baraja = Usuario.user.model.arrTotal
         segundos = 300
+        segundoTimer = 5
         puntos = 0
         card = MemoramaCollectionViewCell.Carta(senaImg: true, sena: baraja[0].arrSena[0])
         lbPuntos.text = "Puntos: 0"
+        intentos = 0
+        lbIntentos.text = "Intentos: 0"
+        //cartaPopOver.lbCarta.text = ""
         
         //Correr tiempo
         runTime()
@@ -90,27 +87,12 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
         }
         
-        print("=================================")
-        for index6 in 0...(deck.count / 2) - 1{
-            print(deck[index6].sena.path)
-            if index6 == 11{
-                print("=======================")
-            }
-        }
-        
-        //Definir valores
-        //contSen = 12
-        //contImg = 12
-        //validar = true
-        //card = Carta(senaImg: true, sena: baraja[0].arrSena[0])
-        //        for index2 in 0...11{
-        //            card = Carta(senaImg: true, sena: ArrSenas[index2])
-        //            deck.append(card)
-        //        }
-        //
-        //        for index3 in 0...11{
-        //            card = Carta(senaImg: false, sena: ArrSenas[index3])
-        //            deck.append(card)
+        //        print("=================================")
+        //        for index6 in 0...(deck.count / 2) - 1{
+        //            print(deck[index6].sena.path)
+        //            if index6 == 11{
+        //                print("=======================")
+        //            }
         //        }
     }
     
@@ -122,7 +104,6 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     // MARK: - Collection View Caracteristicas
     //Funcion para obtener la cantidad de objetos en el collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return self.ArrSenas.count
         return 24
     }
     
@@ -151,34 +132,27 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let carta = collectionView.cellForItem(at: indexPath) as! MemoramaCollectionViewCell
         
-        //Codigo para motrar la primera carta
-        if carta.sena.path.hasSuffix(".m4v"){
-            let player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
-            let controller = AVPlayerViewController()
-            controller.player = player
-            self.addChildViewController(controller)
-            let screenSize = UIScreen.main.bounds.size
-            //            let boton = UIButton()
-            //            boton.target(forAction: #selector(handleExit), withSender: <#T##Any?#>)
-            
-            //width = 300    height = 270
-            let videoFrame = CGRect(x: self.view.center.x - 250, y: screenSize.height/2 - (470/2 + 20), width: 500 , height: 470)
-            controller.view.frame = videoFrame
-            self.view.addSubview(controller.view)
-            
-            player.play()
-            
+        cartasSeleccionadas.append(carta)
+        cartasObtenidas.append(carta)
+        cartasTemas.append(carta.lbCarta.text!)
+        if carta.lbCarta.text == "Imagen"{
+            //            btVerImagen.isEnabled = true
+            //            btVerImagen.isHidden = false
+            let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
+            popOver.carta = carta
+            self.addChildViewController(popOver)
+            popOver.view.frame = self.view.frame
+            self.view.addSubview(popOver.view)
+            popOver.didMove(toParentViewController: self)
         }
         else{
-            let imagen = UIImage(contentsOfFile: carta.sena.path)!
-            let imageView = UIImageView(image: imagen)
-            let screenSize = UIScreen.main.bounds.size
-            //let imageFrame =  CGRect(x: 0, y: 10, width: screenSize.width , height: (screenSize.height - 10) * 0.5)
-            let imageFrame =  CGRect(x: (self.view.center.x) - ((imagen.size.width * 0.8)/2), y: (screenSize.height/2) - ((imagen.size.height * 0.8)/2 + 25), width: imagen.size.width * 0.8 , height: imagen.size.height * 0.8)
-            imageView.frame = imageFrame
-            imageView.contentMode = UIViewContentMode.scaleAspectFit
-            self.view.addSubview(imageView)
+            carta.lbCarta.text = carta.sena.nombre
         }
+       
+        carta.lbCarta.text = carta.sena.nombre
+        //        btVerImagen.isEnabled = false
+        //        btVerImagen.isHidden = true
+        //carta.backgroundColor = UIColor.cyan
         
         if selectIndexes.count < 2{
             return
@@ -187,13 +161,31 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         let carta1 = deck[selectIndexes[0].row]
         let carta2 = deck[selectIndexes[1].row]
         
+        print("Cartas Seleccionadas")
+        print(carta1.sena.nombre)
+        print(carta2.sena.nombre)
+        
+        intentos += 1
+        lbIntentos.text = "Intentos: \(intentos)"
+        Validar(carta1: carta1, carta2: carta2)
+        selectIndexes.removeAll()
+        cartasSeleccionadas.removeAll()
+        cartasTemas.removeAll()
+    }
+    
+    func Validar(carta1: MemoramaCollectionViewCell.Carta, carta2: MemoramaCollectionViewCell.Carta){
         if carta1.sena.nombre == carta2.sena.nombre && carta1.senaImg != carta2.senaImg{
+            
+            let alerta = UIAlertController(title: "Tus cartas selecciconadas", message: "Carta #1: " + carta1.sena.nombre + " es igual Carta #2:" + carta2.sena.nombre, preferredStyle: .alert)
+            alerta.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             puntos += 5
             lbPuntos.text = "Puntos: \(puntos)"
-            //            for index4 in 0...1{
-            //                //carta.isHidden = true
-            //                deck.remove(at: selectIndexes[index4].row)
-            //            }
+            for index4 in 0...1{
+                //carta.isHidden = true
+                //deck.remove(at: selectIndexes[index4].row)
+                cartasSeleccionadas[index4].isHidden = true
+            }
+            
             if puntos == 60{
                 //Creacion de alerta
                 let alerta = UIAlertController(title: "Ganaste!!!", message: "Terminaste en \(timeFormat(time: TimeInterval(segundos))) con \(puntos) puntos", preferredStyle: .alert)
@@ -208,17 +200,28 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
                 //El juego deja de ser interactivo
                 cvMemorama.isUserInteractionEnabled = false
-            }else{
-                cvMemorama.reloadData()
+                return
+            }
+            present(alerta, animated: true, completion: nil)
+        }
+        else{
+            let alerta = UIAlertController(title: "Tus cartas selecciconadas", message: "Carta #1: " + carta1.sena.nombre + " no es igual Carta #2:" + carta2.sena.nombre, preferredStyle: .alert)
+            alerta.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alerta, animated: true, completion: nil)
+            for index5 in 0...1{
+                //carta.lbCarta.text = cartasTemas[index5]
+                cartasSeleccionadas[index5].lbCarta.text = cartasTemas[index5]
+                cartasSeleccionadas[index5].lbCarta.backgroundColor = UIColor.init(red: CGFloat(102), green: CGFloat(153), blue: CGFloat(255), alpha: 0)
             }
         }
-        
-        selectIndexes.removeAll()
+        sleep(UInt32(1.75))
     }
-    
     
     // MARK: - Reiniciar Juego
     @IBAction func ReiniciarJuego(_ sender: UIButton) {
+        for index6 in 0...cartasObtenidas.count - 1{
+            cartasObtenidas[index6].isHidden = false
+        }
         tiempo.invalidate() //Desactiva el tiempo
         deck.removeAll()
         ArrSenas.removeAll()
@@ -227,11 +230,11 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     // MARK: - Tiempo
-    
     //Funcion para correr el tiempo, utliza la funcion UpdateTime() para actualizar el outlet label de puntos
     func runTime(){
         tiempo = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(MemoramaViewController.updateTime)), userInfo: nil, repeats: true)
     }
+    
     
     //Funcion que actualiza el tiempo en el label y verifica cuando se acabo el tiempo para desplegar el fin del juego con los puntos obtenidos
     @objc func updateTime(){
@@ -264,17 +267,70 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         return String(format: "%02i:%02i", minutos, segundos)
     }
+    //MARK: - Pop Over
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        let vista = segue.destination as! PopOverMemoViewController
+    //        vista.popoverPresentationController?.delegate = self
+    //        if cartaPopOver.lbCarta.text == "Seña"{
+    //            return
+    //        }else{
+    //            //Codigo para motrar la primera carta
+    //            if cartaPopOver.sena.path.hasSuffix(".m4v"){
+    //                vista.tipo = "video"
+    //                vista.player = AVPlayer(url: URL(fileURLWithPath: cartaPopOver.sena.path))
+    //                vista.controller = AVPlayerViewController()
+    //                vista.screenSize = UIScreen.main.bounds.size
+    //                vista.carta = cartaPopOver
+    //            }
+    //            else{
+    //                vista.imagen = UIImage(contentsOfFile: cartaPopOver.sena.path)!
+    //                vista.screenSize = UIScreen.main.bounds.size
+    //                vista.carta = cartaPopOver
+    //            }
+    //        }
+    //    }
+    
+    //        if carta.lbCarta.text == "Imagen"{
+    //            let alerta = UIAlertController(title: carta.sena.nombre, message: "", preferredStyle: .alert)
+    //
+    ////          desplegar video de la seña
+    //            if carta.sena.path.hasSuffix(".m4v") {
+    //                let player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
+    //                let controller = AVPlayerViewController()
+    //                controller.player = player
+    //                alerta.addChildViewController(controller)
+    //                let screenSize = UIScreen.main.bounds.size
+    //                //width = 300    height = 270
+    //                let videoFrame = CGRect(x: self.view.center.x - 250, y: screenSize.height/2 - (470/2 + 20), width: 500 , height: 470)
+    //                controller.view.frame = videoFrame
+    //                let alertVideo = UIAlertAction(title: "", style: .default, handler: nil)
+    //                alertVideo.setValue(controller.view, forKey: "video")
+    //                alerta.addAction(alertVideo)
+    //                present(alerta, animated: true, completion: nil)
+    //                //player.play()
+    //
+    //            } else {
+    //                let imagen = UIImage(contentsOfFile: carta.sena.path)!
+    //                let imageView = UIImageView(image: imagen)
+    //                let screenSize = UIScreen.main.bounds.size
+    //                //let imageFrame =  CGRect(x: 0, y: 10, width: screenSize.width , height: (screenSize.height - 10) * 0.5)
+    //                let imageFrame =  CGRect(x: (self.view.center.x) - ((imagen.size.width * 0.8)/2), y: (screenSize.height/2) - ((imagen.size.height * 0.8)/2 + 25), width: imagen.size.width * 0.8 , height: imagen.size.height * 0.8)
+    //                imageView.frame = imageFrame
+    //                imageView.contentMode = UIViewContentMode.scaleAspectFit
+    //                self.view.addSubview(imageView)
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    //            }
+    //        }
+    //        else{
+    //            carta.lbCarta.text = carta.sena.nombre
+    //        }
     
     /*
      // MARK: UICollectionViewDelegate
@@ -305,180 +361,6 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
      
      override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
      
-     }
-     */
-    
-    /*
-     
-     
-     */
-    
-    /*
-     override func viewDidLoad() {
-     super.viewDidLoad()
-     
-     //Definiendo el delegate y datasource del collectionview
-     self.cvMemorama.delegate = self
-     self.cvMemorama.dataSource = self
-     
-     //Definir valores
-     contSen = 12
-     contImg = 12
-     validar = true
-     baraja = Usuario.user.model.arrTotal
-     segundos = 300
-     //card = Carta(senaImg: true, sena: baraja[0].arrSena[0])
-     
-     
-     //Correr tiempo
-     runTime()
-     
-     //Obtener las señas para la baraja (la primera mitad)
-     for index in 0...11{
-     let randCategoria = Int(arc4random_uniform(UInt32(baraja.count - 1)))
-     let randSena = Int(arc4random_uniform(UInt32(baraja[randCategoria].arrSena.count - 1)))
-     
-     ArrSenas.append(baraja[randCategoria].arrSena[randSena])
-     baraja[randCategoria].arrSena.remove(at: randSena)
-     //baraja.remove(at: randCategoria)
-     
-     }
-     
-     for index in 0...11{
-     //            deck[index].sena = ArrSenas[index]
-     //            deck[index].senaImg = true
-     card.sena = ArrSenas[index]
-     card.senaImg = true
-     deck.append(card)
-     }
-     
-     for index in 0...11{
-     card.sena = ArrSenas[index]
-     card.senaImg = false
-     deck.append(card)
-     
-     }
-     
-     /*
-     //        //Obtener las señas para la baraja (la segunda mitad)
-     //        for index in 0...11{
-     //            ArrSenas.append(ArrSenas[index])
-     //        }
-     
-     //Validar la baraja
-     for index in 0...ArrSenas.count - 1{
-     print("\(index): " + ArrSenas[index].nombre)
-     
-     }
-     
-     for index in 0...ArrSenas.count - 1{
-     ArrPathSenas.append(ArrSenas[index].path)
-     print("\(index): " + ArrSenas[index].nombre)
-     }
-     
-     print("===================================================")
-     for index in 0...ArrSenas.count - 1{
-     let random = Int(arc4random_uniform(UInt32(ArrSenas.count - 1)))
-     
-     barajaShuffle1.append(ArrSenas[random])
-     ArrSenas.remove(at: random)
-     }
-     
-     for index in 0...ArrPathSenas.count - 1{
-     let random = Int(arc4random_uniform(UInt32(ArrPathSenas.count - 1)))
-     
-     barajaShuffle2.append(ArrPathSenas[random])
-     ArrPathSenas.remove(at: random)
-     }
-     
-     //Validar la baraja
-     for index in 0...barajaShuffle1.count - 1{
-     print("\(index): " + barajaShuffle1[index].nombre)
-     }
-     
-     for index in 0...barajaShuffle2.count - 1{
-     print("\(index): " + barajaShuffle2[index])
-     }
-     
-     print("===================================================")
-     */
-     */
-    
-    /*
-     //Funcion para desplegar detalles en las celdas del collection view
-     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cartaMemo", for: indexPath) as! MemoramaCollectionViewCell
-     
-     
-     //cell.lbCarta.text = self.prueba[indexPath.row]
-     
-     if validar{
-     let random = arc4random_uniform(UInt32(2)) + 1
-     if (random == 1 && contSen != 0){
-     cell.lbCarta.text = "Seña"
-     cell.Carta(nombre: barajaShuffle1[iContSen].nombre, imagen: "")
-     iContSen += 1
-     contSen -= 1
-     if contSen == 0{
-     validar = false
-     }
-     }
-     else if (random == 2 && contImg != 0){
-     cell.lbCarta.text = "Imagen"
-     cell.Carta(nombre: "", imagen: barajaShuffle2[iContImg])
-     iContImg += 1
-     contImg -= 1
-     if contImg == 0{
-     validar = false
-     }
-     }
-     }
-     else if contSen != 0{
-     contSen -= 1
-     cell.lbCarta.text = "Seña"
-     cell.Carta(nombre: barajaShuffle1[iContSen].nombre, imagen: "")
-     iContSen += 1
-     }
-     else{
-     contImg -= 1
-     cell.lbCarta.text = "Imagen"
-     cell.Carta(nombre: "", imagen: barajaShuffle2[iContImg])
-     iContImg += 1
-     }
-     
-     //        print("contSen: \(contSen)")
-     //        print("contImg: \(contImg)")
-     //        print("contImg: \(iContSen)")
-     //        print("contImg: \(iContImg)")
-     
-     return cell
-     
-     
-     }
-     */
-    /*
-     //Funcion para seleccionar objetos del collection view
-     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-     /*
-     if selectIndexes.count == 2{
-     return
-     }
-     
-     selectIndexes.append(indexPath)
-     
-     let carta = collectionView.cellForItem(at: indexPath) as! MemoramaCollectionViewCell
-     
-     if selectIndexes.count < 2{
-     return
-     }
-     
-     if carta.imagen != ""{
-     carta1 = carta.imagen!
-     }
-     else if carta.nombre != ""{
-     carta1 = carta.nombre!
-     }
-     */
      }
      */
 }
