@@ -25,19 +25,19 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     //Parametros de tiempo
     var tiempo = Timer()
     var segundos = 0
-    var timer = Timer() //Tiempo a desplegar el par de cartas
-    var segundoTimer = 0
     //Parametro para obtener los recursos
     var baraja = [Category]()
     var ArrSenas = [Sena]()
     //Parametros para dar dorma a las cartas del memorama
     var deck = [MemoramaCollectionViewCell.Carta]()
+    var deckRandom = [MemoramaCollectionViewCell.Carta]()
     var card: MemoramaCollectionViewCell.Carta!
     var selectIndexes = [IndexPath]()
     var cartasSeleccionadas = [MemoramaCollectionViewCell]()
     var cartasObtenidas = [MemoramaCollectionViewCell]() //baraja donde se tiene el par de cartas para volverlas a desplegar al momento de seleccionar reiniciar
     //var cartaPopOver = MemoramaCollectionViewCell()
     var cartasTemas = [String]()
+    var iguales = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +49,12 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         baraja = Usuario.user.model.arrTotal
         segundos = 300
-        segundoTimer = 5
         puntos = 0
         card = MemoramaCollectionViewCell.Carta(senaImg: true, sena: baraja[0].arrSena[0])
         lbPuntos.text = "Puntos: 0"
         intentos = 0
         lbIntentos.text = "Intentos: 0"
+        iguales = false
         //cartaPopOver.lbCarta.text = ""
         
         //Correr tiempo
@@ -94,6 +94,12 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         //                print("=======================")
         //            }
         //        }
+        
+        for index in 0...deck.count - 1{
+            let randCategoria = Int(arc4random_uniform(UInt32(deck.count - 1)))
+            deckRandom.append(deck[randCategoria])
+            deck.remove(at: randCategoria)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -111,7 +117,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cartaMemo", for: indexPath) as! MemoramaCollectionViewCell
         
-        let carta = deck[indexPath.row]
+        let carta = deckRandom[indexPath.row]
         
         if (carta.senaImg){
             cell.lbCarta.text = "Seña"
@@ -129,8 +135,26 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
         selectIndexes.append(indexPath)
-        
         let carta = collectionView.cellForItem(at: indexPath) as! MemoramaCollectionViewCell
+        
+        if iguales{
+            if selectIndexes[0] == indexPath{
+                if carta.senaImg == false{
+                    //            btVerImagen.isEnabled = true
+                    //            btVerImagen.isHidden = false
+                    let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
+                    popOver.carta = carta
+                    self.addChildViewController(popOver)
+                    popOver.view.frame = self.view.frame
+                    self.view.addSubview(popOver.view)
+                    popOver.didMove(toParentViewController: self)
+                }
+                selectIndexes.remove(at: 1)
+                return
+            }
+        }
+        
+        
         
         cartasSeleccionadas.append(carta)
         cartasObtenidas.append(carta)
@@ -148,7 +172,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         else{
             carta.lbCarta.text = carta.sena.nombre
         }
-       
+       iguales = true
         carta.lbCarta.text = carta.sena.nombre
         //        btVerImagen.isEnabled = false
         //        btVerImagen.isHidden = true
@@ -158,8 +182,8 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
             return
         }
         
-        let carta1 = deck[selectIndexes[0].row]
-        let carta2 = deck[selectIndexes[1].row]
+        let carta1 = deckRandom[selectIndexes[0].row]
+        let carta2 = deckRandom[selectIndexes[1].row]
         
         print("Cartas Seleccionadas")
         print(carta1.sena.nombre)
@@ -171,6 +195,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         selectIndexes.removeAll()
         cartasSeleccionadas.removeAll()
         cartasTemas.removeAll()
+        iguales = false
     }
     
     func Validar(carta1: MemoramaCollectionViewCell.Carta, carta2: MemoramaCollectionViewCell.Carta){
@@ -214,16 +239,18 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cartasSeleccionadas[index5].lbCarta.backgroundColor = UIColor.init(red: CGFloat(102), green: CGFloat(153), blue: CGFloat(255), alpha: 0)
             }
         }
-        sleep(UInt32(1.75))
+        //sleep(UInt32(1.75))
     }
     
     // MARK: - Reiniciar Juego
     @IBAction func ReiniciarJuego(_ sender: UIButton) {
-        for index6 in 0...cartasObtenidas.count - 1{
-            cartasObtenidas[index6].isHidden = false
+        if cartasObtenidas.count != 0{
+            for index6 in 0...cartasObtenidas.count - 1{
+                cartasObtenidas[index6].isHidden = false
+            }
         }
         tiempo.invalidate() //Desactiva el tiempo
-        deck.removeAll()
+        deckRandom.removeAll()
         ArrSenas.removeAll()
         viewDidLoad()
         cvMemorama.reloadData()
