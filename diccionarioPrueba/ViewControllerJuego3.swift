@@ -169,7 +169,7 @@ class ViewControllerJuego3: UIViewController {
         } else {
             //si no tiene imagen
             button.backgroundColor = #colorLiteral(red: 0.7886319331, green: 0.8695178572, blue: 0.9969008565, alpha: 1)
-            button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.366598887)
+            button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5866063784)
             button.setTitle(sena.nombre, for: .normal)
             button.setTitleColor(UIColor.black, for: .normal)
             
@@ -181,7 +181,7 @@ class ViewControllerJuego3: UIViewController {
         }
         
         button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        button.titleLabel?.font = UIFont(name: "Avenir Next Medium", size: 20)
+        button.titleLabel?.font = UIFont(name: "Avenir Next Bold", size: 20)
        
         
         //agregarle el target al boton
