@@ -163,7 +163,7 @@ class ViewControllerResponde: UIViewController {
                 }))
                 present(alert, animated: true, completion: nil)
             }
-            Usuario.user.errores.append(senaCorrecta)
+            Usuario.user.guardarError(error: senaCorrecta)
             if(vidas != 0)
             {
                 generarNuevo()
