@@ -28,6 +28,9 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
         
         lbSelectedGame.text = ""
         // Do any additional setup after loading the view.
+        
+        pickerView.layer.cornerRadius = 0.01 * pickerView.bounds.size.width
+        lbSelectedGame.layer.cornerRadius = 0.01 * lbSelectedGame.bounds.size.width
     }
     
     

@@ -613,7 +613,7 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98247144670050757" green="0.98247144670050757" blue="0.98247144670050757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ooG-3B-HeS" firstAttribute="top" secondItem="LqG-fu-wpo" secondAttribute="top" constant="40" id="2ua-X3-Bgt"/>
                             <constraint firstItem="ooG-3B-HeS" firstAttribute="centerX" secondItem="NOD-he-rF7" secondAttribute="centerX" id="MZB-4K-fi7"/>
@@ -640,41 +640,63 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9UU-3l-2ME">
-                                <rect key="frame" x="198" y="193" width="971" height="216"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UU-3l-2ME">
+                                <rect key="frame" x="62" y="45" width="900" height="335.5"/>
+                                <color key="backgroundColor" red="0.75762802994078515" green="0.89435279187817263" blue="0.82824320826594244" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9UU-3l-2ME" secondAttribute="height" multiplier="923:344" id="4pv-be-G4E"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="guA-lZ-sge" id="StW-10-uyT"/>
                                     <outlet property="delegate" destination="guA-lZ-sge" id="IYg-jD-TCX"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Te toco el juego Memorama!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-h3-V6x">
-                                <rect key="frame" x="416" y="501" width="534" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-qN-inZ">
-                                <rect key="frame" x="589" y="441" width="188" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-qN-inZ">
+                                <rect key="frame" x="400.5" y="431" width="223" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="L2K-1o-wPB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <state key="normal" title="Obtener Juego Aleatorio"/>
                                 <connections>
                                     <action selector="clickRuleta:" destination="guA-lZ-sge" eventType="touchUpInside" id="R7v-3x-yHt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBc-eI-4k5">
-                                <rect key="frame" x="654" y="589" width="59" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBc-eI-4k5">
+                                <rect key="frame" x="484.5" y="631" width="55" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="kTS-gN-msM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Jugar"/>
                                 <connections>
                                     <action selector="clickJugar:" destination="guA-lZ-sge" eventType="touchUpInside" id="HDV-qz-05T"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Te toco el juego Memorama!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-h3-V6x">
+                                <rect key="frame" x="358.5" y="522" width="308.5" height="64"/>
+                                <color key="backgroundColor" red="0.72426581673026291" green="0.89192571880648164" blue="0.94925840736040612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="QEa-I0-NTu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.9427836537361145" green="0.97273391485214233" blue="0.99789005517959595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98247144670050757" green="0.98247144670050757" blue="0.98247144670050757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9UU-3l-2ME" firstAttribute="leading" secondItem="a73-rJ-fVZ" secondAttribute="leading" constant="62" id="2wD-5W-s0D"/>
+                            <constraint firstItem="tKf-qN-inZ" firstAttribute="centerX" secondItem="1un-ix-bZ4" secondAttribute="centerX" id="78S-Ks-ZIh"/>
+                            <constraint firstItem="a73-rJ-fVZ" firstAttribute="trailing" secondItem="9UU-3l-2ME" secondAttribute="trailing" constant="62" id="ANy-8A-tyl"/>
+                            <constraint firstItem="QBc-eI-4k5" firstAttribute="top" secondItem="eoh-h3-V6x" secondAttribute="bottom" constant="45" id="HV5-q1-0o0"/>
+                            <constraint firstItem="QBc-eI-4k5" firstAttribute="centerX" secondItem="1un-ix-bZ4" secondAttribute="centerX" id="MXh-Bl-FOD"/>
+                            <constraint firstItem="9UU-3l-2ME" firstAttribute="centerX" secondItem="1un-ix-bZ4" secondAttribute="centerX" id="SYg-Fc-shu"/>
+                            <constraint firstItem="eoh-h3-V6x" firstAttribute="top" secondItem="tKf-qN-inZ" secondAttribute="bottom" constant="50" id="Zwl-TN-gtO"/>
+                            <constraint firstItem="tKf-qN-inZ" firstAttribute="top" secondItem="9UU-3l-2ME" secondAttribute="bottom" constant="50" id="cIC-dh-loB"/>
+                            <constraint firstItem="eoh-h3-V6x" firstAttribute="centerX" secondItem="1un-ix-bZ4" secondAttribute="centerX" id="cNf-CN-E4j"/>
+                            <constraint firstItem="9UU-3l-2ME" firstAttribute="top" secondItem="a73-rJ-fVZ" secondAttribute="top" constant="25" id="w6R-af-Oo1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="a73-rJ-fVZ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Juegos" image="pacman" id="uS5-Iz-OKU"/>
@@ -690,7 +712,7 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHf-1b-WWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="308.3455344070278" y="-1028.90625"/>
+            <point key="canvasLocation" x="308.203125" y="-1028.90625"/>
         </scene>
         <!--Memorama-->
         <scene sceneID="vJc-Iq-nV8">
