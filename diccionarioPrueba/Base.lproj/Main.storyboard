@@ -326,13 +326,20 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="yhB-8o-h25"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="246" ambiguous="YES" editable="NO" text="Instrucciones del juego wuuwuw" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hXa-MV-PX2">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="246" ambiguous="YES" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXa-MV-PX2">
                                 <rect key="frame" x="185" y="358" width="654" height="359"/>
                                 <color key="backgroundColor" red="0.97580105433772724" green="1" blue="0.90074633158960782" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hXa-MV-PX2" secondAttribute="height" multiplier="199:109" id="DdV-65-gIg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <string key="text">Bienvenido al mini juego “Responde rápido”.
+
+Aparecerá una seña aleatoria junto a cuatro opciones, cada respuesta correcta incrementará su puntaje en uno.
+
+Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción incorrecta, se cargará una nueva seña y se restará una vida. Al llegar a cero vidas se termina el juego.
+
+           ¡Éxito!</string>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRw-SF-xqc">
