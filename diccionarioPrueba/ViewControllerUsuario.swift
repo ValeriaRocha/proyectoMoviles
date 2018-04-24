@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewControllerUsuario: UIViewController {
-    @IBOutlet weak var txtNom: UILabel!
     @IBOutlet weak var txtPuntos: UILabel!
     @IBOutlet weak var btError: UIButton!
     @IBOutlet weak var btFav: UIButton!
@@ -18,7 +17,6 @@ class ViewControllerUsuario: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        txtNom.text = Usuario.user.nombre
         txtPuntos.text = String(Usuario.user.puntos)
     }
 
@@ -41,6 +39,7 @@ class ViewControllerUsuario: UIViewController {
             vista.datoMostrar = Usuario.user.favoritos
             vista.datoMostrarFiltro = Usuario.user.favoritos
             vista.bEdit = true
+            vista.sSegue = "favoritos"
         }
         
         if(segue.identifier == "errores")
@@ -48,6 +47,7 @@ class ViewControllerUsuario: UIViewController {
             vista.datoMostrar = Usuario.user.errores
             vista.datoMostrarFiltro = Usuario.user.errores
             vista.bEdit = true
+            vista.sSegue = "errores"
         }
     }
     

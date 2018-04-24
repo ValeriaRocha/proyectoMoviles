@@ -78,6 +78,7 @@ class TableViewControllerCategory: UITableViewController, UISearchBarDelegate {
         let vista = segue.destination as! TableViewControllerSena
         let indexrow = tableView.indexPathForSelectedRow!
         vista.bEdit = false
+        vista.sSegue = "normal"
         if segue.identifier == "normal"
         {
             if(buscar){

@@ -92,9 +92,24 @@ class Usuario: Codable {
         }
     }
     
+    func quitarFav(fav: Sena){
+        for i in 0 ..< favoritos.count{
+            if favoritos[i].nombre == fav.nombre{
+                favoritos.remove(at: i)
+                break
+            }
+        }
+    }
+    
     func guardarError(error: Sena){
         if !errores.contains(where: {$0.nombre == error.nombre}){
             errores.append(error)
+        }
+    }
+    
+    func guardarFav(fav: Sena){
+        if !favoritos.contains(where: {$0.nombre == fav.nombre}){
+            favoritos.append(fav)
         }
     }
     

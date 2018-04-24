@@ -11,6 +11,7 @@ import AVKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var btFav: UIButton!
     var sena : Sena!
     @IBOutlet weak var lbNombreSena: UILabel!
     
@@ -21,6 +22,8 @@ class ViewController: UIViewController {
         
         self.title = sena.nombre
         lbNombreSena.text = sena.nombre
+        
+        btFav.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
         
         
         if(sena.path.hasSuffix(".m4v")){
@@ -52,6 +55,11 @@ class ViewController: UIViewController {
         }
         
     }
+
+    @IBAction func click(_ sender: UIButton) {
+        Usuario.user.guardarFav(fav: sena)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

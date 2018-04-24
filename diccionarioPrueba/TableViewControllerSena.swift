@@ -15,6 +15,7 @@ class TableViewControllerSena: UITableViewController, UISearchBarDelegate {
     var datoMostrarFiltro: [Sena]!
     var buscar = false
     var bEdit = false
+    var sSegue : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,9 +109,31 @@ class TableViewControllerSena: UITableViewController, UISearchBarDelegate {
         let indexPathR = indexPath.row
         if editingStyle == .delete {
             // Delete the row from the data source
-            datoMostrar.remove(at: indexPathR)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            Usuario.user.quitarError(error: datoMostrar[indexPathR])
+            if(!buscar)
+            {
+                if(sSegue=="errores")
+                {
+                    Usuario.user.quitarError(error: datoMostrar[indexPathR])
+                }
+                if(sSegue=="favoritos")
+                {
+                    Usuario.user.quitarFav(fav: datoMostrar[indexPathR])
+                }
+                datoMostrar.remove(at: indexPathR)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            else{
+                if(sSegue=="errores")
+                {
+                    Usuario.user.quitarError(error: datoMostrarFiltro[indexPathR])
+                }
+                if(sSegue=="favoritos")
+                {
+                    Usuario.user.quitarFav(fav: datoMostrarFiltro[indexPathR])
+                }
+                datoMostrarFiltro.remove(at: indexPathR)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
