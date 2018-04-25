@@ -12,13 +12,19 @@ class ViewControllerUsuario: UIViewController {
     @IBOutlet weak var txtPuntos: UILabel!
     @IBOutlet weak var btError: UIButton!
     @IBOutlet weak var btFav: UIButton!
+    @IBOutlet weak var btCreditos: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         self.title = "Usuario"
+        btFav.layer.cornerRadius = 0.05 * btFav.bounds.width
+        btError.layer.cornerRadius = 0.05 * btError.bounds.width
+        btCreditos.layer.cornerRadius = 0.05 * btCreditos.bounds.width
         // Do any additional setup after loading the view.
         txtPuntos.text = String(Usuario.user.puntos)
+        txtPuntos.layer.cornerRadius = 2 * txtPuntos.bounds.width
     }
     
     override func viewDidAppear(_ animated: Bool) {
