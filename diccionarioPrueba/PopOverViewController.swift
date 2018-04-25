@@ -11,14 +11,6 @@ import AVKit
 
 class PopOverViewController: UIViewController {
     
-    //    var tipo = String() //
-    //    var player = AVPlayer() //
-    //    var controller = AVPlayerViewController() //
-    //    var screenSize = CGSize() //
-    //    var videoFrame = CGRect()
-    //    var imageView = UIImageView()
-    //    var imagen = UIImage() //
-    //    var imageFrame = CGRect()
     var carta = MemoramaCollectionViewCell()
     
     override func viewDidLoad() {

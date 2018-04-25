@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hg6-b1-0Ya">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PoK-LJ-pBj">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ChalkboardSE.ttc">
-            <string>ChalkboardSE-Regular</string>
-        </array>
-        <array key="KohinoorBangla.ttc">
-            <string>KohinoorBangla-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller Responde-->
         <scene sceneID="qOf-Cq-1tL">
@@ -197,7 +189,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhB-dA-nsW">
-                                <rect key="frame" x="288" y="606.5" width="455" height="39.5"/>
+                                <rect key="frame" x="288" y="606.5" width="449" height="27.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="JEc-r2-Q04"/>
                                 </constraints>
@@ -206,7 +198,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELp-Jq-DAH">
-                                <rect key="frame" x="900" y="94" width="50" height="30"/>
+                                <rect key="frame" x="900" y="94" width="44" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="nrt-cP-tt7"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ppV-f5-B0B"/>
@@ -725,7 +717,7 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
         <!--Memorama-->
         <scene sceneID="vJc-Iq-nV8">
             <objects>
-                <viewController title="Memorama" id="8Nk-MN-WKd" sceneMemberID="viewController">
+                <viewController title="Memorama" id="8Nk-MN-WKd" customClass="MemoramaInicialViewController" customModule="diccionarioPrueba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JmX-Ft-UyS">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -737,20 +729,44 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                                     <constraint firstAttribute="height" constant="187" id="xM5-wn-KTR"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Instrucciones del juego Memorama" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rz2-4X-ZGo">
-                                <rect key="frame" x="39" y="302" width="947" height="383"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rz2-4X-ZGo">
+                                <rect key="frame" x="39" y="302" width="947" height="230"/>
                                 <color key="backgroundColor" red="0.92063074664641587" green="0.90769931079056132" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="383" id="NCg-qW-OJq"/>
-                                    <constraint firstAttribute="width" constant="947" id="ZUF-o4-BLH"/>
+                                    <constraint firstAttribute="height" constant="230" id="Ei7-UP-gER"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <string key="text">Bienvenido al mini juego “Memorama".
+ 
+Empezando el juego, se te mostrara 24 cartas en donde 12 de ellas contiene el nombre de la seña y la otra mitad contiene la imagen o video de la seña.
+Tu objetivo es seleccionar el par correcto de cada seña, pero ¡ten cuidado!, tienes un tiempo limite para lograr este objetivo. 
+¡Por cada par correcto que consigas, se te brindara 5 puntos!
+
+           ¡Éxito!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5d7-xa-99H">
-                                <rect key="frame" x="459" y="706" width="106" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5d7-xa-99H" customClass="RoundButton" customModule="diccionarioPrueba" customModuleProvider="target">
+                                <rect key="frame" x="459" y="559" width="106" height="42"/>
+                                <color key="backgroundColor" red="0.32549019607843138" green="0.22745098039215686" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="PKu-2r-exf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="v0d-H0-iow"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Jugar"/>
+                                <state key="normal" title="Jugar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.32549019607843138" green="0.22745098039215686" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="PoK-LJ-pBj" kind="show" id="Vxp-2J-5OT"/>
                                 </connections>
@@ -758,24 +774,25 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rz2-4X-ZGo" firstAttribute="top" secondItem="iyL-V8-7qq" secondAttribute="bottom" constant="31" id="0Vb-qs-rUp"/>
                             <constraint firstItem="b6W-we-895" firstAttribute="trailing" secondItem="iyL-V8-7qq" secondAttribute="trailing" constant="145" id="2rB-Jo-Ykm"/>
-                            <constraint firstItem="rz2-4X-ZGo" firstAttribute="top" secondItem="iyL-V8-7qq" secondAttribute="bottom" constant="31" id="43c-0w-dcl"/>
+                            <constraint firstItem="5d7-xa-99H" firstAttribute="top" secondItem="rz2-4X-ZGo" secondAttribute="bottom" constant="27" id="9dx-QY-Mfb"/>
+                            <constraint firstItem="rz2-4X-ZGo" firstAttribute="leading" secondItem="b6W-we-895" secondAttribute="leading" constant="38.5" id="9fq-Qw-ith"/>
+                            <constraint firstItem="b6W-we-895" firstAttribute="trailing" secondItem="rz2-4X-ZGo" secondAttribute="trailing" constant="38.5" id="CUs-hL-qCF"/>
                             <constraint firstItem="iyL-V8-7qq" firstAttribute="top" secondItem="b6W-we-895" secondAttribute="top" constant="20" id="E81-lu-vIX"/>
-                            <constraint firstItem="5d7-xa-99H" firstAttribute="top" secondItem="rz2-4X-ZGo" secondAttribute="bottom" constant="21" id="Jhq-JH-JDh"/>
-                            <constraint firstItem="b6W-we-895" firstAttribute="trailing" secondItem="rz2-4X-ZGo" secondAttribute="trailing" constant="38.5" id="TWf-Zm-UiR"/>
-                            <constraint firstItem="b6W-we-895" firstAttribute="trailing" secondItem="5d7-xa-99H" secondAttribute="trailing" constant="459" id="Urm-jn-eEG"/>
-                            <constraint firstItem="b6W-we-895" firstAttribute="bottom" secondItem="rz2-4X-ZGo" secondAttribute="bottom" constant="83" id="YEZ-vd-yWe"/>
-                            <constraint firstItem="rz2-4X-ZGo" firstAttribute="leading" secondItem="b6W-we-895" secondAttribute="leading" constant="38.5" id="ZCp-Ha-YBf"/>
-                            <constraint firstItem="b6W-we-895" firstAttribute="bottom" secondItem="5d7-xa-99H" secondAttribute="bottom" constant="20" id="d0H-2f-6yA"/>
-                            <constraint firstItem="5d7-xa-99H" firstAttribute="leading" secondItem="b6W-we-895" secondAttribute="leading" constant="459" id="pkM-ik-nq6"/>
+                            <constraint firstItem="rz2-4X-ZGo" firstAttribute="top" secondItem="iyL-V8-7qq" secondAttribute="bottom" constant="31" id="En8-4k-xqc"/>
+                            <constraint firstItem="b6W-we-895" firstAttribute="bottom" secondItem="5d7-xa-99H" secondAttribute="bottom" constant="167" id="ium-ig-Kxc"/>
+                            <constraint firstItem="rz2-4X-ZGo" firstAttribute="centerX" secondItem="5d7-xa-99H" secondAttribute="centerX" id="tM1-wm-0u8"/>
                             <constraint firstItem="iyL-V8-7qq" firstAttribute="leading" secondItem="b6W-we-895" secondAttribute="leading" constant="145" id="tyi-yH-pz0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b6W-we-895"/>
                     </view>
                     <navigationItem key="navigationItem" title="Memorama" id="0cB-Pw-jkI"/>
+                    <connections>
+                        <segue destination="v9e-5I-kdN" kind="unwind" unwindAction="unwindWithUnwindSegue:" id="1N1-Af-aeE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryq-Zz-foV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="v9e-5I-kdN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2153.3203125" y="-2477.34375"/>
         </scene>
@@ -873,7 +890,7 @@ Iconos de los logos de los juegos
                                     <constraint firstAttribute="width" constant="984" id="1gm-pJ-i01"/>
                                     <constraint firstAttribute="height" constant="524" id="glu-Vz-9d5"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P1h-yo-jYq">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P1h-yo-jYq" customClass="MemoramaFlowLayout" customModule="diccionarioPrueba" customModuleProvider="target">
                                     <size key="itemSize" width="150" height="148"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -887,17 +904,22 @@ Iconos de los logos de los juegos
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X32-4j-Vod">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X32-4j-Vod">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="148"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.070588235294117646" green="0.36862745098039218" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.32549019607843138" green="0.22745098039215686" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.12549019607843137" green="0.29411764705882354" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.32549019607843138" green="0.22745098039215686" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="X32-4j-Vod" firstAttribute="leading" secondItem="cWe-j4-6P7" secondAttribute="leading" id="1cI-iv-iqx"/>
+                                            <constraint firstItem="X32-4j-Vod" firstAttribute="top" secondItem="cWe-j4-6P7" secondAttribute="top" id="IWk-er-eUN"/>
+                                            <constraint firstAttribute="bottom" secondItem="X32-4j-Vod" secondAttribute="bottom" id="raf-fi-qgr"/>
+                                            <constraint firstAttribute="trailing" secondItem="X32-4j-Vod" secondAttribute="trailing" id="zEe-ps-yIf"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="lbCarta" destination="X32-4j-Vod" id="eAg-X1-WhB"/>
                                         </connections>
@@ -937,7 +959,7 @@ Iconos de los logos de los juegos
                                     <constraint firstAttribute="height" constant="37" id="jIv-Az-gpG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intentos: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1r-mF-fg2">
@@ -946,7 +968,7 @@ Iconos de los logos de los juegos
                                     <constraint firstAttribute="height" constant="37" id="uhi-H8-Ncm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiempo: 5:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSx-K3-Zat">
@@ -955,11 +977,11 @@ Iconos de los logos de los juegos
                                     <constraint firstAttribute="height" constant="37" id="hWr-zH-DeF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.48627450980392156" green="0.56470588235294117" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Apr-9N-g8D" firstAttribute="top" secondItem="mSx-K3-Zat" secondAttribute="bottom" constant="58" id="4Pg-fR-Uch"/>
                             <constraint firstItem="Apr-9N-g8D" firstAttribute="top" secondItem="KCB-Vp-WMt" secondAttribute="bottom" constant="55" id="6fr-1d-5wN"/>
@@ -1037,10 +1059,13 @@ Iconos de los logos de los juegos
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lX-ao-Nss" customClass="RoundButton" customModule="diccionarioPrueba" customModuleProvider="target">
-                                <rect key="frame" x="572" y="766" width="222" height="108"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lX-ao-Nss" customClass="RoundButton" customModule="diccionarioPrueba" customModuleProvider="target">
+                                <rect key="frame" x="401" y="600" width="222" height="108"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="222" id="7nl-Iz-777"/>
+                                    <constraint firstAttribute="height" constant="108" id="8iZ-It-9SM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <state key="normal" title="Listo">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1061,6 +1086,10 @@ Iconos de los logos de los juegos
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="I8P-Xb-PvK" firstAttribute="bottom" secondItem="5lX-ao-Nss" secondAttribute="bottom" constant="60" id="G9s-xH-0fZ"/>
+                            <constraint firstItem="5lX-ao-Nss" firstAttribute="centerX" secondItem="95V-NK-Yfg" secondAttribute="centerX" id="rh9-iK-RyO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="I8P-Xb-PvK"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="376" height="667"/>
