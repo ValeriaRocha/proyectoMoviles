@@ -151,8 +151,8 @@ class ViewControllerJuego3: UIViewController {
         
         posX = (posX + 840) % (Int(screen.width) - 65)  //para probar
         
-        //instanciar nuevo boton y ponerle medidas
-        let button = UIButton(frame: CGRect(x: coorX/*Int(arc4random_uniform(UInt32(screen.width)))*/, y: 80, width: 130, height: 130))
+        //instanciar nuevo boton y ponerle medidas  130,130
+        let button = UIButton(frame: CGRect(x: coorX, y: 97, width: 110, height: 110))
         
         //Asignar seña o imagen
         //Si tiene imagen

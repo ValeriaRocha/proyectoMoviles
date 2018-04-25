@@ -26,6 +26,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+         lbSelectedGame.backgroundColor = UIColor.clear
         lbSelectedGame.text = ""
         // Do any additional setup after loading the view.
         
@@ -36,6 +37,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func clickRuleta(_ sender: UIButton) {
         lbSelectedGame.text = ""
+         lbSelectedGame.backgroundColor = UIColor.clear
         seconds = Double(Int(arc4random_uniform(5) + 1)) //poner random
         btObtener.isEnabled = false
         btJugar.isEnabled = false
@@ -52,6 +54,8 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
         if(seconds <= 0){
             timer.invalidate()
             
+            lbSelectedGame.backgroundColor = #colorLiteral(red: 0.7241656184, green: 0.8897604942, blue: 0.9486973882, alpha: 1)
+            
             switch indice {
             case 0:
                 lbSelectedGame.text = "Te toco el juego Memorama!"
@@ -62,7 +66,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
                 juego = 2
                 break;
             case 2:
-                lbSelectedGame.text = "Te toco el juego Catch'em!"
+                lbSelectedGame.text = "Te toco el juego Gravedad!"
                 juego = 3
                 break;
             default:
