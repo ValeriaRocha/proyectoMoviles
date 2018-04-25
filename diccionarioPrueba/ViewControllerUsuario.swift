@@ -20,6 +20,11 @@ class ViewControllerUsuario: UIViewController {
         // Do any additional setup after loading the view.
         txtPuntos.text = String(Usuario.user.puntos)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        txtPuntos.text = String(Usuario.user.puntos)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

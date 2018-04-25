@@ -413,7 +413,7 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vmi-He-PJg">
                                 <rect key="frame" x="95" y="267" width="835" height="404"/>
                                 <color key="backgroundColor" red="0.39897312784092526" green="0.79423630898049391" blue="0.84345256979695438" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <mutableString key="text">Bienvenido al mini juego “Gravedad".
+                                <string key="text">Bienvenido al mini juego “Gravedad".
 
 Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a todos los cuadros que representen dicha seña, sea imagen o palabra. 
 
@@ -423,7 +423,7 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
 
 ¡Por cada cuadro con la seña correcta que selecciones, te daremos 5 puntos!
 
-           ¡Éxito!</mutableString>
+           ¡Éxito!</string>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -820,14 +820,17 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RfO-gf-l1B">
                                 <rect key="frame" x="72" y="91" width="881" height="587"/>
                                 <color key="backgroundColor" red="0.72416561840000004" green="0.88976049420000003" blue="0.94869738820000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <mutableString key="text">El proyecto de Aprendizaje de Lenguaje de Señas Mexicanas ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Enero Mayo de 2018, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
+                                <string key="text">El proyecto de Aprendizaje de Lenguaje de Señas Mexicanas ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Enero Mayo de 2018, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
 
-Desarrolladores:Ana Clarissa Miranda PeñaValeria Rocha SepúlvedaMiguel Ángel Rocha Cabello
+Desarrolladores:
+Ana Clarissa Miranda Peña
+Valeria Rocha Sepúlveda
+Miguel Ángel Rocha Cabello
 
 Aprendizaje de Lenguaje de Señas Mexicanas se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro.
 
 Iconos de los logos de los juegos
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1089,6 +1092,6 @@ Iconos de los logos de los juegos
         <image name="respondeNI" width="640" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eFu-IA-9de"/>
+        <segue reference="IEZ-ft-g7R"/>
     </inferredMetricsTieBreakers>
 </document>
