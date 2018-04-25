@@ -55,6 +55,13 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
 
     @IBAction func click(_ sender: UIButton) {
         Usuario.user.guardarFav(fav: sena)

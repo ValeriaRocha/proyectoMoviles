@@ -53,6 +53,13 @@ class ViewControllerCredits: UIViewController {
         boldString.addAttributes(boldFontAttribute, range: fullString.range(of: boldPartOfString as String))
         return boldString
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
 
     /*
     // MARK: - Navigation

@@ -44,6 +44,13 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     
     @objc func updateTimer(){
         indice = (indice + 1) % 3
