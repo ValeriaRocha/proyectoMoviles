@@ -56,14 +56,17 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         lbIntentos.text = "Intentos: 0"
         iguales = false
         //cartaPopOver.lbCarta.text = ""
+        print("+++++++++++++++++++")
+        print(baraja[3].arrSena[0])
+        print("+++++++++++++++++++")
         
         //Correr tiempo
         runTime()
         
         //Obtener las señas para la baraja (la primera mitad)
         for index in 0...11{
-            let randCategoria = Int(arc4random_uniform(UInt32(baraja.count - 1)))
-            let randSena = Int(arc4random_uniform(UInt32(baraja[randCategoria].arrSena.count - 1)))
+            let randCategoria = Int(arc4random_uniform(UInt32(baraja.count)))
+            let randSena = Int(arc4random_uniform(UInt32(baraja[randCategoria].arrSena.count)))
             
             ArrSenas.append(baraja[randCategoria].arrSena[randSena])
             baraja[randCategoria].arrSena.remove(at: randSena)
@@ -254,6 +257,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         ArrSenas.removeAll()
         viewDidLoad()
         cvMemorama.reloadData()
+        selectIndexes.removeAll()
     }
     
     // MARK: - Tiempo

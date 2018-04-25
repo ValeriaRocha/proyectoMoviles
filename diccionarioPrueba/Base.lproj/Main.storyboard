@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hg6-b1-0Ya">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PoK-LJ-pBj">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ChalkboardSE.ttc">
-            <string>ChalkboardSE-Regular</string>
-        </array>
-        <array key="KohinoorBangla.ttc">
-            <string>KohinoorBangla-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller Responde-->
         <scene sceneID="qOf-Cq-1tL">
@@ -319,7 +311,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="747" ambiguous="YES" image="responde4" translatesAutoresizingMaskIntoConstraints="NO" id="d0h-BV-wbf">
-                                <rect key="frame" x="199" y="158" width="626" height="170"/>
+                                <rect key="frame" x="136.5" y="158" width="626" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="7d8-46-nUt"/>
                                     <constraint firstAttribute="width" constant="626" id="uud-hH-nmu"/>
@@ -327,7 +319,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="246" ambiguous="YES" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXa-MV-PX2">
-                                <rect key="frame" x="185" y="358" width="654" height="359"/>
+                                <rect key="frame" x="185" y="358" width="529.5" height="290"/>
                                 <color key="backgroundColor" red="0.97580105433772724" green="1" blue="0.90074633158960782" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hXa-MV-PX2" secondAttribute="height" multiplier="199:109" id="DdV-65-gIg"/>
@@ -343,7 +335,7 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRw-SF-xqc">
-                                <rect key="frame" x="493" y="727" width="39" height="10"/>
+                                <rect key="frame" x="430.5" y="658" width="39" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="VB4-cf-wcq"/>
                                 </constraints>
@@ -353,7 +345,7 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7v4-Wj-ejv">
-                                <rect key="frame" x="0.0" y="64" width="1024" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="899.5" height="44"/>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wws-Es-UDu">
                                 <rect key="frame" x="54" y="71" width="70" height="30"/>
@@ -385,7 +377,7 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nX4-zs-Rxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Qfb-95-3Xu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2246.7057101024889" y="-1743.1640625"/>
+            <point key="canvasLocation" x="2225" y="-1602"/>
         </scene>
         <!--ControllerJ3 Instrucciones-->
         <scene sceneID="Eig-zA-P94">
@@ -722,34 +714,54 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="memorama4" translatesAutoresizingMaskIntoConstraints="NO" id="iyL-V8-7qq">
-                                <rect key="frame" x="316" y="95" width="734" height="187"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memorama4" translatesAutoresizingMaskIntoConstraints="NO" id="iyL-V8-7qq">
+                                <rect key="frame" x="145" y="84" width="734" height="187"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="734" id="LpH-NH-AdG"/>
+                                    <constraint firstAttribute="height" constant="187" id="xM5-wn-KTR"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Instrucciones del juego Memorama" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rz2-4X-ZGo">
-                                <rect key="frame" x="154" y="290" width="1059" height="525"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Instrucciones del juego Memorama" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rz2-4X-ZGo">
+                                <rect key="frame" x="39" y="302" width="947" height="383"/>
                                 <color key="backgroundColor" red="0.92063074664641587" green="0.90769931079056132" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="383" id="NCg-qW-OJq"/>
+                                    <constraint firstAttribute="width" constant="947" id="ZUF-o4-BLH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mU-ew-W8E">
-                                <rect key="frame" x="660" y="899" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5d7-xa-99H">
+                                <rect key="frame" x="459" y="706" width="106" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Jugar"/>
                                 <connections>
-                                    <segue destination="PoK-LJ-pBj" kind="show" id="axS-h1-ibj"/>
+                                    <segue destination="PoK-LJ-pBj" kind="show" id="Vxp-2J-5OT"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rz2-4X-ZGo" firstAttribute="top" secondItem="iyL-V8-7qq" secondAttribute="bottom" constant="31" id="0Vb-qs-rUp"/>
+                            <constraint firstItem="b6W-we-895" firstAttribute="trailing" secondItem="iyL-V8-7qq" secondAttribute="trailing" constant="145" id="2rB-Jo-Ykm"/>
+                            <constraint firstItem="rz2-4X-ZGo" firstAttribute="top" secondItem="iyL-V8-7qq" secondAttribute="bottom" constant="31" id="43c-0w-dcl"/>
+                            <constraint firstItem="iyL-V8-7qq" firstAttribute="top" secondItem="b6W-we-895" secondAttribute="top" constant="20" id="E81-lu-vIX"/>
+                            <constraint firstItem="5d7-xa-99H" firstAttribute="top" secondItem="rz2-4X-ZGo" secondAttribute="bottom" constant="21" id="Jhq-JH-JDh"/>
+                            <constraint firstItem="b6W-we-895" firstAttribute="trailing" secondItem="rz2-4X-ZGo" secondAttribute="trailing" constant="38.5" id="TWf-Zm-UiR"/>
+                            <constraint firstItem="b6W-we-895" firstAttribute="trailing" secondItem="5d7-xa-99H" secondAttribute="trailing" constant="459" id="Urm-jn-eEG"/>
+                            <constraint firstItem="b6W-we-895" firstAttribute="bottom" secondItem="rz2-4X-ZGo" secondAttribute="bottom" constant="83" id="YEZ-vd-yWe"/>
+                            <constraint firstItem="rz2-4X-ZGo" firstAttribute="leading" secondItem="b6W-we-895" secondAttribute="leading" constant="38.5" id="ZCp-Ha-YBf"/>
+                            <constraint firstItem="b6W-we-895" firstAttribute="bottom" secondItem="5d7-xa-99H" secondAttribute="bottom" constant="20" id="d0H-2f-6yA"/>
+                            <constraint firstItem="5d7-xa-99H" firstAttribute="leading" secondItem="b6W-we-895" secondAttribute="leading" constant="459" id="pkM-ik-nq6"/>
+                            <constraint firstItem="iyL-V8-7qq" firstAttribute="leading" secondItem="b6W-we-895" secondAttribute="leading" constant="145" id="tyi-yH-pz0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="b6W-we-895"/>
                     </view>
                     <navigationItem key="navigationItem" title="Memorama" id="0cB-Pw-jkI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryq-Zz-foV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153.5871156661783" y="-2477.34375"/>
+            <point key="canvasLocation" x="2153.3203125" y="-2477.34375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hRs-1G-efO">
@@ -795,93 +807,131 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Apr-9N-g8D">
-                                <rect key="frame" x="20" y="208" width="1326" height="796"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Apr-9N-g8D">
+                                <rect key="frame" x="20" y="214" width="984" height="524"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="984" id="1gm-pJ-i01"/>
+                                    <constraint firstAttribute="height" constant="524" id="glu-Vz-9d5"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P1h-yo-jYq">
-                                    <size key="itemSize" width="191" height="189"/>
+                                    <size key="itemSize" width="150" height="148"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="cartaMemo" id="cWe-j4-6P7" customClass="MemoramaCollectionViewCell" customModule="diccionarioPrueba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="191" height="189"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="148"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="191" height="189"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X32-4j-Vod">
-                                                    <rect key="frame" x="5" y="5" width="181" height="179"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X32-4j-Vod">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="148"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.070588235294117646" green="0.36862745098039218" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.72379010529999999" green="0.78436637070000004" blue="0.95395780460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="X32-4j-Vod" secondAttribute="bottom" constant="5" id="Cxu-PB-Tk8"/>
-                                            <constraint firstItem="X32-4j-Vod" firstAttribute="top" secondItem="cWe-j4-6P7" secondAttribute="top" constant="5" id="i5m-du-sc6"/>
-                                            <constraint firstAttribute="trailing" secondItem="X32-4j-Vod" secondAttribute="trailing" constant="5" id="mWh-GO-EE1"/>
-                                            <constraint firstItem="X32-4j-Vod" firstAttribute="leading" secondItem="cWe-j4-6P7" secondAttribute="leading" constant="5" id="nSP-uN-iDD"/>
-                                        </constraints>
+                                        <color key="backgroundColor" red="0.12549019607843137" green="0.29411764705882354" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="lbCarta" destination="X32-4j-Vod" id="eAg-X1-WhB"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tiempo: 5:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbM-HO-IuG">
-                                <rect key="frame" x="1129" y="128" width="203" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCB-Vp-WMt">
-                                <rect key="frame" x="76" y="127" width="136" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCB-Vp-WMt" customClass="RoundButton" customModule="diccionarioPrueba" customModuleProvider="target">
+                                <rect key="frame" x="46" y="119" width="136" height="40"/>
+                                <color key="backgroundColor" red="0.32549019607843138" green="0.22745098039215686" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bo9-hB-hAN"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="136" id="lCa-CM-8NC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Reiniciar" image="refresh">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Reiniciar">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.32549019607843138" green="0.22745098039215686" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ReiniciarJuego:" destination="PoK-LJ-pBj" eventType="touchUpInside" id="oDV-kd-zad"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Puntos: 0 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsH-cu-mf5">
-                                <rect key="frame" x="716" y="130" width="144" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puntos: 0 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsH-cu-mf5">
+                                <rect key="frame" x="625" y="119" width="116.5" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="jIv-Az-gpG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Intentos: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1r-mF-fg2">
-                                <rect key="frame" x="506" y="130" width="144" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intentos: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1r-mF-fg2">
+                                <rect key="frame" x="341" y="119" width="125.5" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="uhi-H8-Ncm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiempo: 5:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSx-K3-Zat">
+                                <rect key="frame" x="832" y="119" width="146" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="hWr-zH-DeF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.48627450980392156" green="0.56470588235294117" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Apr-9N-g8D" firstAttribute="top" secondItem="mSx-K3-Zat" secondAttribute="bottom" constant="58" id="4Pg-fR-Uch"/>
+                            <constraint firstItem="Apr-9N-g8D" firstAttribute="top" secondItem="KCB-Vp-WMt" secondAttribute="bottom" constant="55" id="6fr-1d-5wN"/>
+                            <constraint firstItem="u1r-mF-fg2" firstAttribute="top" secondItem="ppo-gj-Oz4" secondAttribute="top" constant="55" id="AS9-pU-5Al"/>
+                            <constraint firstItem="ppo-gj-Oz4" firstAttribute="trailing" secondItem="mSx-K3-Zat" secondAttribute="trailing" constant="46" id="DSP-sB-6h5"/>
+                            <constraint firstItem="fsH-cu-mf5" firstAttribute="top" secondItem="ppo-gj-Oz4" secondAttribute="top" constant="55" id="Fqz-QC-chW"/>
+                            <constraint firstItem="Apr-9N-g8D" firstAttribute="leading" secondItem="ppo-gj-Oz4" secondAttribute="leading" constant="20" id="MRV-mR-bNw"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u1r-mF-fg2" secondAttribute="trailing" constant="20" symbolic="YES" id="PGt-rS-bvW"/>
+                            <constraint firstItem="fsH-cu-mf5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gLT-YA-1ul" secondAttribute="leading" constant="20" symbolic="YES" id="QgT-yx-ivQ"/>
+                            <constraint firstItem="Apr-9N-g8D" firstAttribute="top" secondItem="u1r-mF-fg2" secondAttribute="bottom" constant="58" id="Zz5-Fe-h4M"/>
+                            <constraint firstItem="mSx-K3-Zat" firstAttribute="leading" secondItem="fsH-cu-mf5" secondAttribute="trailing" constant="90.5" id="bUj-LF-9my"/>
+                            <constraint firstItem="KCB-Vp-WMt" firstAttribute="top" secondItem="ppo-gj-Oz4" secondAttribute="top" constant="55" id="c2z-xe-P9S"/>
+                            <constraint firstItem="Apr-9N-g8D" firstAttribute="top" secondItem="fsH-cu-mf5" secondAttribute="bottom" constant="58" id="cFy-NQ-WH4"/>
+                            <constraint firstItem="ppo-gj-Oz4" firstAttribute="trailing" secondItem="Apr-9N-g8D" secondAttribute="trailing" constant="20" id="cqW-Kg-pnP"/>
+                            <constraint firstItem="u1r-mF-fg2" firstAttribute="leading" secondItem="KCB-Vp-WMt" secondAttribute="trailing" constant="159" id="hgN-BX-B1f"/>
+                            <constraint firstItem="KCB-Vp-WMt" firstAttribute="leading" secondItem="ppo-gj-Oz4" secondAttribute="leading" constant="46" id="ivV-sb-X88"/>
+                            <constraint firstItem="mSx-K3-Zat" firstAttribute="top" secondItem="ppo-gj-Oz4" secondAttribute="top" constant="55" id="vf3-1u-DxX"/>
+                            <constraint firstItem="ppo-gj-Oz4" firstAttribute="bottom" secondItem="Apr-9N-g8D" secondAttribute="bottom" constant="30" id="ymH-wJ-itz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ppo-gj-Oz4"/>
                     </view>
                     <connections>
                         <outlet property="cvMemorama" destination="Apr-9N-g8D" id="fCj-GK-VrW"/>
                         <outlet property="lbIntentos" destination="u1r-mF-fg2" id="ac0-nK-uxQ"/>
                         <outlet property="lbPuntos" destination="fsH-cu-mf5" id="FJb-vB-mWm"/>
-                        <outlet property="lbTiempo" destination="jbM-HO-IuG" id="D4L-Oi-NnJ"/>
+                        <outlet property="lbTiempo" destination="mSx-K3-Zat" id="LJb-Al-vvo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nfe-CR-Faj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2878.7701317715955" y="-2477.34375"/>
+            <point key="canvasLocation" x="2878.7109375" y="-2477.34375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kN2-mN-3hp">
@@ -967,7 +1017,6 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
         <image name="gravedad10" width="569" height="171"/>
         <image name="memorama4" width="800" height="226"/>
         <image name="pacman" width="26" height="26"/>
-        <image name="refresh" width="26" height="26"/>
         <image name="responde4" width="640" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
