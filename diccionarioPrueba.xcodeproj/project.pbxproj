@@ -15,6 +15,7 @@
 		3B518819205798270051D913 /* LenguajeSenasMexicano_Web in Resources */ = {isa = PBXBuildFile; fileRef = 3B518818205798270051D913 /* LenguajeSenasMexicano_Web */; };
 		3B6C2B7E2069E8930067EB84 /* ControllerJ3Instrucciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C2B7D2069E8930067EB84 /* ControllerJ3Instrucciones.swift */; };
 		3BBCC9002058EF4600DF6EB5 /* ViewControllerRuleta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBCC8FF2058EF4600DF6EB5 /* ViewControllerRuleta.swift */; };
+		3BC5E91220902E0E00974388 /* ViewControllerCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC5E91120902E0E00974388 /* ViewControllerCredits.swift */; };
 		3BCE12FD20688FEC001B153E /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE12FC20688FEC001B153E /* Usuario.swift */; };
 		3BDC7EE8206494FE0014F030 /* ViewControllerJuego3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDC7EE7206494FE0014F030 /* ViewControllerJuego3.swift */; };
 		3BDD32902069862300E245E7 /* ControllerJ3Sena.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD328F2069862300E245E7 /* ControllerJ3Sena.swift */; };
@@ -42,6 +43,7 @@
 		3B518818205798270051D913 /* LenguajeSenasMexicano_Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LenguajeSenasMexicano_Web; sourceTree = "<group>"; };
 		3B6C2B7D2069E8930067EB84 /* ControllerJ3Instrucciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerJ3Instrucciones.swift; sourceTree = "<group>"; };
 		3BBCC8FF2058EF4600DF6EB5 /* ViewControllerRuleta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRuleta.swift; sourceTree = "<group>"; };
+		3BC5E91120902E0E00974388 /* ViewControllerCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCredits.swift; sourceTree = "<group>"; };
 		3BCE12FC20688FEC001B153E /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		3BDC7EE7206494FE0014F030 /* ViewControllerJuego3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerJuego3.swift; sourceTree = "<group>"; };
 		3BDD328F2069862300E245E7 /* ControllerJ3Sena.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerJ3Sena.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				3BDC7EE7206494FE0014F030 /* ViewControllerJuego3.swift */,
 				3BBCC8FF2058EF4600DF6EB5 /* ViewControllerRuleta.swift */,
 				3B2D89B7205776EC0085392B /* Main.storyboard */,
+				3BC5E91120902E0E00974388 /* ViewControllerCredits.swift */,
 				A6C3AFEE208D8A7800A81E59 /* PopOverViewController.swift */,
 				548B43C6208C12F800CCB18B /* ViewControllerUsuario.swift */,
 				A69F025420730A3C003603D8 /* MemoramaViewController.swift */,
@@ -190,6 +193,7 @@
 			files = (
 				3B2D89B6205776EC0085392B /* ViewController.swift in Sources */,
 				3BBCC9002058EF4600DF6EB5 /* ViewControllerRuleta.swift in Sources */,
+				3BC5E91220902E0E00974388 /* ViewControllerCredits.swift in Sources */,
 				A6C3AFEF208D8A7800A81E59 /* PopOverViewController.swift in Sources */,
 				54290BF92058894000AEFE49 /* Category.swift in Sources */,
 				54290BF52058886800AEFE49 /* TableViewControllerCategory.swift in Sources */,

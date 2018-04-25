@@ -16,6 +16,7 @@ class ViewControllerUsuario: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Usuario"
         // Do any additional setup after loading the view.
         txtPuntos.text = String(Usuario.user.puntos)
     }
@@ -33,21 +34,23 @@ class ViewControllerUsuario: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let vista = segue.destination as! TableViewControllerSena
-        if(segue.identifier == "favoritos")
-        {
-            vista.datoMostrar = Usuario.user.favoritos
-            vista.datoMostrarFiltro = Usuario.user.favoritos
-            vista.bEdit = true
-            vista.sSegue = "favoritos"
-        }
-        
-        if(segue.identifier == "errores")
-        {
-            vista.datoMostrar = Usuario.user.errores
-            vista.datoMostrarFiltro = Usuario.user.errores
-            vista.bEdit = true
-            vista.sSegue = "errores"
+        if(segue.identifier != "credits"){
+            let vista = segue.destination as! TableViewControllerSena
+            if(segue.identifier == "favoritos")
+            {
+                vista.datoMostrar = Usuario.user.favoritos
+                vista.datoMostrarFiltro = Usuario.user.favoritos
+                vista.bEdit = true
+                vista.sSegue = "favoritos"
+            }
+            
+            if(segue.identifier == "errores")
+            {
+                vista.datoMostrar = Usuario.user.errores
+                vista.datoMostrarFiltro = Usuario.user.errores
+                vista.bEdit = true
+                vista.sSegue = "errores"
+            }
         }
     }
     

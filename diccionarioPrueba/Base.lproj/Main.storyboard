@@ -318,7 +318,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="747" ambiguous="YES" image="responde4" translatesAutoresizingMaskIntoConstraints="NO" id="d0h-BV-wbf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="747" ambiguous="YES" image="respondeNI" translatesAutoresizingMaskIntoConstraints="NO" id="d0h-BV-wbf">
                                 <rect key="frame" x="136.5" y="158" width="626" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="7d8-46-nUt"/>
@@ -403,7 +403,7 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                                     <segue destination="9nS-UF-blm" kind="show" id="PUA-Qn-Fg7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gravedad10" translatesAutoresizingMaskIntoConstraints="NO" id="A4W-pq-yI0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gravedadNI" translatesAutoresizingMaskIntoConstraints="NO" id="A4W-pq-yI0">
                                 <rect key="frame" x="245.5" y="102" width="533" height="155"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="155" id="VQD-hX-U9I"/>
@@ -623,6 +623,14 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="57Y-sI-v6s"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fp-rD-Rrg">
+                                <rect key="frame" x="443" y="576" width="138" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Creditos"/>
+                                <connections>
+                                    <segue destination="ijp-71-Sng" kind="show" identifier="credits" id="HYY-6B-aZx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98247144670050757" green="0.98247144670050757" blue="0.98247144670050757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -641,7 +649,7 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9Z-D9-NfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="309.66325036603217" y="-3260.15625"/>
+            <point key="canvasLocation" x="309.375" y="-3260.15625"/>
         </scene>
         <!--Juegos-->
         <scene sceneID="MTL-OI-gEc">
@@ -734,7 +742,7 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memorama4" translatesAutoresizingMaskIntoConstraints="NO" id="iyL-V8-7qq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memoNI3" translatesAutoresizingMaskIntoConstraints="NO" id="iyL-V8-7qq">
                                 <rect key="frame" x="145" y="84" width="734" height="187"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="734" id="LpH-NH-AdG"/>
@@ -801,20 +809,40 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
             </objects>
             <point key="canvasLocation" x="1534.6998535871155" y="-1742.578125"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Credits-->
         <scene sceneID="s9C-nH-z8g">
             <objects>
-                <viewController id="ijp-71-Sng" sceneMemberID="viewController">
+                <viewController id="ijp-71-Sng" customClass="ViewControllerCredits" customModule="diccionarioPrueba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TD0-BC-fRr">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RfO-gf-l1B">
+                                <rect key="frame" x="89" y="105" width="877" height="597"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.72416561840000004" green="0.88976049420000003" blue="0.94869738820000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <mutableString key="text">El proyecto de Aprendizaje de Lenguaje de Señas Mexicanas ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Enero Mayo de 2018, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
+
+Desarrolladores:Ana Clarissa Miranda PeñaValeria Rocha SepúlvedaMiguel Ángel Rocha Cabello
+
+Aprendizaje de Lenguaje de Señas Mexicanas se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro.
+
+Iconos de los logos de los juegos
+</mutableString>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rMJ-cR-x1N"/>
                     </view>
+                    <connections>
+                        <outlet property="tvCredits" destination="RfO-gf-l1B" id="bzN-k7-t2r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxl-cS-1hV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084" y="-3260"/>
+            <point key="canvasLocation" x="1083.984375" y="-3260.15625"/>
         </scene>
         <!--Memorama-->
         <scene sceneID="66E-sM-j5s">
@@ -990,7 +1018,7 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
         <scene sceneID="920-Lr-fP8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l9r-cd-F32" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Usuario" id="wOK-F3-F28"/>
+                    <tabBarItem key="tabBarItem" title="Usuario" image="people_" id="wOK-F3-F28"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tsz-Wz-Z4D">
                         <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
@@ -1049,10 +1077,11 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
     <resources>
         <image name="background" width="700" height="500"/>
         <image name="folder" width="26" height="26"/>
-        <image name="gravedad10" width="569" height="171"/>
-        <image name="memorama4" width="800" height="226"/>
+        <image name="gravedadNI" width="569" height="171"/>
+        <image name="memoNI3" width="511" height="151"/>
         <image name="pacman" width="26" height="26"/>
-        <image name="responde4" width="640" height="225"/>
+        <image name="people_" width="26" height="26"/>
+        <image name="respondeNI" width="640" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eFu-IA-9de"/>
