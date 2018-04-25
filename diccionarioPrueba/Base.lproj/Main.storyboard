@@ -817,9 +817,8 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RfO-gf-l1B">
-                                <rect key="frame" x="89" y="105" width="877" height="597"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RfO-gf-l1B">
+                                <rect key="frame" x="72" y="91" width="881" height="587"/>
                                 <color key="backgroundColor" red="0.72416561840000004" green="0.88976049420000003" blue="0.94869738820000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <mutableString key="text">El proyecto de Aprendizaje de Lenguaje de Señas Mexicanas ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Enero Mayo de 2018, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
 
@@ -834,6 +833,12 @@ Iconos de los logos de los juegos
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RfO-gf-l1B" firstAttribute="leading" secondItem="rMJ-cR-x1N" secondAttribute="leading" constant="72" id="6yg-ao-djb"/>
+                            <constraint firstItem="RfO-gf-l1B" firstAttribute="centerX" secondItem="TD0-BC-fRr" secondAttribute="centerX" id="P8o-3N-Ido"/>
+                            <constraint firstItem="RfO-gf-l1B" firstAttribute="top" secondItem="rMJ-cR-x1N" secondAttribute="top" constant="27" id="eAY-oA-hRp"/>
+                            <constraint firstItem="rMJ-cR-x1N" firstAttribute="bottom" secondItem="RfO-gf-l1B" secondAttribute="bottom" constant="41" id="nDn-CM-xIU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rMJ-cR-x1N"/>
                     </view>
                     <connections>
