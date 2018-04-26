@@ -358,7 +358,7 @@
 				DEVELOPMENT_TEAM = HJH6ES9LNW;
 				INFOPLIST_FILE = diccionarioPrueba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = a01193039.diccionarioPrueba;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.itesmalumnos.enSen-as";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -373,7 +373,7 @@
 				DEVELOPMENT_TEAM = HJH6ES9LNW;
 				INFOPLIST_FILE = diccionarioPrueba/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = a01193039.diccionarioPrueba;
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.itesmalumnos.enSen-as";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
