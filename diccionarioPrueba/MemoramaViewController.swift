@@ -46,7 +46,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         cvMemorama.isUserInteractionEnabled = true
         
         baraja = Usuario.user.model.arrTotal
-        segundos = 2
+        segundos = 300
         puntos = 0
         card = MemoramaCollectionViewCell.Carta(senaImg: true, sena: baraja[0].arrSena[0])
         lbPuntos.text = "Puntos: 0"
