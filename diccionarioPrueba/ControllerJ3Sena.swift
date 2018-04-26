@@ -40,8 +40,8 @@ class ControllerJ3Sena: UIViewController {
         
         if !didLoad{
             if velCrear > 1.0{
-                velCaida -= 0.001 //0.001
-                velCrear -= 0.1 //0.1
+                velCaida -= 0.002 //0.001
+                velCrear -= 0.2 //0.1
             }
             escogerSenas()
         }

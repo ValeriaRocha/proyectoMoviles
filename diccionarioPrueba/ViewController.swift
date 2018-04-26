@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         
         self.title = sena.nombre
         lbNombreSena.text = sena.nombre
-        
+
         btFav.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
         
         
