@@ -197,7 +197,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhB-dA-nsW">
-                                <rect key="frame" x="288" y="606.5" width="455" height="35.5"/>
+                                <rect key="frame" x="288" y="606.5" width="470" height="43.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="JEc-r2-Q04"/>
                                 </constraints>
@@ -206,12 +206,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELp-Jq-DAH">
-                                <rect key="frame" x="900" y="94" width="50" height="26"/>
+                                <rect key="frame" x="900" y="94" width="65" height="34"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="ELp-Jq-DAH" secondAttribute="height" multiplier="25:13" id="euO-DH-cL6"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="nrt-cP-tt7"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ppV-f5-B0B"/>
                                 </constraints>
-                                <state key="normal" image="heart"/>
                                 <connections>
                                     <action selector="click:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pmy-Qx-5Cj"/>
                                 </connections>
@@ -1112,7 +1112,6 @@ Iconos de los logos de los juegos
         <image name="background" width="700" height="500"/>
         <image name="folder" width="26" height="26"/>
         <image name="gravedadNI" width="569" height="171"/>
-        <image name="heart" width="26" height="26"/>
         <image name="memoNI3" width="511" height="151"/>
         <image name="pacman" width="26" height="26"/>
         <image name="people_" width="26" height="26"/>

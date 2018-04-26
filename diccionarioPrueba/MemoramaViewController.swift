@@ -222,6 +222,9 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
                 //El juego deja de ser interactivo
                 cvMemorama.isUserInteractionEnabled = false
+                
+                //Guardar los puntos del usuario
+                Usuario.user.puntos += puntos
                 return
             }
             present(alerta, animated: true, completion: nil)
@@ -276,6 +279,9 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
             
             //El juego deja de ser interactivo
             cvMemorama.isUserInteractionEnabled = false
+            
+            //Guardar los puntos del usuario
+            Usuario.user.puntos += puntos
         }
         else{
             segundos -= 1
