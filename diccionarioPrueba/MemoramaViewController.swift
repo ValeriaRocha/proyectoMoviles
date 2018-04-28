@@ -36,9 +36,14 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     var cartasObtenidas = [MemoramaCollectionViewCell]() //baraja donde se tiene el par de cartas para volverlas a desplegar al momento de seleccionar reiniciar
     var cartasTemas = [String]()
     var iguales = Bool()
+    var dosSeleccionadas = Bool()
+    var tiempoAntesValidar = Double()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //vale
+        dosSeleccionadas = false
         
         //Definiendo el delegate y datasource del collectionview
         self.cvMemorama.delegate = self
@@ -59,19 +64,20 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         //Obtener las señas para la baraja (la primera mitad)
         for index in 0...11{
-            var randCategoria = Int(arc4random_uniform(UInt32(baraja.count)))
-            var randSena = Int(arc4random_uniform(UInt32(baraja[randCategoria].arrSena.count)))
+            var randCategoria = Int(arc4random_uniform(UInt32(baraja.count))) //saca una categoria random
+            var randSena = Int(arc4random_uniform(UInt32(baraja[randCategoria].arrSena.count))) //saca pos de una sena random de esa categoria
             //baraja[randCategoria].arrSena.remove(at: randSena)
             //baraja.remove(at: randCategoria) //Para borrar categoria
             if index != 0{
-                for var chequeo in 0...index - 1{
+                for var chequeo in 0...index - 1{  //checar que no se repitan las señas seleccionadas para el memorama
                     print("============================")
                     print(baraja[randCategoria].arrSena[randSena].nombre)
                     print("============================")
+                    //cambia la seña seleccionada en caso de que ya se haya seleccionado antes
                     while(ArrSenas[chequeo].nombre == baraja[randCategoria].arrSena[randSena].nombre){
                         randCategoria = Int(arc4random_uniform(UInt32(baraja.count)))
                         randSena = Int(arc4random_uniform(UInt32(baraja[randCategoria].arrSena.count)))
-                        chequeo = 0
+                        chequeo = 0 //si escoges otra carta tienes que compararla con las otras del principio
                     }
                 }
             }
@@ -79,12 +85,12 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
             print(ArrSenas[index].nombre)
         }
         
-        for index2 in 0...11{
+        for index2 in 0...11{//añade al deck las cartas que tienen label
             card = MemoramaCollectionViewCell.Carta(senaImg: true, sena: ArrSenas[index2])
-            deck.append(card)
+            deck.append(card) //deck son todas las cartas, incluyendo las labels y las imagenes/video
         }
         
-        for index3 in 0...11{
+        for index3 in 0...11{//añade al deck las cartas que tienen imagen/video
             card = MemoramaCollectionViewCell.Carta(senaImg: false, sena: ArrSenas[index3])
             deck.append(card)
         }
@@ -106,7 +112,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         for index in 0...deck.count - 1{
             let randCategoria = Int(arc4random_uniform(UInt32(deck.count - 1)))
-            deckRandom.append(deck[randCategoria])
+            deckRandom.append(deck[randCategoria]) //revolver cartas
             deck.remove(at: randCategoria)
         }
     }
@@ -139,31 +145,36 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     //Funcion para seleccionar objetos del collection view
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // si ya habia dos cartas seleccionadas anteriormente, regresar
+        //para que si selecciona una tercera carta, no haga nada
         if selectIndexes.count == 2{
             return
         }
         
-        selectIndexes.append(indexPath)
+        selectIndexes.append(indexPath) //agregarla a los indices seleccionados
         let carta = collectionView.cellForItem(at: indexPath) as! MemoramaCollectionViewCell
         
-        if iguales{
-            if selectIndexes[0] == indexPath{
-                if carta.senaImg == false{
-                    let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
-                    popOver.carta = carta
-                    self.addChildViewController(popOver)
-                    popOver.view.frame = self.view.frame
-                    self.view.addSubview(popOver.view)
-                    popOver.didMove(toParentViewController: self)
-                }
-                selectIndexes.remove(at: 1)
-                return
-            }
-        }
         cartasSeleccionadas.append(carta)
         cartasObtenidas.append(carta)
         cartasTemas.append(carta.lbCarta.text!)
-        if carta.lbCarta.text == "Imagen"{
+        
+        //voltear la carta
+        if carta.senaImg{
+            carta.lbCarta.text = carta.sena.nombre
+        }else {
+            //enseñarlo en la carta
+            let player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
+            let controller = AVPlayerViewController()
+            controller.player = player
+            self.addChildViewController(controller)
+            let videoFrame = CGRect(x: carta.frame.origin.x + 20, y: carta.frame.origin.y + 212, width: carta.frame.size.width, height: carta.frame.size.height)
+            controller.view.frame = videoFrame
+            controller.view.tag = 100
+            self.view.addSubview(controller.view)
+            player.play()
+
+            //mostrar pop over
             let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
             popOver.carta = carta
             self.addChildViewController(popOver)
@@ -171,30 +182,80 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.view.addSubview(popOver.view)
             popOver.didMove(toParentViewController: self)
         }
-        else{
-            carta.lbCarta.text = carta.sena.nombre
-        }
-       iguales = true
-        carta.lbCarta.text = carta.sena.nombre
-        
-        if selectIndexes.count < 2{
-            return
-        }
-        
-        let carta1 = deckRandom[selectIndexes[0].row]
-        let carta2 = deckRandom[selectIndexes[1].row]
-        
-        print("Cartas Seleccionadas")
-        print(carta1.sena.nombre)
-        print(carta2.sena.nombre)
         
         intentos += 1
         lbIntentos.text = "Intentos: \(intentos)"
-        Validar(carta1: carta1, carta2: carta2)
-        selectIndexes.removeAll()
-        cartasSeleccionadas.removeAll()
-        cartasTemas.removeAll()
-        iguales = false
+
+        //si es la segunda carta, ver cuando la volteo
+        if selectIndexes.count >= 2{
+            dosSeleccionadas = true
+            tiempoAntesValidar = 3
+            
+        }
+        
+        
+        /*
+            Voltear la carta
+            Si es la segunda carta:
+                ver el tiempo en que se volteó
+                esperar 3 segundos desde ese tiempo para checar ambas cartas
+         (En la funcion del timer, ver si del tiempo en que se volteo y el tiempo actual es igual a 3, en ese caso, checar si las cartas son iguales, desaparecerlas o voltearlas dependiendo del caso)
+        */
+        
+//
+//
+//        if iguales{
+//            if selectIndexes[0] == indexPath{ //si es la primera carta
+//                if carta.senaImg == false{ //si es imagen, mostrar pop over
+//                    let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
+//                    popOver.carta = carta
+//                    self.addChildViewController(popOver)
+//                    popOver.view.frame = self.view.frame
+//                    self.view.addSubview(popOver.view)
+//                    popOver.didMove(toParentViewController: self)
+//                }
+//                selectIndexes.remove(at: 1)
+//                return
+//            }
+//        }
+//
+//        //si no es la primera carta
+////        cartasSeleccionadas.append(carta)
+////        cartasObtenidas.append(carta)
+////        cartasTemas.append(carta.lbCarta.text!)
+//        if carta.lbCarta.text == "Imagen"{
+//            let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
+//            popOver.carta = carta
+//            self.addChildViewController(popOver)
+//            popOver.view.frame = self.view.frame
+//            self.view.addSubview(popOver.view)
+//            popOver.didMove(toParentViewController: self)
+//        }
+//        else{
+//            carta.lbCarta.text = carta.sena.nombre
+//        }
+//       iguales = true
+//        carta.lbCarta.text = carta.sena.nombre
+//
+//        if selectIndexes.count < 2{
+//            return
+//        }
+//
+//        let carta1 = deckRandom[selectIndexes[0].row]
+//        let carta2 = deckRandom[selectIndexes[1].row]
+//
+//        print("Cartas Seleccionadas")
+//        print(carta1.sena.nombre)
+//        print(carta2.sena.nombre)
+//
+////        intentos += 1
+////        lbIntentos.text = "Intentos: \(intentos)"
+//        Validar(carta1: carta1, carta2: carta2)
+//        selectIndexes.removeAll()
+//        cartasSeleccionadas.removeAll()
+//        cartasTemas.removeAll()
+//        iguales = false
+ 
     }
     
     func Validar(carta1: MemoramaCollectionViewCell.Carta, carta2: MemoramaCollectionViewCell.Carta){
@@ -227,12 +288,12 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
                 Usuario.user.puntos += puntos
                 return
             }
-            present(alerta, animated: true, completion: nil)
+        //    present(alerta, animated: true, completion: nil)
         }
         else{
             let alerta = UIAlertController(title: "Tus cartas selecciconadas", message: "Carta #1: " + carta1.sena.nombre + " \nno es igual \nCarta #2: " + carta2.sena.nombre, preferredStyle: .alert)
             alerta.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            present(alerta, animated: true, completion: nil)
+        //    present(alerta, animated: true, completion: nil)
             for index5 in 0...1{
                 //carta.lbCarta.text = cartasTemas[index5]
                 cartasSeleccionadas[index5].lbCarta.text = cartasTemas[index5]
@@ -265,6 +326,29 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     //Funcion que actualiza el tiempo en el label y verifica cuando se acabo el tiempo para desplegar el fin del juego con los puntos obtenidos
     @objc func updateTime(){
+        if dosSeleccionadas {
+            tiempoAntesValidar -= 1
+            if tiempoAntesValidar <= 0 {
+                //validar cartas
+                let carta1 = deckRandom[selectIndexes[0].row]
+                let carta2 = deckRandom[selectIndexes[1].row]
+                Validar(carta1: carta1, carta2: carta2)
+                
+                //quitar video
+                if let viewWithTag = self.view.viewWithTag(100) {
+                    viewWithTag.removeFromSuperview()
+                }
+                
+                //quitar las seleccionadas de los arreglos
+                selectIndexes.removeAll()
+                cartasSeleccionadas.removeAll()
+                cartasTemas.removeAll()
+                
+                //poner que no hay dos seleccionadas
+                dosSeleccionadas = false
+            }
+        }
+        
         if segundos == 0{
             //Creacion de alerta
             let alerta = UIAlertController(title: "Fin del juego", message: "Obtuviste \(puntos) puntos", preferredStyle: .alert)
