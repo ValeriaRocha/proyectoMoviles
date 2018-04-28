@@ -37,6 +37,7 @@ class PopOverViewController: UIViewController {
             let imageFrame =  CGRect(x: (self.view.center.x) - ((imagen.size.width * 0.8)/2), y: (screenSize.height/2) - ((imagen.size.height * 0.8)/2 + 25), width: imagen.size.width * 0.8 , height: imagen.size.height * 0.8)
             imageView.frame = imageFrame
             imageView.contentMode = UIViewContentMode.scaleAspectFit
+            imageView.tag = 100
             self.view.addSubview(imageView)
         }
         

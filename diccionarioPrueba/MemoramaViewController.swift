@@ -162,17 +162,30 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         //voltear la carta
         if carta.senaImg{
             carta.lbCarta.text = carta.sena.nombre
+ //           carta.lbCarta.lineBreakMode = NSLineBreakMode.byWordWrapping
+            carta.lbCarta.lineBreakMode = NSLineBreakMode.byCharWrapping //para que si la palabra es larga, no se vea con puntos suspensivos
+            carta.lbCarta.backgroundColor = #colorLiteral(red: 0.6444751856, green: 0.7282408179, blue: 0.8460512651, alpha: 1)
         }else {
             //enseñarlo en la carta
-            let player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
-            let controller = AVPlayerViewController()
-            controller.player = player
-            self.addChildViewController(controller)
-            let videoFrame = CGRect(x: carta.frame.origin.x + 20, y: carta.frame.origin.y + 212, width: carta.frame.size.width, height: carta.frame.size.height)
-            controller.view.frame = videoFrame
-            controller.view.tag = 100
-            self.view.addSubview(controller.view)
-            player.play()
+            if carta.sena.path.hasSuffix(".m4v"){
+                let player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
+                let controller = AVPlayerViewController()
+                controller.player = player
+                self.addChildViewController(controller)
+                let videoFrame = CGRect(x: carta.frame.origin.x + 20, y: carta.frame.origin.y + 212, width: carta.frame.size.width, height: carta.frame.size.height)
+                controller.view.frame = videoFrame
+                controller.view.tag = 100
+                self.view.addSubview(controller.view)
+                player.play()
+            } else {
+                let imagen = UIImage(contentsOfFile: carta.sena.path)!
+                let imageView = UIImageView(image: imagen)
+                let imageFrame =  CGRect(x: carta.frame.origin.x + 20, y: carta.frame.origin.y + 212, width: carta.frame.size.width, height: carta.frame.size.height)
+                imageView.frame = imageFrame
+                imageView.tag = 100
+                imageView.contentMode = UIViewContentMode.scaleAspectFit
+                self.view.addSubview(imageView)
+            }
 
             //mostrar pop over
             let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
@@ -192,69 +205,6 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
             tiempoAntesValidar = 3
             
         }
-        
-        
-        /*
-            Voltear la carta
-            Si es la segunda carta:
-                ver el tiempo en que se volteó
-                esperar 3 segundos desde ese tiempo para checar ambas cartas
-         (En la funcion del timer, ver si del tiempo en que se volteo y el tiempo actual es igual a 3, en ese caso, checar si las cartas son iguales, desaparecerlas o voltearlas dependiendo del caso)
-        */
-        
-//
-//
-//        if iguales{
-//            if selectIndexes[0] == indexPath{ //si es la primera carta
-//                if carta.senaImg == false{ //si es imagen, mostrar pop over
-//                    let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
-//                    popOver.carta = carta
-//                    self.addChildViewController(popOver)
-//                    popOver.view.frame = self.view.frame
-//                    self.view.addSubview(popOver.view)
-//                    popOver.didMove(toParentViewController: self)
-//                }
-//                selectIndexes.remove(at: 1)
-//                return
-//            }
-//        }
-//
-//        //si no es la primera carta
-////        cartasSeleccionadas.append(carta)
-////        cartasObtenidas.append(carta)
-////        cartasTemas.append(carta.lbCarta.text!)
-//        if carta.lbCarta.text == "Imagen"{
-//            let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
-//            popOver.carta = carta
-//            self.addChildViewController(popOver)
-//            popOver.view.frame = self.view.frame
-//            self.view.addSubview(popOver.view)
-//            popOver.didMove(toParentViewController: self)
-//        }
-//        else{
-//            carta.lbCarta.text = carta.sena.nombre
-//        }
-//       iguales = true
-//        carta.lbCarta.text = carta.sena.nombre
-//
-//        if selectIndexes.count < 2{
-//            return
-//        }
-//
-//        let carta1 = deckRandom[selectIndexes[0].row]
-//        let carta2 = deckRandom[selectIndexes[1].row]
-//
-//        print("Cartas Seleccionadas")
-//        print(carta1.sena.nombre)
-//        print(carta2.sena.nombre)
-//
-////        intentos += 1
-////        lbIntentos.text = "Intentos: \(intentos)"
-//        Validar(carta1: carta1, carta2: carta2)
-//        selectIndexes.removeAll()
-//        cartasSeleccionadas.removeAll()
-//        cartasTemas.removeAll()
-//        iguales = false
  
     }
     
@@ -266,6 +216,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
             puntos += 5
             lbPuntos.text = "Puntos: \(puntos)"
             for index4 in 0...1{
+                cartasSeleccionadas[index4].lbCarta.backgroundColor = #colorLiteral(red: 0.3266390264, green: 0.2274522185, blue: 0.4807732105, alpha: 1)
                 cartasSeleccionadas[index4].isHidden = true
             }
             
@@ -297,6 +248,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
             for index5 in 0...1{
                 //carta.lbCarta.text = cartasTemas[index5]
                 cartasSeleccionadas[index5].lbCarta.text = cartasTemas[index5]
+                cartasSeleccionadas[index5].lbCarta.backgroundColor = #colorLiteral(red: 0.3266390264, green: 0.2274522185, blue: 0.4807732105, alpha: 1)
                 //cartasSeleccionadas[index5].lbCarta.backgroundColor = UIColor.init(red: CGFloat(102), green: CGFloat(153), blue: CGFloat(255), alpha: 0)
             }
         }
@@ -308,8 +260,17 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         if cartasObtenidas.count != 0{
             for index6 in 0...cartasObtenidas.count - 1{
                 cartasObtenidas[index6].isHidden = false
+                cartasObtenidas[index6].lbCarta.backgroundColor = #colorLiteral(red: 0.3266390264, green: 0.2274522185, blue: 0.4807732105, alpha: 1)
             }
         }
+        //quitar video
+        if let viewWithTag = self.view.viewWithTag(100) {
+            viewWithTag.removeFromSuperview()
+        }
+        if let viewWithTag = self.view.viewWithTag(100) {
+            viewWithTag.removeFromSuperview()
+        }
+        
         tiempo.invalidate() //Desactiva el tiempo
         deckRandom.removeAll()
         ArrSenas.removeAll()
@@ -338,11 +299,15 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
                 if let viewWithTag = self.view.viewWithTag(100) {
                     viewWithTag.removeFromSuperview()
                 }
+                if let viewWithTag = self.view.viewWithTag(100) {
+                    viewWithTag.removeFromSuperview()
+                }
                 
                 //quitar las seleccionadas de los arreglos
                 selectIndexes.removeAll()
                 cartasSeleccionadas.removeAll()
                 cartasTemas.removeAll()
+                
                 
                 //poner que no hay dos seleccionadas
                 dosSeleccionadas = false
@@ -381,6 +346,60 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         return String(format: "%02i:%02i", minutos, segundos)
     }
+    
+    //
+    //
+    //        if iguales{
+    //            if selectIndexes[0] == indexPath{ //si es la primera carta
+    //                if carta.senaImg == false{ //si es imagen, mostrar pop over
+    //                    let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
+    //                    popOver.carta = carta
+    //                    self.addChildViewController(popOver)
+    //                    popOver.view.frame = self.view.frame
+    //                    self.view.addSubview(popOver.view)
+    //                    popOver.didMove(toParentViewController: self)
+    //                }
+    //                selectIndexes.remove(at: 1)
+    //                return
+    //            }
+    //        }
+    //
+    //        //si no es la primera carta
+    ////        cartasSeleccionadas.append(carta)
+    ////        cartasObtenidas.append(carta)
+    ////        cartasTemas.append(carta.lbCarta.text!)
+    //        if carta.lbCarta.text == "Imagen"{
+    //            let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
+    //            popOver.carta = carta
+    //            self.addChildViewController(popOver)
+    //            popOver.view.frame = self.view.frame
+    //            self.view.addSubview(popOver.view)
+    //            popOver.didMove(toParentViewController: self)
+    //        }
+    //        else{
+    //            carta.lbCarta.text = carta.sena.nombre
+    //        }
+    //       iguales = true
+    //        carta.lbCarta.text = carta.sena.nombre
+    //
+    //        if selectIndexes.count < 2{
+    //            return
+    //        }
+    //
+    //        let carta1 = deckRandom[selectIndexes[0].row]
+    //        let carta2 = deckRandom[selectIndexes[1].row]
+    //
+    //        print("Cartas Seleccionadas")
+    //        print(carta1.sena.nombre)
+    //        print(carta2.sena.nombre)
+    //
+    ////        intentos += 1
+    ////        lbIntentos.text = "Intentos: \(intentos)"
+    //        Validar(carta1: carta1, carta2: carta2)
+    //        selectIndexes.removeAll()
+    //        cartasSeleccionadas.removeAll()
+    //        cartasTemas.removeAll()
+    //        iguales = false
     
     /*
      // MARK: UICollectionViewDelegate
