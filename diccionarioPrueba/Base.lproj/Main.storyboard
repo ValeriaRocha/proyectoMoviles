@@ -197,7 +197,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhB-dA-nsW">
-                                <rect key="frame" x="288" y="606.5" width="455" height="35.5"/>
+                                <rect key="frame" x="288" y="606.5" width="395" height="27.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="JEc-r2-Q04"/>
                                 </constraints>
@@ -206,11 +206,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELp-Jq-DAH">
-                                <rect key="frame" x="900" y="94" width="50" height="26"/>
+                                <rect key="frame" x="890" y="96" width="50" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ELp-Jq-DAH" secondAttribute="height" multiplier="25:13" id="euO-DH-cL6"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="nrt-cP-tt7"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ppV-f5-B0B"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZJc-FX-d4b"/>
+                                    <constraint firstAttribute="width" constant="50" id="gYf-iG-9FJ"/>
                                 </constraints>
                                 <state key="normal" image="heart"/>
                                 <connections>
@@ -220,14 +219,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.74115760852675838" green="0.88762543592820065" blue="0.95185596446700504" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ELp-Jq-DAH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="890" id="0Up-s4-os2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VhB-dA-nsW" secondAttribute="trailing" constant="287" id="10q-wu-tjY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ELp-Jq-DAH" secondAttribute="bottom" constant="680" id="CkI-sm-Psm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ELp-Jq-DAH" secondAttribute="trailing" constant="80" id="NJh-tK-1sp"/>
-                            <constraint firstItem="ELp-Jq-DAH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="900" id="QFd-JD-GVt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ELp-Jq-DAH" secondAttribute="trailing" constant="30" id="dwk-Qa-ihw"/>
+                            <constraint firstItem="ELp-Jq-DAH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="dzk-Ff-FSB"/>
                             <constraint firstItem="VhB-dA-nsW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="288" id="jHZ-ln-CTN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ELp-Jq-DAH" secondAttribute="bottom" constant="650" id="jUB-SW-uhf"/>
                             <constraint firstItem="VhB-dA-nsW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="542" id="kgq-eN-Q2k"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VhB-dA-nsW" secondAttribute="bottom" constant="158" id="qtE-jF-1pC"/>
-                            <constraint firstItem="ELp-Jq-DAH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="zDs-Q2-Lp1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

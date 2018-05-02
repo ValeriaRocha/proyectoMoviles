@@ -162,14 +162,15 @@ class ViewControllerResponde: UIViewController {
             {
                 let alert = UIAlertController(title: "", message: "Perdiste una vida", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
+                    if(self.vidas != 0)
+                    {
+                        self.generarNuevo()
+                    }
+                    
                 }))
-                present(alert, animated: true, completion: nil)
+                present(alert, animated: true, completion:nil )
             }
             Usuario.user.guardarError(error: senaCorrecta)
-            if(vidas != 0)
-            {
-                generarNuevo()
-            }
         }
         
         if vidas <= 0 {
