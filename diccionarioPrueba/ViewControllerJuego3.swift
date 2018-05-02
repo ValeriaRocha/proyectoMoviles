@@ -66,7 +66,7 @@ class ViewControllerJuego3: UIViewController {
     @objc func updateCadaSegundo(){
         segundos += 1
         
-        if segundos >= 30{
+        if segundos >= 25{
             timerCrear.invalidate()
             timerCaida.invalidate()
             timer.invalidate()
@@ -182,7 +182,7 @@ class ViewControllerJuego3: UIViewController {
         }
         
         button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        button.titleLabel?.font = UIFont(name: "Avenir Next Bold", size: 20)
+        button.titleLabel?.font = UIFont(name: "AvenirNextCondensed-Regular", size: 20)
        
         
         //agregarle el target al boton

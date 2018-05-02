@@ -40,9 +40,9 @@ class ControllerJ3Sena: UIViewController {
         print("view did appear")
         
         if !didLoad{
-            if velCrear > 1.0{
-                velCaida -= 0.002 //0.001
-                velCrear -= 0.2 //0.1
+            if velCrear > 1{
+                velCaida -= 0.003 //0.002
+                velCrear -= 0.3 //0.2
             }
             escogerSenas()
         }
