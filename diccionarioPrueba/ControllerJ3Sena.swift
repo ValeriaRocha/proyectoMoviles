@@ -52,6 +52,7 @@ class ControllerJ3Sena: UIViewController {
     func escogerSenas(){
         let aprendidas = Usuario.user.aprendidas()
         let noAprendidas = Usuario.user.noAprendidas()
+        senas.removeAll()
         
         print("No Aprendidas count " + String(noAprendidas.count))
         
