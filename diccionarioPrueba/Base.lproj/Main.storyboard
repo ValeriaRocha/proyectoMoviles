@@ -148,7 +148,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puntos:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4b-F1-1Vg">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="26.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="2g2-XD-U98"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="2g2-XD-U98"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                         <nil key="textColor"/>
@@ -157,7 +157,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vidas:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wH-Sg-gr0">
                                         <rect key="frame" x="150" y="0.0" width="150" height="26.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="npr-gx-mP4"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="npr-gx-mP4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                         <nil key="textColor"/>
@@ -563,7 +563,7 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                                 <rect key="frame" x="432" y="539" width="160" height="80"/>
                                 <color key="backgroundColor" red="0.64447518556375427" green="0.72824081787987949" blue="0.84605126510574014" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="lil-p7-GSj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="lil-p7-GSj"/>
                                     <constraint firstAttribute="height" constant="80" id="vkb-pC-BPl"/>
                                 </constraints>
                                 <state key="normal" title="Creditos">
@@ -605,7 +605,7 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                                 <rect key="frame" x="277.5" y="97" width="470" height="252"/>
                                 <color key="backgroundColor" red="0.77744094923533991" green="0.89435279190000005" blue="0.89148957564693621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="470" id="K5I-VL-7ab"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="470" id="K5I-VL-7ab"/>
                                     <constraint firstAttribute="height" constant="252" id="wfe-YU-G7q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="121"/>
@@ -648,19 +648,8 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UU-3l-2ME">
-                                <rect key="frame" x="62" y="45" width="900" height="335.5"/>
-                                <color key="backgroundColor" red="0.75762802994078515" green="0.89435279187817263" blue="0.82824320826594244" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="9UU-3l-2ME" secondAttribute="height" multiplier="923:344" id="4pv-be-G4E"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="guA-lZ-sge" id="StW-10-uyT"/>
-                                    <outlet property="delegate" destination="guA-lZ-sge" id="IYg-jD-TCX"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-qN-inZ">
-                                <rect key="frame" x="400.5" y="431" width="223" height="41"/>
+                                <rect key="frame" x="401" y="455" width="223" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="L2K-1o-wPB"/>
                                 </constraints>
@@ -671,7 +660,7 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBc-eI-4k5">
-                                <rect key="frame" x="484.5" y="631" width="55" height="49"/>
+                                <rect key="frame" x="484.5" y="655" width="55" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="kTS-gN-msM"/>
                                 </constraints>
@@ -682,29 +671,47 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Te toco el juego Responde Rapido!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoh-h3-V6x">
-                                <rect key="frame" x="272.5" y="522" width="480" height="64"/>
+                                <rect key="frame" x="272" y="536" width="480" height="64"/>
                                 <color key="backgroundColor" red="0.72416561841964722" green="0.88976049423217773" blue="0.94869738817214966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="480" id="HsL-kJ-5QC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="480" id="HsL-kJ-5QC"/>
                                     <constraint firstAttribute="height" constant="64" id="QEa-I0-NTu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UU-3l-2ME">
+                                <rect key="frame" x="62" y="80" width="900" height="335.5"/>
+                                <color key="backgroundColor" red="0.75762802994078515" green="0.89435279187817263" blue="0.82824320826594244" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9UU-3l-2ME" secondAttribute="height" multiplier="923:344" id="4pv-be-G4E"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="guA-lZ-sge" id="StW-10-uyT"/>
+                                    <outlet property="delegate" destination="guA-lZ-sge" id="IYg-jD-TCX"/>
+                                </connections>
+                            </pickerView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ozk-Ao-alc">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Juegos" id="EHC-CF-6fP"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.98247144670050757" green="0.98247144670050757" blue="0.98247144670050757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9UU-3l-2ME" firstAttribute="leading" secondItem="a73-rJ-fVZ" secondAttribute="leading" constant="62" id="2wD-5W-s0D"/>
                             <constraint firstItem="tKf-qN-inZ" firstAttribute="centerX" secondItem="1un-ix-bZ4" secondAttribute="centerX" id="78S-Ks-ZIh"/>
                             <constraint firstItem="a73-rJ-fVZ" firstAttribute="trailing" secondItem="9UU-3l-2ME" secondAttribute="trailing" constant="62" id="ANy-8A-tyl"/>
-                            <constraint firstItem="QBc-eI-4k5" firstAttribute="top" secondItem="eoh-h3-V6x" secondAttribute="bottom" constant="45" id="HV5-q1-0o0"/>
+                            <constraint firstItem="QBc-eI-4k5" firstAttribute="top" secondItem="eoh-h3-V6x" secondAttribute="bottom" constant="55" id="HV5-q1-0o0"/>
                             <constraint firstItem="QBc-eI-4k5" firstAttribute="centerX" secondItem="1un-ix-bZ4" secondAttribute="centerX" id="MXh-Bl-FOD"/>
                             <constraint firstItem="9UU-3l-2ME" firstAttribute="centerX" secondItem="1un-ix-bZ4" secondAttribute="centerX" id="SYg-Fc-shu"/>
-                            <constraint firstItem="eoh-h3-V6x" firstAttribute="top" secondItem="tKf-qN-inZ" secondAttribute="bottom" constant="50" id="Zwl-TN-gtO"/>
-                            <constraint firstItem="tKf-qN-inZ" firstAttribute="top" secondItem="9UU-3l-2ME" secondAttribute="bottom" constant="50" id="cIC-dh-loB"/>
+                            <constraint firstItem="eoh-h3-V6x" firstAttribute="top" secondItem="tKf-qN-inZ" secondAttribute="bottom" constant="40" id="Zwl-TN-gtO"/>
+                            <constraint firstItem="tKf-qN-inZ" firstAttribute="top" secondItem="9UU-3l-2ME" secondAttribute="bottom" constant="39.5" id="cIC-dh-loB"/>
                             <constraint firstItem="eoh-h3-V6x" firstAttribute="centerX" secondItem="1un-ix-bZ4" secondAttribute="centerX" id="cNf-CN-E4j"/>
-                            <constraint firstItem="9UU-3l-2ME" firstAttribute="top" secondItem="a73-rJ-fVZ" secondAttribute="top" constant="25" id="w6R-af-Oo1"/>
+                            <constraint firstItem="9UU-3l-2ME" firstAttribute="top" secondItem="a73-rJ-fVZ" secondAttribute="top" constant="60" id="w6R-af-Oo1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a73-rJ-fVZ"/>
                     </view>
