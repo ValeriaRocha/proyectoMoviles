@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     var sena : Sena!
     @IBOutlet weak var lbNombreSena: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,7 +23,7 @@ class ViewController: UIViewController {
         lbNombreSena.text = sena.nombre
 
         if Usuario.user.hasFav(fav: sena){
-            btFav.setImage(#imageLiteral(resourceName: "heartBlue"), for: .normal)
+            btFav.setImage(#imageLiteral(resourceName: "heartBlue2"), for: .normal)
         } else {
             btFav.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
         }
@@ -60,6 +59,18 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        if Usuario.user.hasFav(fav: sena){
+            btFav.setImage(#imageLiteral(resourceName: "heartBlue2"), for: .normal)
+        } else {
+            btFav.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+        }
+        
+    }
+
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.landscape
     }
@@ -73,7 +84,7 @@ class ViewController: UIViewController {
             btFav.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
         } else {
             Usuario.user.guardarFav(fav: sena)
-            btFav.setImage(#imageLiteral(resourceName: "heartBlue"), for: .normal)
+            btFav.setImage(#imageLiteral(resourceName: "heartBlue2"), for: .normal)
         }
         
     }

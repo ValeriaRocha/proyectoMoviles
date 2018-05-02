@@ -35,6 +35,21 @@ class TableViewControllerSena: UITableViewController, UISearchBarDelegate {
         sbBuscadorSena.returnKeyType = UIReturnKeyType.done
         sbBuscadorSena.placeholder = "Buscar Señas"
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        if(sSegue=="errores")
+        {
+            datoMostrar = Usuario.user.errores
+        }
+        if(sSegue=="favoritos")
+        {
+            datoMostrar = Usuario.user.favoritos
+        }
+        
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
