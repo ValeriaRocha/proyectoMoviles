@@ -113,6 +113,16 @@ class Usuario: Codable {
         }
     }
     
+    //regresa true si el usuario tiene la sena fav en su lista de favoritos
+    func hasFav(fav: Sena) -> Bool {
+        for i in 0 ..< favoritos.count{
+            if favoritos[i].nombre == fav.nombre{
+                return true
+            }
+        }
+        return false
+    }
+    
     // persistencia usuario
     func guardaUsuario(){
         do{

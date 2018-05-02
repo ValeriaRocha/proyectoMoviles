@@ -23,7 +23,11 @@ class ViewController: UIViewController {
         self.title = sena.nombre
         lbNombreSena.text = sena.nombre
 
-        btFav.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+        if Usuario.user.hasFav(fav: sena){
+            btFav.setImage(#imageLiteral(resourceName: "heartBlue"), for: .normal)
+        } else {
+            btFav.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+        }
         
         
         if(sena.path.hasSuffix(".m4v")){
@@ -64,7 +68,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func click(_ sender: UIButton) {
-        Usuario.user.guardarFav(fav: sena)
+        if Usuario.user.hasFav(fav: sena){
+            Usuario.user.quitarFav(fav: sena)
+            btFav.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+        } else {
+            Usuario.user.guardarFav(fav: sena)
+            btFav.setImage(#imageLiteral(resourceName: "heartBlue"), for: .normal)
+        }
+        
     }
     
 
