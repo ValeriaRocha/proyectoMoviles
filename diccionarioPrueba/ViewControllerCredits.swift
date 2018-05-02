@@ -37,6 +37,9 @@ class ViewControllerCredits: UIViewController {
         credits2 = addBoldText(fullString: "\nIconos del Tab Bar\nAPP-BITS Liga: https://www.app-bits.com/\n", boldPartOfString: "Iconos del Tab Bar", font: font1, boldFont: bold1)
         credits.append(credits2)
         
+        credits2 = addBoldText(fullString: "\nFotografía y Video:\nRebeca Patricia Fuentes García\n", boldPartOfString: "Fotografía y Video", font: font1, boldFont: bold1)
+        credits.append(credits2)
+        
         tvCredits.attributedText = credits
         
     }

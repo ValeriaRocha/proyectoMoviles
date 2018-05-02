@@ -65,15 +65,15 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
             
             switch indice {
             case 0:
-                lbSelectedGame.text = "Te toco el juego Memorama!"
+                lbSelectedGame.text = "Te tocó el juego Memorama!"
                 juego = 1
                 break;
             case 1:
-                lbSelectedGame.text = "Te toco el juego Responde Rápido!"
+                lbSelectedGame.text = "Te tocó el juego Responde Rápido!"
                 juego = 2
                 break;
             case 2:
-                lbSelectedGame.text = "Te toco el juego Gravedad!"
+                lbSelectedGame.text = "Te tocó el juego Gravedad!"
                 juego = 3
                 break;
             default:
