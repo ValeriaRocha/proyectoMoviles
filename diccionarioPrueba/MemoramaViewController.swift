@@ -180,7 +180,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
             } else {
                 let imagen = UIImage(contentsOfFile: carta.sena.path)!
                 let imageView = UIImageView(image: imagen)
-                let imageFrame =  CGRect(x: carta.frame.origin.x + 20, y: carta.frame.origin.y + 212, width: carta.frame.size.width, height: carta.frame.size.height)
+                let imageFrame =  CGRect(x: carta.frame.origin.x + 20, y: carta.frame.origin.y + 214, width: carta.frame.size.width, height: carta.frame.size.height)
                 imageView.frame = imageFrame
                 imageView.tag = 100
                 imageView.contentMode = UIViewContentMode.scaleAspectFit
@@ -202,7 +202,12 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         //si es la segunda carta, ver cuando la volteo
         if selectIndexes.count >= 2{
             dosSeleccionadas = true
-            tiempoAntesValidar = 3
+            
+            if cartasTemas[1] == "Imagen"{
+                tiempoAntesValidar = 5;
+            } else {
+                tiempoAntesValidar = 2
+            }
             
         }
  
