@@ -139,6 +139,12 @@ class TableViewControllerSena: UITableViewController, UISearchBarDelegate {
         }    
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
 
     /*
     // Override to support rearranging the table view.

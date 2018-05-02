@@ -106,6 +106,13 @@ class TableViewControllerCategory: UITableViewController, UISearchBarDelegate {
             tableView.reloadData()
         }
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
  
     /*
     // Override to support conditional editing of the table view.

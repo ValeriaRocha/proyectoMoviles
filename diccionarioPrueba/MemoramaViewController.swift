@@ -352,6 +352,13 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         return String(format: "%02i:%02i", minutos, segundos)
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     //
     //
     //        if iguales{

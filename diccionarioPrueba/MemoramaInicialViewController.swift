@@ -25,6 +25,13 @@ class MemoramaInicialViewController: UIViewController {
     @objc func back(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "back", sender: self)
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
 
     /*
     // MARK: - Navigation

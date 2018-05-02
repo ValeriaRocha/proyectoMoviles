@@ -48,6 +48,13 @@ class ControllerJ3Instrucciones: UIViewController {
     @IBAction func unwindPrincipal(unwindSegue : UIStoryboardSegue){
         
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+        return false
+    }
 
     /*
     // MARK: - Navigation
