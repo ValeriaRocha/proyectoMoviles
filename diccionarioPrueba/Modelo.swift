@@ -77,7 +77,7 @@ class Modelo: Codable {
         for i in 0 ... (self.arrTotal.count - 1){
             
             //si es la categoria numero se tiene que convertir a int primero para poder comparar
-            if self.arrTotal[i].nombre == "Numero"{
+            if self.arrTotal[i].nombre == "Número"{
                 self.arrTotal[i].arrSena.sort(by:  { Int($0.nombre)! < Int($1.nombre)! })
             } else {
                 self.arrTotal[i].arrSena.sort(by:  { $0.nombre < $1.nombre })
