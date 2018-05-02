@@ -31,6 +31,7 @@ class ControllerJ3Sena: UIViewController {
         puntos = 0
         vidas = 5
         
+        self.title = "Seña Correcta"
         
         escogerSenas()
     }

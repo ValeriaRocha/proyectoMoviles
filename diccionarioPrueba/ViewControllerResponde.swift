@@ -41,6 +41,8 @@ class ViewControllerResponde: UIViewController {
         puntos = 0
         vidas = 3
         
+        self.title = "Responde Rápido"
+        
         // agregar target a botón
         btTopDer.addTarget(self, action: #selector(clickBoton(sender:)), for: UIControlEvents.touchUpInside)
         btTopIzq.addTarget(self, action: #selector(clickBoton(sender:)), for: UIControlEvents.touchUpInside)

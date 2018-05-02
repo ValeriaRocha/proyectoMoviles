@@ -45,6 +45,8 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         //vale
         dosSeleccionadas = false
         
+        self.title = "Memorama"
+        
         //Definiendo el delegate y datasource del collectionview
         self.cvMemorama.delegate = self
         self.cvMemorama.dataSource = self

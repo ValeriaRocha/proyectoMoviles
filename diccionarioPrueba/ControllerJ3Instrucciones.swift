@@ -20,7 +20,7 @@ class ControllerJ3Instrucciones: UIViewController {
         
         self.title = "Gravedad"
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
+        let newBackButton = UIBarButtonItem(title: "< Juegos", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         
         tvInstrucciones.layer.cornerRadius = 0.01 * tvInstrucciones.bounds.size.width
