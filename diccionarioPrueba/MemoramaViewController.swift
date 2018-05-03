@@ -112,7 +112,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         //            }
         //        }
         
-        for index in 0...deck.count - 1{
+        for _ in 0...deck.count - 1{
             let randCategoria = Int(arc4random_uniform(UInt32(deck.count - 1)))
             deckRandom.append(deck[randCategoria]) //revolver cartas
             deck.remove(at: randCategoria)
@@ -122,6 +122,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        print("Está generando un error de memoria")
     }
     
     // MARK: - Collection View Caracteristicas
@@ -150,26 +151,33 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         // si ya habia dos cartas seleccionadas anteriormente, regresar
         //para que si selecciona una tercera carta, no haga nada
-        if selectIndexes.count == 2{
+        if selectIndexes.count >= 2{
             return
         }
+        
+        if selectIndexes.count > 0{
+            if selectIndexes[0] == indexPath { //si selecciono dos veces la misma carta, regresar
+                return
+            }
+        }
+        
         
         selectIndexes.append(indexPath) //agregarla a los indices seleccionados
         let carta = collectionView.cellForItem(at: indexPath) as! MemoramaCollectionViewCell
         
         cartasSeleccionadas.append(carta)
         cartasObtenidas.append(carta)
-        cartasTemas.append(carta.lbCarta.text!)
+        cartasTemas.append(carta.lbCarta.text!) //cartasTemas gaurda si la carta es imagen o seña para cuando se vuelva a voltear
         
         //voltear la carta
         if carta.senaImg{
             carta.lbCarta.text = carta.sena.nombre
- //           carta.lbCarta.lineBreakMode = NSLineBreakMode.byWordWrapping
+            carta.lbCarta.lineBreakMode = NSLineBreakMode.byWordWrapping
             carta.lbCarta.lineBreakMode = NSLineBreakMode.byCharWrapping //para que si la palabra es larga, no se vea con puntos suspensivos
             carta.lbCarta.backgroundColor = #colorLiteral(red: 0.6444751856, green: 0.7282408179, blue: 0.8460512651, alpha: 1)
         }else {
             //enseñarlo en la carta
-            if carta.sena.path.hasSuffix(".m4v"){
+            if carta.sena.path.hasSuffix(".m4v"){ //enseñar video
                 let player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
                 let controller = AVPlayerViewController()
                 controller.player = player
@@ -178,8 +186,16 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
                 controller.view.frame = videoFrame
                 controller.view.tag = 100
                 self.view.addSubview(controller.view)
+                if player.status == AVPlayerStatus.failed {
+                    print("ERROR EN AV PLAYER CONTROLLER!!!!!!!")
+                    print(player.error)
+                }
                 player.play()
-            } else {
+                if player.status == AVPlayerStatus.failed {
+                    print("ERROR EN AV PLAYER CONTROLLER!!!!!!!")
+                    print(player.error)
+                }
+            } else { //enseñar imagen
                 let imagen = UIImage(contentsOfFile: carta.sena.path)!
                 let imageView = UIImageView(image: imagen)
                 let imageFrame =  CGRect(x: carta.frame.origin.x + 20, y: carta.frame.origin.y + 214, width: carta.frame.size.width, height: carta.frame.size.height)
@@ -201,14 +217,16 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         intentos += 1
         lbIntentos.text = "Intentos: \(intentos)"
 
-        //si es la segunda carta, ver cuando la volteo
+        //si es la segunda carta
         if selectIndexes.count >= 2{
+            
+            cvMemorama.isUserInteractionEnabled = false
             dosSeleccionadas = true
             
             if cartasTemas[1] == "Imagen"{
-                tiempoAntesValidar = 5;
+                tiempoAntesValidar = 5 //este es el tiempo que salen las dos cartas volteadas antes de checar si son iguales y volverlas a voltear
             } else {
-                tiempoAntesValidar = 2
+                tiempoAntesValidar = 2 //tiempoAntesValidar se disminuye en updateTime
             }
             
         }
@@ -294,15 +312,15 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     //Funcion que actualiza el tiempo en el label y verifica cuando se acabo el tiempo para desplegar el fin del juego con los puntos obtenidos
     @objc func updateTime(){
-        if dosSeleccionadas {
+        if dosSeleccionadas { //si hay dos seleccionadas
             tiempoAntesValidar -= 1
-            if tiempoAntesValidar <= 0 {
+            if tiempoAntesValidar <= 0 { //si ya se acabo el tiempo
                 //validar cartas
                 let carta1 = deckRandom[selectIndexes[0].row]
                 let carta2 = deckRandom[selectIndexes[1].row]
                 Validar(carta1: carta1, carta2: carta2)
                 
-                //quitar video
+                //quitar video/imagen
                 if let viewWithTag = self.view.viewWithTag(100) {
                     viewWithTag.removeFromSuperview()
                 }
@@ -318,6 +336,8 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
                 //poner que no hay dos seleccionadas
                 dosSeleccionadas = false
+                
+                cvMemorama.isUserInteractionEnabled = true
             }
         }
         

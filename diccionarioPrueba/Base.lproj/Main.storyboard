@@ -180,7 +180,7 @@
                     <connections>
                         <outlet property="lbPuntos" destination="h4b-F1-1Vg" id="R8J-Wu-wlo"/>
                         <outlet property="lbVidas" destination="1wH-Sg-gr0" id="7e3-JK-Cxt"/>
-                        <segue destination="hmo-jH-f9z" kind="unwind" unwindAction="unwindSalirSenaWithUnwindSegue:" id="wkL-jt-Zws"/>
+                        <segue destination="hmo-jH-f9z" kind="unwind" identifier="exit" unwindAction="unwindSalirSenaWithUnwindSegue:" id="wkL-jt-Zws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMA-Ok-Zjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -327,7 +327,7 @@
                                 </constraints>
                                 <state key="normal" title="Jugar"/>
                                 <connections>
-                                    <segue destination="iqf-mV-rzn" kind="show" id="B8C-Vp-P4j"/>
+                                    <segue destination="iqf-mV-rzn" kind="show" identifier="po" id="B8C-Vp-P4j"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="246" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXa-MV-PX2">
@@ -388,7 +388,7 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Jugar"/>
                                 <connections>
-                                    <segue destination="9nS-UF-blm" kind="show" id="PUA-Qn-Fg7"/>
+                                    <segue destination="9nS-UF-blm" kind="show" identifier="pa" id="PUA-Qn-Fg7"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gravedadNI" translatesAutoresizingMaskIntoConstraints="NO" id="A4W-pq-yI0">
@@ -453,7 +453,7 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                                 <rect key="frame" x="438.5" y="656" width="148" height="30"/>
                                 <state key="normal" title="Estoy listo para jugar!"/>
                                 <connections>
-                                    <segue destination="BHV-SV-XkO" kind="show" id="dtT-UQ-tPq"/>
+                                    <segue destination="BHV-SV-XkO" kind="show" identifier="pr" id="dtT-UQ-tPq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -466,7 +466,7 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                     </view>
                     <connections>
                         <outlet property="btJugar" destination="RwJ-B6-LMd" id="hmI-aB-eHx"/>
-                        <segue destination="810-uX-zni" kind="unwind" unwindAction="unwindPrincipalWithUnwindSegue:" id="pi1-53-7Ci"/>
+                        <segue destination="810-uX-zni" kind="unwind" identifier="pl" unwindAction="unwindPrincipalWithUnwindSegue:" id="pi1-53-7Ci"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oD-p8-KE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -498,7 +498,7 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.85627776879999995" green="0.91740157550000001" blue="0.96383248730000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="ZcX-xB-pWP"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="re" id="ZcX-xB-pWP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -771,7 +771,7 @@ Tu objetivo es seleccionar el par correcto de cada seña, pero ¡ten cuidado!, t
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="PoK-LJ-pBj" kind="show" id="Vxp-2J-5OT"/>
+                                    <segue destination="PoK-LJ-pBj" kind="show" identifier="rtr" id="Vxp-2J-5OT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -886,7 +886,7 @@ Iconos de los logos de los juegos
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Apr-9N-g8D">
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Apr-9N-g8D">
                                 <rect key="frame" x="20" y="214" width="984" height="524"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
