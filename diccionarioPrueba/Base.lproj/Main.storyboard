@@ -196,17 +196,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhB-dA-nsW">
-                                <rect key="frame" x="288" y="606.5" width="395" height="27.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhB-dA-nsW">
+                                <rect key="frame" x="288" y="607" width="395" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="JEc-r2-Q04"/>
+                                    <constraint firstAttribute="height" constant="42" id="JEc-r2-Q04"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELp-Jq-DAH">
-                                <rect key="frame" x="890" y="96" width="50" height="46"/>
+                                <rect key="frame" x="890" y="97" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZJc-FX-d4b"/>
                                     <constraint firstAttribute="width" constant="50" id="gYf-iG-9FJ"/>
@@ -226,7 +226,7 @@
                             <constraint firstItem="VhB-dA-nsW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="288" id="jHZ-ln-CTN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ELp-Jq-DAH" secondAttribute="bottom" constant="650" id="jUB-SW-uhf"/>
                             <constraint firstItem="VhB-dA-nsW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="542" id="kgq-eN-Q2k"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VhB-dA-nsW" secondAttribute="bottom" constant="158" id="qtE-jF-1pC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VhB-dA-nsW" secondAttribute="bottom" constant="143" id="qtE-jF-1pC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -825,7 +825,7 @@ Tu objetivo es seleccionar el par correcto de cada seña, pero ¡ten cuidado!, t
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RfO-gf-l1B">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RfO-gf-l1B">
                                 <rect key="frame" x="72" y="91" width="881" height="587"/>
                                 <color key="backgroundColor" red="0.72416561840000004" green="0.88976049420000003" blue="0.94869738820000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">El proyecto de Aprendizaje de Lenguaje de Señas Mexicanas ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Enero Mayo de 2018, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.

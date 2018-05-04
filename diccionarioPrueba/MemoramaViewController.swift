@@ -188,12 +188,12 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
                 self.view.addSubview(controller.view)
                 if player.status == AVPlayerStatus.failed {
                     print("ERROR EN AV PLAYER CONTROLLER!!!!!!!")
-                    print(player.error)
+                  //  print(player.error)
                 }
                 player.play()
                 if player.status == AVPlayerStatus.failed {
                     print("ERROR EN AV PLAYER CONTROLLER!!!!!!!")
-                    print(player.error)
+                  //  print(player.error)
                 }
             } else { //enseñar imagen
                 let imagen = UIImage(contentsOfFile: carta.sena.path)!
