@@ -11,8 +11,8 @@ import Foundation
 
 class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var juegos = [#imageLiteral(resourceName: "memoNI3"),#imageLiteral(resourceName: "respondeNI"), #imageLiteral(resourceName: "gravedadNI")]
-    var seconds = 3.0
+    var juegos = [#imageLiteral(resourceName: "respondeNI2"),#imageLiteral(resourceName: "gravedadNI")] //imagenes que saldran en la ruleta/pickerView
+    var seconds = 3.0 //segundos que la ruleta va a girar
     var timer = Timer()
     var indice = 0
     var juego = 0
@@ -26,21 +26,29 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         lbSelectedGame.backgroundColor = UIColor.clear
+        lbSelectedGame.backgroundColor = UIColor.clear
         lbSelectedGame.text = ""
         // Do any additional setup after loading the view.
         
+        //estetica
         pickerView.layer.cornerRadius = 0.01 * pickerView.bounds.size.width
         lbSelectedGame.layer.cornerRadius = 0.01 * lbSelectedGame.bounds.size.width
     }
     
     
     @IBAction func clickRuleta(_ sender: UIButton) {
+        //esconger label del juego que le toco
         lbSelectedGame.text = ""
-         lbSelectedGame.backgroundColor = UIColor.clear
-        seconds = Double(Int(arc4random_uniform(5) + 1)) //poner random
+        lbSelectedGame.backgroundColor = UIColor.clear
+        
+        //escoge un numero de sec random de 1 a 6
+        seconds = Double(Int(arc4random_uniform(5) + 1))
+        
+        //deshabilitar botones
         btObtener.isEnabled = false
         btJugar.isEnabled = false
+        
+        //empezar el countdown de segundos que girara la ruleta
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
     }
     
@@ -53,28 +61,26 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     @objc func updateTimer(){
-        indice = (indice + 1) % 3
+        indice = (indice + 1) % 2
         seconds -= 0.3
         
         pickerView.selectRow(indice, inComponent: 0, animated: true)
         
+        //si se acabo los segundos de la ruleta
         if(seconds <= 0){
             timer.invalidate()
             
             lbSelectedGame.backgroundColor = #colorLiteral(red: 0.7241656184, green: 0.8897604942, blue: 0.9486973882, alpha: 1)
             
+            //desplegar el juego que le toco
             switch indice {
             case 0:
-                lbSelectedGame.text = "Te tocó el juego Memorama!"
+                lbSelectedGame.text = "Te tocó el juego Responde Rápido!"
                 juego = 1
                 break;
             case 1:
-                lbSelectedGame.text = "Te tocó el juego Responde Rápido!"
-                juego = 2
-                break;
-            case 2:
                 lbSelectedGame.text = "Te tocó el juego Gravedad!"
-                juego = 3
+                juego = 2
                 break;
             default:
                 break;
@@ -85,16 +91,13 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    
+    //funcion que manda al usuario al juego que le toco cuando da click en jugar
     @IBAction func clickJugar(_ sender: UIButton) {
         switch(juego){
         case 1:
-            performSegue(withIdentifier: "memorama", sender: self)
-            break;
-        case 2:
             performSegue(withIdentifier: "responde", sender: self)
             break;
-        case 3:
+        case 2:
             performSegue(withIdentifier: "juego3", sender: self)
             break;
         default:
