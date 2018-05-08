@@ -45,10 +45,6 @@ class ViewControllerJuego3: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(aplicacionDidBecomeActive(notification:)), name: .UIApplicationDidBecomeActive, object: app)
         
         
-//        let label = UILabel(frame: CGRect(x: UIScreen.main.bounds.size.width - 30, y: 30, width: 30, height: 30))
-//        label.text = "Prueba"
-       // navigationItem.title = "Puntos: 50  Vidas: 5"
-        
         //poner boton de salir
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Salir", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.salir(sender:)))
@@ -264,6 +260,7 @@ class ViewControllerJuego3: UIViewController {
         return nil
     }
     
+    //funcion que resta una vida y muestra mensaje de perdiste si ya no le quedan vidas al jugador
     func restaVida(){
         vidas -= 1
         lbVidas.text = "Vidas: " + String(vidas)
