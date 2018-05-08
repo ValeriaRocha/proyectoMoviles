@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//EL MEMORAMA YA NO SE PLANEA INCLUIR, pero lo dejare aqui por si sucede un milagro y se logra resolver
 class MemoramaInicialViewController: UIViewController {
 
     override func viewDidLoad() {

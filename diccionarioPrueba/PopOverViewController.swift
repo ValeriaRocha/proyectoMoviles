@@ -16,8 +16,9 @@ class PopOverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        //Codigo para motrar la primera carta
-        if carta.sena.path.hasSuffix(".m4v"){
+        
+        //mostrar seña
+        if carta.sena.path.hasSuffix(".m4v"){ //si es video mostrar video
             let player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
             let controller = AVPlayerViewController()
             controller.player = player
@@ -29,7 +30,7 @@ class PopOverViewController: UIViewController {
             self.view.addSubview(controller.view)
             player.play()
         }
-        else{
+        else{ //si es imagen mostrar imagen
             let imagen = UIImage(contentsOfFile: carta.sena.path)!
             let imageView = UIImageView(image: imagen)
             let screenSize = UIScreen.main.bounds.size

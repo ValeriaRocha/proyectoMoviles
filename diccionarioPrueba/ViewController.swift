@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         self.title = sena.nombre
         lbNombreSena.text = sena.nombre
 
+        //poner el corazon de favoritos azul si el usuario lo tiene como favorito
         if Usuario.user.hasFav(fav: sena){
             btFav.setImage(#imageLiteral(resourceName: "heartBlue2"), for: .normal)
         } else {
@@ -29,9 +30,9 @@ class ViewController: UIViewController {
         }
         
         
+        //desplegar seña
         if(sena.path.hasSuffix(".m4v")){
             //hacer lo necesario para mostrar el video
-            
             let player = AVPlayer(url: URL(fileURLWithPath: sena.path))
             let controller = AVPlayerViewController()
             controller.player = player
@@ -78,6 +79,7 @@ class ViewController: UIViewController {
         return false
     }
 
+    //cuando el usuario da click en el corazon, agregar o borrar de favoritos
     @IBAction func click(_ sender: UIButton) {
         if Usuario.user.hasFav(fav: sena){
             Usuario.user.quitarFav(fav: sena)

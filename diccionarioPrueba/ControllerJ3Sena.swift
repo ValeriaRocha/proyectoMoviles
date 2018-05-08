@@ -36,12 +36,13 @@ class ControllerJ3Sena: UIViewController {
         escogerSenas()
     }
     
+    //cuando se regrese a la pantalla de seña correcta desde la pantalla de juego
     override func viewDidAppear(_ animated: Bool) {
         print("view did appear")
         
         if !didLoad{
             if velCrear > 1{
-                velCaida -= 0.003 //0.002
+                velCaida -= 0.003 //0.002 aumentar velocidades
                 velCrear -= 0.3 //0.2
             }
             escogerSenas()

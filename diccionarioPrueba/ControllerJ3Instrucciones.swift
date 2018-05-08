@@ -39,9 +39,6 @@ class ControllerJ3Instrucciones: UIViewController {
     }
     
     @objc func back(sender: UIBarButtonItem) {
-        // Perform your custom actions
-        // ...
-        // Go back to the previous ViewController
         performSegue(withIdentifier: "back", sender: self)
     }
     

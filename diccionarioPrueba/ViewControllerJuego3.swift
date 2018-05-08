@@ -16,8 +16,8 @@ class ViewControllerJuego3: UIViewController {
     var timerCaida = Timer()
     var timer = Timer()
     var botones = [UIButton]()
-    var velCaida : Double!  //0.01
-    var velCrear : Double! //1.5
+    var velCaida : Double!  //0.01 velocidad en que caen los cuadros (cada 0.01 segundos)
+    var velCrear : Double! //1.5 velocidad a la que se crean los cuadros
     var senaCorrecta : Sena!
     var learned = false
     var senas = [Sena]()
@@ -62,7 +62,7 @@ class ViewControllerJuego3: UIViewController {
     @objc func updateCadaSegundo(){
         segundos += 1
         
-        if segundos >= 25{
+        if segundos >= 25{ //si ya pasaron 25 seg con la misma seña, cambiar de seña
             timerCrear.invalidate()
             timerCaida.invalidate()
             timer.invalidate()
@@ -74,6 +74,7 @@ class ViewControllerJuego3: UIViewController {
             vistaAnterior.puntos = puntos
             vistaAnterior.vidas = vidas
             
+            //mostrar alerta de cambio de seña
             let alert = UIAlertController(title: "Nueva Seña!", message: "Vimos que ya aprendiste esa seña, asi que toca cambiar!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in print("Foo")
                 self.navigationController?.popViewController(animated: true)
@@ -82,12 +83,12 @@ class ViewControllerJuego3: UIViewController {
             
         }
     }
-    
+        //si el usuario le pica a home mientras esta jugando, invalidar timers para congelar los cuadros
         @objc func aplicacionWillResignActive(notification: NSNotification){
             print("Will resign active")
             invalidateTimers()
         }
-    
+        //volver a poner los timers cuando regrese de home
         @objc func aplicacionDidBecomeActive(notification: NSNotification){
             print("Will enter foreground")
             timerCrear = Timer.scheduledTimer(timeInterval: velCrear, target: self, selector: #selector(self.updateTimerCrear), userInfo: nil, repeats: true)
@@ -206,7 +207,7 @@ class ViewControllerJuego3: UIViewController {
 
             //quitar los botones que ya pasaron por la parte baja de la pantalla
             if botones[i].frame.origin.y > screen.height {
-                if botones[i].tag == 1{
+                if botones[i].tag == 1{ //si una seña correcta desaparecio, quitar vida
                     restaVida()
                 }
                 botones[i].removeFromSuperview()
