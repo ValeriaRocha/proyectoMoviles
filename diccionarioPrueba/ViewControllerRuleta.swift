@@ -11,7 +11,7 @@ import Foundation
 
 class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var juegos = [#imageLiteral(resourceName: "respondeNI2"),#imageLiteral(resourceName: "gravedadNI")] //imagenes que saldran en la ruleta/pickerView
+    var juegos = [#imageLiteral(resourceName: "memoNI3"),#imageLiteral(resourceName: "respondeNI2"),#imageLiteral(resourceName: "gravedadNI")] //imagenes que saldran en la ruleta/pickerView
     var seconds = 3.0 //segundos que la ruleta va a girar
     var timer = Timer()
     var indice = 0
@@ -61,7 +61,7 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     @objc func updateTimer(){
-        indice = (indice + 1) % 2
+        indice = (indice + 1) % 3
         seconds -= 0.3
         
         pickerView.selectRow(indice, inComponent: 0, animated: true)
@@ -75,12 +75,16 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
             //desplegar el juego que le toco
             switch indice {
             case 0:
-                lbSelectedGame.text = "Te tocó el juego Responde Rápido!"
+                lbSelectedGame.text = "Te tocó el juego Memorama!"
                 juego = 1
                 break;
             case 1:
-                lbSelectedGame.text = "Te tocó el juego Gravedad!"
+                lbSelectedGame.text = "Te tocó el juego Responde Rápido!"
                 juego = 2
+                break;
+            case 2:
+                lbSelectedGame.text = "Te tocó el juego Gravedad!"
+                juego = 3
                 break;
             default:
                 break;
@@ -95,9 +99,12 @@ class ViewControllerRuleta: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func clickJugar(_ sender: UIButton) {
         switch(juego){
         case 1:
-            performSegue(withIdentifier: "responde", sender: self)
+            performSegue(withIdentifier: "memorama", sender: self)
             break;
         case 2:
+            performSegue(withIdentifier: "responde", sender: self)
+            break;
+        case 3:
             performSegue(withIdentifier: "juego3", sender: self)
             break;
         default:
