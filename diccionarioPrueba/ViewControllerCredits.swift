@@ -40,6 +40,9 @@ class ViewControllerCredits: UIViewController {
         credits2 = addBoldText(fullString: "\nFotografía y Video:\nRebeca Patricia Fuentes García\n", boldPartOfString: "Fotografía y Video", font: font1, boldFont: bold1)
         credits.append(credits2)
         
+        credits2 = addBoldText(fullString: "\nFondo de Pantalla de Gravedad:\nValeria Rocha Sepúlveda\n", boldPartOfString: "Fondo de Pantalla de Gravedad:", font: font1, boldFont: bold1)
+        credits.append(credits2)
+        
         tvCredits.attributedText = credits
         
     }

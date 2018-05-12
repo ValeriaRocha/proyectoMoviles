@@ -206,7 +206,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELp-Jq-DAH">
-                                <rect key="frame" x="890" y="97" width="50" height="30"/>
+                                <rect key="frame" x="890" y="96.5" width="50" height="30.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZJc-FX-d4b"/>
                                     <constraint firstAttribute="width" constant="50" id="gYf-iG-9FJ"/>
@@ -907,7 +907,7 @@ Iconos de los logos de los juegos
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X32-4j-Vod">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X32-4j-Vod">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="148"/>
                                                     <color key="backgroundColor" red="0.32549019607843138" green="0.22745098039215686" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>

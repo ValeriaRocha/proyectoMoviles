@@ -28,11 +28,12 @@ class MemoramaFlowLayout: UICollectionViewFlowLayout {
     }
     
     private var contentSize: CGSize = CGSize.zero
-    private var columns: Int = 6
-    private var rows: Int = 4
+    private var columns: Int = 4
+    private var rows: Int = 3
     var cellSpacing: CGFloat = 15
     private var cellSize: CGSize = CGSize.zero
     private var cellCenterPoints: [CGPoint] = []
+    
     
     //MARK: - Layout Overrides
     
@@ -44,7 +45,7 @@ class MemoramaFlowLayout: UICollectionViewFlowLayout {
         //        columns = Int( (collectionViewWidth - cellSpacing) / (minCellSize.width + cellSpacing) )
         //        rows = Int ( ceil(Double(cellCount) / Double(columns)) )
         //let itemSize = (cvMemorama.frame.size.width - 15) / 6 - 15
-        let minCellSize: CGSize = CGSize(width: (collectionViewWidth - 15) / 6 - 15, height: (collectionViewHeight - 15) / 4 - 15)
+        let minCellSize: CGSize = CGSize(width: (collectionViewWidth - 15) / CGFloat(columns) - 15, height: (collectionViewHeight - 15) / CGFloat(rows) /*row*/ - 15)
         
         // take the remainder gap and divide it among the existing columns
         let innerWidth = (CGFloat(columns) * (minCellSize.width + cellSpacing)) + cellSpacing

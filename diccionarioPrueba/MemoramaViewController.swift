@@ -50,6 +50,8 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         //vale
         dosSeleccionadas = false
+        let numSenas = 6
+
         
         self.title = "Memorama"
 
@@ -64,7 +66,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         cvMemorama.isUserInteractionEnabled = true
         
         baraja = Usuario.user.model.arrTotal
-        segundos = 300
+        segundos = 70
         puntos = 0
         card = MemoramaCollectionViewCell.Carta(senaImg: true, sena: baraja[0].arrSena[0])
         lbPuntos.text = "Puntos: 0"
@@ -76,7 +78,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         runTime()
         
         //Obtener las señas para la baraja (la primera mitad)
-        for index in 0...11{
+        for index in 0..<numSenas{
             var randCategoria = Int(arc4random_uniform(UInt32(baraja.count))) //saca una categoria random
             var randSena = Int(arc4random_uniform(UInt32(baraja[randCategoria].arrSena.count))) //saca pos de una sena random de esa categoria
             //baraja[randCategoria].arrSena.remove(at: randSena)
@@ -98,19 +100,19 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
             print(ArrSenas[index].nombre)
         }
         
-        for index2 in 0...11{//añade al deck las cartas que tienen label
+        for index2 in 0..<numSenas{//añade al deck las cartas que tienen label
             card = MemoramaCollectionViewCell.Carta(senaImg: true, sena: ArrSenas[index2])
             deck.append(card) //deck son todas las cartas, incluyendo las labels y las imagenes/video
         }
         
-        for index3 in 0...11{//añade al deck las cartas que tienen imagen/video
+        for index3 in 0..<numSenas{//añade al deck las cartas que tienen imagen/video
             card = MemoramaCollectionViewCell.Carta(senaImg: false, sena: ArrSenas[index3])
             deck.append(card)
         }
         
         for index5 in 0...deck.count - 1{
             print(deck[index5].sena.nombre)
-            if index5 == 11{
+            if index5 == 8{
                 print("=======================")
             }
         }
@@ -131,7 +133,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     // MARK: - Collection View Caracteristicas
     //Funcion para obtener la cantidad de objetos en el collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 24
+        return 12
     }
     
     //Funcion para desplegar detalles en las celdas del collection view
@@ -141,9 +143,9 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         let carta = deckRandom[indexPath.row]
         
         if (carta.senaImg){
-            cell.lbCarta.text = "Seña"
+            cell.lbCarta.text = "Palabra" //palabra
         }else{
-            cell.lbCarta.text = "Imagen"
+            cell.lbCarta.text = "Seña" //seña
         }
         cell.renderCarta(senaImg: carta.senaImg, sena: carta.sena)
         return cell
@@ -176,7 +178,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         if carta.senaImg{
             carta.lbCarta.text = carta.sena.nombre
             carta.lbCarta.lineBreakMode = NSLineBreakMode.byWordWrapping
-            carta.lbCarta.lineBreakMode = NSLineBreakMode.byCharWrapping //para que si la palabra es larga, no se vea con puntos suspensivos
+         //   carta.lbCarta.lineBreakMode = NSLineBreakMode.byCharWrapping //para que si la palabra es larga, no se vea con puntos suspensivos
             carta.lbCarta.backgroundColor = #colorLiteral(red: 0.6444751856, green: 0.7282408179, blue: 0.8460512651, alpha: 1)
         }else {
             //enseñarlo en la carta
@@ -223,17 +225,17 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
 //            popOver.didMove(toParentViewController: self)
         }
         
-        intentos += 1
         lbIntentos.text = "Intentos: \(intentos)"
 
         //si es la segunda carta
         if selectIndexes.count >= 2{
             
+            intentos += 1
             cvMemorama.isUserInteractionEnabled = false
             dosSeleccionadas = true
             
-            if cartasTemas[1] == "Imagen"{
-                tiempoAntesValidar = 5 //este es el tiempo que salen las dos cartas volteadas antes de checar si son iguales y volverlas a voltear
+            if cartasTemas[1] == "Seña"{
+                tiempoAntesValidar = 3 //este es el tiempo que salen las dos cartas volteadas antes de checar si son iguales y volverlas a voltear
             } else {
                 tiempoAntesValidar = 2 //tiempoAntesValidar se disminuye en updateTime
             }
@@ -254,7 +256,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cartasSeleccionadas[index4].isHidden = true
             }
             
-            if puntos == 60{
+            if puntos == 30{
                 //Creacion de alerta
                 let alerta = UIAlertController(title: "Ganaste!!!", message: "Terminaste en \(timeFormat(time: TimeInterval(segundos))) con \(puntos) puntos", preferredStyle: .alert)
                 
@@ -306,11 +308,14 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         
         tiempo.invalidate() //Desactiva el tiempo
+        deck.removeAll()
         deckRandom.removeAll()
         ArrSenas.removeAll()
+        selectIndexes.removeAll()
+        cartasSeleccionadas.removeAll()
+        cartasTemas.removeAll()
         viewDidLoad()
         cvMemorama.reloadData()
-        selectIndexes.removeAll()
     }
     
     // MARK: - Tiempo
