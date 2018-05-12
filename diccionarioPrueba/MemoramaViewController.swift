@@ -52,7 +52,11 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         dosSeleccionadas = false
         
         self.title = "Memorama"
-    //    cvMemorama.isScrollEnabled = false
+
+        //quitar options en AVplayerc
+        controller.showsPlaybackControls = false
+        controller2.showsPlaybackControls = false
+        
         
         //Definiendo el delegate y datasource del collectionview
         self.cvMemorama.delegate = self
@@ -211,12 +215,12 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
 
             //mostrar pop over
-            let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
-            popOver.carta = carta
-            self.addChildViewController(popOver)
-            popOver.view.frame = self.view.frame
-            self.view.addSubview(popOver.view)
-            popOver.didMove(toParentViewController: self)
+//            let popOver = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopOver") as! PopOverViewController
+//            popOver.carta = carta
+//            self.addChildViewController(popOver)
+//            popOver.view.frame = self.view.frame
+//            self.view.addSubview(popOver.view)
+//            popOver.didMove(toParentViewController: self)
         }
         
         intentos += 1
