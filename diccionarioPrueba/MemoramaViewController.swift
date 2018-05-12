@@ -38,6 +38,12 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
     var iguales = Bool()
     var dosSeleccionadas = Bool()
     var tiempoAntesValidar = Double()
+    var player = AVPlayer()
+    var controller = AVPlayerViewController()
+    var player2 = AVPlayer()
+    var controller2 = AVPlayerViewController()
+    var videoFrame = CGRect()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +52,7 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         dosSeleccionadas = false
         
         self.title = "Memorama"
+    //    cvMemorama.isScrollEnabled = false
         
         //Definiendo el delegate y datasource del collectionview
         self.cvMemorama.delegate = self
@@ -103,14 +110,6 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
                 print("=======================")
             }
         }
-        
-        //        print("=================================")
-        //        for index6 in 0...(deck.count / 2) - 1{
-        //            print(deck[index6].sena.path)
-        //            if index6 == 11{
-        //                print("=======================")
-        //            }
-        //        }
         
         for _ in 0...deck.count - 1{
             let randCategoria = Int(arc4random_uniform(UInt32(deck.count - 1)))
@@ -178,31 +177,37 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
         }else {
             //enseñarlo en la carta
             if carta.sena.path.hasSuffix(".m4v"){ //enseñar video
-                let player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
-                let controller = AVPlayerViewController()
-                controller.player = player
-                self.addChildViewController(controller)
-                let videoFrame = CGRect(x: carta.frame.origin.x + 20, y: carta.frame.origin.y + 212, width: carta.frame.size.width, height: carta.frame.size.height)
-                controller.view.frame = videoFrame
-                controller.view.tag = 100
-                self.view.addSubview(controller.view)
-                if player.status == AVPlayerStatus.failed {
-                    print("ERROR EN AV PLAYER CONTROLLER!!!!!!!")
-                  //  print(player.error)
-                }
-                player.play()
-                if player.status == AVPlayerStatus.failed {
-                    print("ERROR EN AV PLAYER CONTROLLER!!!!!!!")
-                  //  print(player.error)
+                if selectIndexes.count == 1{
+                    player.replaceCurrentItem(with: AVPlayerItem(url: URL(fileURLWithPath: carta.sena.path)))
+                    //  player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
+                    controller.player = player
+                    self.addChildViewController(controller)
+                    let videoFrame = CGRect(x: carta.frame.origin.x /*+ 20*/, y: carta.frame.origin.y /*+ 212*/, width: carta.frame.size.width, height: carta.frame.size.height)
+                    controller.view.frame = videoFrame
+                    controller.view.tag = 100
+                    cvMemorama.addSubview(controller.view)
+              //      self.view.addSubview(controller.view)
+                    player.play()
+                }else {
+                    player2.replaceCurrentItem(with: AVPlayerItem(url: URL(fileURLWithPath: carta.sena.path)))
+                    //  player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
+                    controller2.player = player2
+                    self.addChildViewController(controller2)
+                    let videoFrame = CGRect(x: carta.frame.origin.x /*+ 20*/, y: carta.frame.origin.y /*+ 212*/, width: carta.frame.size.width, height: carta.frame.size.height)
+                    controller2.view.frame = videoFrame
+                    controller2.view.tag = 100
+                    cvMemorama.addSubview(controller2.view)
+              //      self.view.addSubview(controller2.view)
+                    player2.play()
                 }
             } else { //enseñar imagen
                 let imagen = UIImage(contentsOfFile: carta.sena.path)!
                 let imageView = UIImageView(image: imagen)
-                let imageFrame =  CGRect(x: carta.frame.origin.x + 20, y: carta.frame.origin.y + 214, width: carta.frame.size.width, height: carta.frame.size.height)
+                let imageFrame =  CGRect(x: carta.frame.origin.x , y: carta.frame.origin.y , width: carta.frame.size.width, height: carta.frame.size.height)
                 imageView.frame = imageFrame
                 imageView.tag = 100
                 imageView.contentMode = UIViewContentMode.scaleAspectFit
-                self.view.addSubview(imageView)
+                cvMemorama.addSubview(imageView)
             }
 
             //mostrar pop over

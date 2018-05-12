@@ -12,6 +12,9 @@ import AVKit
 class PopOverViewController: UIViewController {
     
     var carta = MemoramaCollectionViewCell()
+    var player = AVPlayer()
+    var controller = AVPlayerViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +22,12 @@ class PopOverViewController: UIViewController {
         
         //mostrar seña
         if carta.sena.path.hasSuffix(".m4v"){ //si es video mostrar video
-            let player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
-            let controller = AVPlayerViewController()
+//            let player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
+//            let controller = AVPlayerViewController()
+//            controller.player = player
+//
+            player.replaceCurrentItem(with: AVPlayerItem(url: URL(fileURLWithPath: carta.sena.path)))
+            //  player = AVPlayer(url: URL(fileURLWithPath: carta.sena.path))
             controller.player = player
             self.addChildViewController(controller)
             let screenSize = UIScreen.main.bounds.size
