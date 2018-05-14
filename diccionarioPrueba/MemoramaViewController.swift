@@ -224,13 +224,12 @@ class MemoramaViewController: UIViewController, UICollectionViewDelegate, UIColl
 //            self.view.addSubview(popOver.view)
 //            popOver.didMove(toParentViewController: self)
         }
-        
-        lbIntentos.text = "Intentos: \(intentos)"
 
         //si es la segunda carta
         if selectIndexes.count >= 2{
             
             intentos += 1
+            lbIntentos.text = "Intentos: \(intentos)"
             cvMemorama.isUserInteractionEnabled = false
             dosSeleccionadas = true
             

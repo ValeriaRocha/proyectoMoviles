@@ -206,7 +206,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELp-Jq-DAH">
-                                <rect key="frame" x="890" y="96.5" width="50" height="30.5"/>
+                                <rect key="frame" x="890" y="97" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZJc-FX-d4b"/>
                                     <constraint firstAttribute="width" constant="50" id="gYf-iG-9FJ"/>
@@ -401,17 +401,17 @@ Como jugador tendrás tres oportunidades de fallar, al seleccionar una opción i
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vmi-He-PJg">
                                 <rect key="frame" x="95" y="267" width="835" height="404"/>
                                 <color key="backgroundColor" red="0.39897312784092526" green="0.79423630898049391" blue="0.84345256979695438" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Bienvenido al mini juego “Gravedad".
+                                <mutableString key="text">Bienvenido al mini juego “Gravedad".
 
 Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a todos los cuadros que representen dicha seña, sea imagen o palabra. 
 
-¡Ten cuidado! Los cuadros iran cayendo, y si desaparece una seña correcta por debajo de la pantalla sin que hayas logrado picarle, se te restará una vida. También se te restara una vida si seleccionas un cuadro que no represente la seña que se te mostró antes de empezar el juego. 
+¡Ten cuidado! Los cuadros iran cayendo, y si desaparece una seña correcta por debajo de la pantalla sin que hayas logrado picarle, se te restará una vida. También se te restará una vida si seleccionas un cuadro que no represente la seña que se te mostró antes de empezar el juego. Al seleccionar un cuadro con la seña correcta, este desaparecerá. 
 
 ¡Tienes 5 vidas para este juego! 
 
 ¡Por cada cuadro con la seña correcta que selecciones, te daremos 5 puntos!
 
-           ¡Éxito!</string>
+           ¡Éxito!</mutableString>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -450,14 +450,14 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RwJ-B6-LMd">
-                                <rect key="frame" x="438.5" y="656" width="148" height="30"/>
-                                <state key="normal" title="Estoy listo para jugar!"/>
+                                <rect key="frame" x="436.5" y="656" width="152" height="30"/>
+                                <state key="normal" title="!Estoy listo para jugar!"/>
                                 <connections>
                                     <segue destination="BHV-SV-XkO" kind="show" identifier="pr" id="dtT-UQ-tPq"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.92361154420000002" green="0.99145956859999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95872628943978189" green="0.99635866660968653" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RwJ-B6-LMd" firstAttribute="centerX" secondItem="Dxq-al-C4o" secondAttribute="centerX" id="CbO-VJ-PV1"/>
                             <constraint firstItem="tCH-jR-KX2" firstAttribute="bottom" secondItem="RwJ-B6-LMd" secondAttribute="bottom" constant="82" id="qxu-eW-RW7"/>
@@ -740,9 +740,9 @@ Antes de empezar el juego, se te mostrará una seña. Tu objetivo es picarle a t
                                 </constraints>
                                 <string key="text">Bienvenido al mini juego “Memorama".
  
-Empezando el juego, se te mostrara 24 cartas en donde 12 de ellas contiene el nombre de la seña y la otra mitad contiene la imagen o video de la seña.
+Empezando el juego, se te mostrarán 12 cartas en donde 6 de ellas contienen el nombre de la seña y la otra mitad contiene la imagen o el video de la seña.
 Tu objetivo es seleccionar el par correcto de cada seña, pero ¡ten cuidado!, tienes un tiempo limite para lograr este objetivo. 
-¡Por cada par correcto que consigas, se te brindara 5 puntos!
+¡Por cada par correcto que consigas, se te brindarán 5 puntos!
 
            ¡Éxito!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>

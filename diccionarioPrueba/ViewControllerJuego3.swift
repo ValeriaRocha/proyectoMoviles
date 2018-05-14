@@ -62,13 +62,12 @@ class ViewControllerJuego3: UIViewController {
     @objc func updateCadaSegundo(){
         segundos += 1
         
-        if segundos >= 25{ //si ya pasaron 25 seg con la misma seña, cambiar de seña
+        if segundos >= 20{ //si ya pasaron 25 seg con la misma seña, cambiar de seña
             timerCrear.invalidate()
             timerCaida.invalidate()
             timer.invalidate()
             
             let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-            //]self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
             let vistaAnterior = viewControllers[viewControllers.count - 2] as! ControllerJ3Sena
             
             vistaAnterior.puntos = puntos
@@ -147,9 +146,9 @@ class ViewControllerJuego3: UIViewController {
     func crearBoton(sena : Sena, coorX: Int){
         let screen = UIScreen.main.bounds.size
         
-        posX = (posX + 840) % (Int(screen.width) - 65)  //para probar
+        posX = (posX + 840) % (Int(screen.width) - 65)
         
-        //instanciar nuevo boton y ponerle medidas  130,130
+        //instanciar nuevo boton y ponerle medidas
         let button = UIButton(frame: CGRect(x: coorX, y: 97, width: 110, height: 110))
         
         //Asignar seña o imagen
@@ -166,7 +165,6 @@ class ViewControllerJuego3: UIViewController {
            
         } else {
             //si no tiene imagen
-            button.backgroundColor = #colorLiteral(red: 0.7886319331, green: 0.8695178572, blue: 0.9969008565, alpha: 1)
             button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5866063784)
             button.setTitle(sena.nombre, for: .normal)
             button.setTitleColor(UIColor.black, for: .normal)
@@ -174,8 +172,7 @@ class ViewControllerJuego3: UIViewController {
             //estetica
             button.layer.cornerRadius = 0.07 * button.bounds.size.width
             button.layer.borderWidth = 1
-            button.layer.borderColor = #colorLiteral(red: 0.6762949995, green: 0.6667861859, blue: 0.8172390546, alpha: 1)
-             button.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.366598887)
+            button.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.366598887)
         }
         
         button.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
